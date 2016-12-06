@@ -5,9 +5,9 @@
 <title>Bienvenido al portal del Sistema Nacional de Datos Genómicos</title>
 </head>
 <body>
-	<div class="container-fluid">
-		<div id="container_presentacion">
-			<div class="container presentacion">
+		
+		<div class="container-fluid presentacion">
+			<div class="container">
 				<h1>Sistema Nacional de Datos Genómicos - Portal de datos</h1>
 				<p>Bienvenidos al Portal de Datos Genómicos del SNDG. Desde este
 					sitio usted podrá acceder a la base de datos nacional unificada de
@@ -19,7 +19,7 @@
 			</div>
 		</div>
 		<div class="container-fluid">
-			<div class="row">
+			<div class="container">
 				<div class="col-md-2 col-md-offset-1">
 					<asset:image
 						src="fotos/10363377_754014327983585_44685877224761821_n.jpg"
@@ -40,6 +40,7 @@
 			</div>
 		</div>
 		<div class="container-fluid" id="container_buscador">
+			<div class="container">
 			<form >
 				<div class="form-group">
 					<label for="buscar">Palabras claves</label>
@@ -51,10 +52,11 @@
 					</div> 
 				</div>
 			</form>
+			</div>
 		</div>
 		<div class="container-fluid " style="padding: 0px; margin: 0px;">
 			<!-- Example row of columns -->
-			<div class="row">
+			<div class="container">
 				<div class="col-md-4">
 					<h2
 						style="color: #008BC0; font-size: 1.6em; text-transform: uppercase;">CENTROS</h2>
@@ -86,7 +88,7 @@
 			</div>
 		</div>
 		<div class="container-fluid">
-			<div class="row">
+			<div class="container">
 				<asset:image src="banner.png" class="img-fluid"/>
 			</div>
 			

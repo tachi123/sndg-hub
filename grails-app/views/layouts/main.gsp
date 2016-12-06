@@ -37,35 +37,37 @@
 	</div>
 	<nav class="navbar navbar-inverse">
 	  <div class="container-fluid">
-		<ul class="nav navbar-nav" >
-			<li class="${controllerName == '' ? 'active' : ''}">
-				<g:link uri="/">INICIO</g:link>
-			</li>
-			<li class="${controllerName == 'centro' ? 'active' : ''}">
-				<g:link controller="centro">CENTROS</g:link>
-			</li>
-			<li class="${controllerName == 'dato' ? 'active' : ''}">
-				<g:link controller="dato">DATOS</g:link>
-			</li>
-			<li class="${controllerName == 'herramienta' ? 'active' : ''}">
-				<g:link controller="herramienta">HERRAMIENTAS</g:link>
-			</li>
-			<li class="${controllerName == 'estatica' && actionName == 'navegador' ? 'active' : ''}">
-				<g:link controller="estatica" action="navegador">
-					NAVEGADOR DE DATOS
-				</g:link>
-			</li>
-			<li class="${controllerName == 'estatica' && actionName == 'foroMeta' ? 'active' : ''}">				
-				<g:link controller="estatica" action="foroMeta">
-					FORO DE METAGENOMICA
-				</g:link>
-			</li>
-			<li class="${controllerName == 'estatica' && actionName == 'foroGenomica' ? 'active' : ''}">
-				<g:link controller="estatica" action="foroGenomica">
-					FORO DE GENOMICA HUMANA
-				</g:link>
-			</li>
-		</ul>
+	  	<div class="container">
+			<ul class="nav navbar-nav" >
+				<li class="${controllerName == '' ? 'active' : ''}">
+					<g:link uri="/">INICIO</g:link>
+				</li>
+				<li class="${controllerName == 'centro' ? 'active' : ''}">
+					<g:link controller="centro">CENTROS</g:link>
+				</li>
+				<li class="${controllerName == 'dato' ? 'active' : ''}">
+					<g:link controller="dato">DATOS</g:link>
+				</li>
+				<li class="${controllerName == 'herramienta' ? 'active' : ''}">
+					<g:link controller="herramienta">HERRAMIENTAS</g:link>
+				</li>
+				<li class="${controllerName == 'estatica' && actionName == 'navegador' ? 'active' : ''}">
+					<g:link controller="estatica" action="navegador">
+						NAVEGADOR DE DATOS
+					</g:link>
+				</li>
+				<li class="${controllerName == 'estatica' && actionName == 'foroMeta' ? 'active' : ''}">				
+					<g:link controller="estatica" action="foroMeta">
+						FORO DE METAGENOMICA
+					</g:link>
+				</li>
+				<li class="${controllerName == 'estatica' && actionName == 'foroGenomica' ? 'active' : ''}">
+					<g:link controller="estatica" action="foroGenomica">
+						FORO DE GENOMICA HUMANA
+					</g:link>
+				</li>
+			</ul>
+		</div>
 	  </div>
 	</nav>
 	<g:layoutBody/>

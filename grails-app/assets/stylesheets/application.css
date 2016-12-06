@@ -338,14 +338,14 @@ p3 a:link{
 	background: url('../images/fondo_texto_home.png');
 }
 
-.presentacion > h1 {
+.presentacion > * > h1 {
 	font-family: Geogrotesque;
 	font-weight: 100;
 	color: #ffffff;
 	font-size: 2.55em;
 }
 
-.presentacion > p {
+.presentacion > * > p {
 	font-family: Geogrotesque;
 	font-weight: 100;
 	font-size: 1.2em;
