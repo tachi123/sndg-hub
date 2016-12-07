@@ -5,4 +5,7 @@ target/*
 .project
 .settings/
 target-eclipse/
+grailsw
+grailsw.bat
+wrapper/
 

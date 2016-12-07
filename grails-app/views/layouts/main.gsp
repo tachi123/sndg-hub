@@ -42,14 +42,14 @@
 				<li class="${controllerName == '' ? 'active' : ''}">
 					<g:link uri="/">INICIO</g:link>
 				</li>
-				<li class="${controllerName == 'centro' ? 'active' : ''}">
-					<g:link controller="centro">CENTROS</g:link>
+				<li class="${controllerName == 'public' && actionName == 'centros' ? 'active' : ''}">
+					<g:link controller="public" action="centros">CENTROS</g:link>
 				</li>
-				<li class="${controllerName == 'dato' ? 'active' : ''}">
-					<g:link controller="dato">DATOS</g:link>
+				<li class="${controllerName == 'public' && actionName == 'datos' ? 'active' : ''}">
+					<g:link controller="public" action="datos">DATOS</g:link>
 				</li>
-				<li class="${controllerName == 'herramienta' ? 'active' : ''}">
-					<g:link controller="herramienta">HERRAMIENTAS</g:link>
+				<li class="${controllerName == 'public' && actionName == 'herramientas' ? 'active' : ''}">
+					<g:link controller="public" action="herramientas">HERRAMIENTAS</g:link>
 				</li>
 				<li class="${controllerName == 'estatica' && actionName == 'navegador' ? 'active' : ''}">
 					<g:link controller="estatica" action="navegador">

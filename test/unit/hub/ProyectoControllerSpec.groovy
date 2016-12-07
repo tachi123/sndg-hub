@@ -5,9 +5,9 @@ package hub
 import grails.test.mixin.*
 import spock.lang.*
 
-@TestFor(CentroController)
-@Mock(Centro)
-class CentroControllerSpec extends Specification {
+@TestFor(ProyectoController)
+@Mock(Proyecto)
+class ProyectoControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
@@ -21,8 +21,8 @@ class CentroControllerSpec extends Specification {
             controller.index()
 
         then:"The model is correct"
-            !model.centroInstanceList
-            model.centroInstanceCount == 0
+            !model.proyectoInstanceList
+            model.proyectoInstanceCount == 0
     }
 
     void "Test the create action returns the correct model"() {
@@ -30,7 +30,7 @@ class CentroControllerSpec extends Specification {
             controller.create()
 
         then:"The model is correctly created"
-            model.centroInstance!= null
+            model.proyectoInstance!= null
     }
 
     void "Test the save action correctly persists an instance"() {
@@ -38,25 +38,25 @@ class CentroControllerSpec extends Specification {
         when:"The save action is executed with an invalid instance"
             request.contentType = FORM_CONTENT_TYPE
             request.method = 'POST'
-            def centro = new Centro()
-            centro.validate()
-            controller.save(centro)
+            def proyecto = new Proyecto()
+            proyecto.validate()
+            controller.save(proyecto)
 
         then:"The create view is rendered again with the correct model"
-            model.centroInstance!= null
+            model.proyectoInstance!= null
             view == 'create'
 
         when:"The save action is executed with a valid instance"
             response.reset()
             populateValidParams(params)
-            centro = new Centro(params)
+            proyecto = new Proyecto(params)
 
-            controller.save(centro)
+            controller.save(proyecto)
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/centro/show/1'
+            response.redirectedUrl == '/proyecto/show/1'
             controller.flash.message != null
-            Centro.count() == 1
+            Proyecto.count() == 1
     }
 
     void "Test that the show action returns the correct model"() {
@@ -68,11 +68,11 @@ class CentroControllerSpec extends Specification {
 
         when:"A domain instance is passed to the show action"
             populateValidParams(params)
-            def centro = new Centro(params)
-            controller.show(centro)
+            def proyecto = new Proyecto(params)
+            controller.show(proyecto)
 
         then:"A model is populated containing the domain instance"
-            model.centroInstance == centro
+            model.proyectoInstance == proyecto
     }
 
     void "Test that the edit action returns the correct model"() {
@@ -84,11 +84,11 @@ class CentroControllerSpec extends Specification {
 
         when:"A domain instance is passed to the edit action"
             populateValidParams(params)
-            def centro = new Centro(params)
-            controller.edit(centro)
+            def proyecto = new Proyecto(params)
+            controller.edit(proyecto)
 
         then:"A model is populated containing the domain instance"
-            model.centroInstance == centro
+            model.proyectoInstance == proyecto
     }
 
     void "Test the update action performs an update on a valid domain instance"() {
@@ -98,28 +98,28 @@ class CentroControllerSpec extends Specification {
             controller.update(null)
 
         then:"A 404 error is returned"
-            response.redirectedUrl == '/centro/index'
+            response.redirectedUrl == '/proyecto/index'
             flash.message != null
 
 
         when:"An invalid domain instance is passed to the update action"
             response.reset()
-            def centro = new Centro()
-            centro.validate()
-            controller.update(centro)
+            def proyecto = new Proyecto()
+            proyecto.validate()
+            controller.update(proyecto)
 
         then:"The edit view is rendered again with the invalid instance"
             view == 'edit'
-            model.centroInstance == centro
+            model.proyectoInstance == proyecto
 
         when:"A valid domain instance is passed to the update action"
             response.reset()
             populateValidParams(params)
-            centro = new Centro(params).save(flush: true)
-            controller.update(centro)
+            proyecto = new Proyecto(params).save(flush: true)
+            controller.update(proyecto)
 
         then:"A redirect is issues to the show action"
-            response.redirectedUrl == "/centro/show/$centro.id"
+            response.redirectedUrl == "/proyecto/show/$proyecto.id"
             flash.message != null
     }
 
@@ -130,23 +130,23 @@ class CentroControllerSpec extends Specification {
             controller.delete(null)
 
         then:"A 404 is returned"
-            response.redirectedUrl == '/centro/index'
+            response.redirectedUrl == '/proyecto/index'
             flash.message != null
 
         when:"A domain instance is created"
             response.reset()
             populateValidParams(params)
-            def centro = new Centro(params).save(flush: true)
+            def proyecto = new Proyecto(params).save(flush: true)
 
         then:"It exists"
-            Centro.count() == 1
+            Proyecto.count() == 1
 
         when:"The domain instance is passed to the delete action"
-            controller.delete(centro)
+            controller.delete(proyecto)
 
         then:"The instance is deleted"
-            Centro.count() == 0
-            response.redirectedUrl == '/centro/index'
+            Proyecto.count() == 0
+            response.redirectedUrl == '/proyecto/index'
             flash.message != null
     }
 }

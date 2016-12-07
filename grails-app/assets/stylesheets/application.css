@@ -351,9 +351,17 @@ p3 a:link{
 	font-size: 1.2em;
 }
 
-#container_buscador {
-	height: 163 px;
+.container_buscador {
 	background: url('../images/fondo_buscador_home.png');
+   height: 163px;
+   padding-top: 3em; 
+}
+
+.label_buscador {
+	color: #008BC0; 
+	font-size: 1.6em;
+	font-weight: 100; 
+	text-transform: uppercase;
 }
 
 .descripcion-seccion {

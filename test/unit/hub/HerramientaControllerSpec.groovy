@@ -5,9 +5,9 @@ package hub
 import grails.test.mixin.*
 import spock.lang.*
 
-@TestFor(CentroController)
-@Mock(Centro)
-class CentroControllerSpec extends Specification {
+@TestFor(HerramientaController)
+@Mock(Herramienta)
+class HerramientaControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
@@ -18,11 +18,11 @@ class CentroControllerSpec extends Specification {
     void "Test the index action returns the correct model"() {
 
         when:"The index action is executed"
-            controller.index()
+            controller.herramientas()
 
         then:"The model is correct"
-            !model.centroInstanceList
-            model.centroInstanceCount == 0
+            !model.herramientaInstanceList
+            model.herramientaInstanceCount == 0
     }
 
     void "Test the create action returns the correct model"() {
@@ -30,7 +30,7 @@ class CentroControllerSpec extends Specification {
             controller.create()
 
         then:"The model is correctly created"
-            model.centroInstance!= null
+            model.herramientaInstance!= null
     }
 
     void "Test the save action correctly persists an instance"() {
@@ -38,25 +38,25 @@ class CentroControllerSpec extends Specification {
         when:"The save action is executed with an invalid instance"
             request.contentType = FORM_CONTENT_TYPE
             request.method = 'POST'
-            def centro = new Centro()
-            centro.validate()
-            controller.save(centro)
+            def herramienta = new Herramienta()
+            herramienta.validate()
+            controller.save(herramienta)
 
         then:"The create view is rendered again with the correct model"
-            model.centroInstance!= null
+            model.herramientaInstance!= null
             view == 'create'
 
         when:"The save action is executed with a valid instance"
             response.reset()
             populateValidParams(params)
-            centro = new Centro(params)
+            herramienta = new Herramienta(params)
 
-            controller.save(centro)
+            controller.save(herramienta)
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/centro/show/1'
+            response.redirectedUrl == '/herramienta/show/1'
             controller.flash.message != null
-            Centro.count() == 1
+            Herramienta.count() == 1
     }
 
     void "Test that the show action returns the correct model"() {
@@ -68,11 +68,11 @@ class CentroControllerSpec extends Specification {
 
         when:"A domain instance is passed to the show action"
             populateValidParams(params)
-            def centro = new Centro(params)
-            controller.show(centro)
+            def herramienta = new Herramienta(params)
+            controller.show(herramienta)
 
         then:"A model is populated containing the domain instance"
-            model.centroInstance == centro
+            model.herramientaInstance == herramienta
     }
 
     void "Test that the edit action returns the correct model"() {
@@ -84,11 +84,11 @@ class CentroControllerSpec extends Specification {
 
         when:"A domain instance is passed to the edit action"
             populateValidParams(params)
-            def centro = new Centro(params)
-            controller.edit(centro)
+            def herramienta = new Herramienta(params)
+            controller.edit(herramienta)
 
         then:"A model is populated containing the domain instance"
-            model.centroInstance == centro
+            model.herramientaInstance == herramienta
     }
 
     void "Test the update action performs an update on a valid domain instance"() {
@@ -98,28 +98,28 @@ class CentroControllerSpec extends Specification {
             controller.update(null)
 
         then:"A 404 error is returned"
-            response.redirectedUrl == '/centro/index'
+            response.redirectedUrl == '/herramienta/index'
             flash.message != null
 
 
         when:"An invalid domain instance is passed to the update action"
             response.reset()
-            def centro = new Centro()
-            centro.validate()
-            controller.update(centro)
+            def herramienta = new Herramienta()
+            herramienta.validate()
+            controller.update(herramienta)
 
         then:"The edit view is rendered again with the invalid instance"
             view == 'edit'
-            model.centroInstance == centro
+            model.herramientaInstance == herramienta
 
         when:"A valid domain instance is passed to the update action"
             response.reset()
             populateValidParams(params)
-            centro = new Centro(params).save(flush: true)
-            controller.update(centro)
+            herramienta = new Herramienta(params).save(flush: true)
+            controller.update(herramienta)
 
         then:"A redirect is issues to the show action"
-            response.redirectedUrl == "/centro/show/$centro.id"
+            response.redirectedUrl == "/herramienta/show/$herramienta.id"
             flash.message != null
     }
 
@@ -130,23 +130,23 @@ class CentroControllerSpec extends Specification {
             controller.delete(null)
 
         then:"A 404 is returned"
-            response.redirectedUrl == '/centro/index'
+            response.redirectedUrl == '/herramienta/index'
             flash.message != null
 
         when:"A domain instance is created"
             response.reset()
             populateValidParams(params)
-            def centro = new Centro(params).save(flush: true)
+            def herramienta = new Herramienta(params).save(flush: true)
 
         then:"It exists"
-            Centro.count() == 1
+            Herramienta.count() == 1
 
         when:"The domain instance is passed to the delete action"
-            controller.delete(centro)
+            controller.delete(herramienta)
 
         then:"The instance is deleted"
-            Centro.count() == 0
-            response.redirectedUrl == '/centro/index'
+            Herramienta.count() == 0
+            response.redirectedUrl == '/herramienta/index'
             flash.message != null
     }
 }

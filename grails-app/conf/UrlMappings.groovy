@@ -6,7 +6,22 @@ class UrlMappings {
                 // apply constraints here
             }
         }
-
+		"/centros" {
+			controller = 'public'
+			action = 'centros'
+		}
+		"/datos" {
+			controller = 'public'
+			action = 'centros'
+		}
+		"/herramientas" {
+			controller = 'public'
+			action = 'centros'
+		}
+		"/buscar" {
+			controller = 'buscar'
+			action = 'index'
+		}
         "/"(view:"/index")
         "500"(view:'/error')
 	}

@@ -2,5 +2,5 @@ package hub
 
 class DatoController {
 
-    def index() { }
+    def datos() { }
 }

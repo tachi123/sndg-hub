@@ -1,6 +1,6 @@
 package hub
 
-class Proyecto {
+class Institucion {
 
 	String nombre
 	
