@@ -32,6 +32,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${unidadInstance?.nombre}">
+				<li class="fieldcontain">
+					<span id="nombre-label" class="property-label"><g:message code="unidad.nombre.label" default="Nombre" /></span>
+					
+						<span class="property-value" aria-labelledby="nombre-label"><g:fieldValue bean="${unidadInstance}" field="nombre"/></span>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form url="[resource:unidadInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">

@@ -24,17 +24,17 @@
 			<thead>
 					<tr>
 					
+						<g:sortableColumn property="fecha" title="${message(code: 'centro.fecha.label', default: 'Fecha')}" />
+					
+						<g:sortableColumn property="siglas" title="${message(code: 'centro.siglas.label', default: 'Siglas')}" />
+					
+						<g:sortableColumn property="paginaWeb" title="${message(code: 'centro.paginaWeb.label', default: 'Pagina Web')}" />
+					
 						<g:sortableColumn property="adherido" title="${message(code: 'centro.adherido.label', default: 'Adherido')}" />
 					
 						<g:sortableColumn property="contactoLegal" title="${message(code: 'centro.contactoLegal.label', default: 'Contacto Legal')}" />
 					
 						<g:sortableColumn property="contactoTecnico" title="${message(code: 'centro.contactoTecnico.label', default: 'Contacto Tecnico')}" />
-					
-						<g:sortableColumn property="fecha" title="${message(code: 'centro.fecha.label', default: 'Fecha')}" />
-					
-						<g:sortableColumn property="nombre" title="${message(code: 'centro.nombre.label', default: 'Nombre')}" />
-					
-						<g:sortableColumn property="siglas" title="${message(code: 'centro.siglas.label', default: 'Siglas')}" />
 					
 					</tr>
 				</thead>
@@ -42,17 +42,17 @@
 				<g:each in="${centroInstanceList}" status="i" var="centroInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${centroInstance.id}">${fieldValue(bean: centroInstance, field: "adherido")}</g:link></td>
+						<td><g:link action="show" id="${centroInstance.id}">${fieldValue(bean: centroInstance, field: "fecha")}</g:link></td>
+					
+						<td>${fieldValue(bean: centroInstance, field: "siglas")}</td>
+					
+						<td>${fieldValue(bean: centroInstance, field: "paginaWeb")}</td>
+					
+						<td><g:formatBoolean boolean="${centroInstance.adherido}" /></td>
 					
 						<td>${fieldValue(bean: centroInstance, field: "contactoLegal")}</td>
 					
 						<td>${fieldValue(bean: centroInstance, field: "contactoTecnico")}</td>
-					
-						<td><g:formatDate date="${centroInstance.fecha}" /></td>
-					
-						<td>${fieldValue(bean: centroInstance, field: "nombre")}</td>
-					
-						<td>${fieldValue(bean: centroInstance, field: "siglas")}</td>
 					
 					</tr>
 				</g:each>

@@ -23,6 +23,33 @@
 			</g:if>
 			<ol class="property-list centro">
 			
+				<g:if test="${centroInstance?.fecha}">
+				<li class="fieldcontain">
+					<span id="fecha-label" class="property-label"><g:message code="centro.fecha.label" default="Fecha" /></span>
+					
+						<span class="property-value" aria-labelledby="fecha-label"><g:formatDate date="${centroInstance?.fecha}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${centroInstance?.siglas}">
+				<li class="fieldcontain">
+					<span id="siglas-label" class="property-label"><g:message code="centro.siglas.label" default="Siglas" /></span>
+					
+						<span class="property-value" aria-labelledby="siglas-label"><g:fieldValue bean="${centroInstance}" field="siglas"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${centroInstance?.paginaWeb}">
+				<li class="fieldcontain">
+					<span id="paginaWeb-label" class="property-label"><g:message code="centro.paginaWeb.label" default="Pagina Web" /></span>
+					
+						<span class="property-value" aria-labelledby="paginaWeb-label"><g:fieldValue bean="${centroInstance}" field="paginaWeb"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${centroInstance?.adherido}">
 				<li class="fieldcontain">
 					<span id="adherido-label" class="property-label"><g:message code="centro.adherido.label" default="Adherido" /></span>
@@ -61,29 +88,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${centroInstance?.fecha}">
-				<li class="fieldcontain">
-					<span id="fecha-label" class="property-label"><g:message code="centro.fecha.label" default="Fecha" /></span>
-					
-						<span class="property-value" aria-labelledby="fecha-label"><g:formatDate date="${centroInstance?.fecha}" /></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${centroInstance?.nombre}">
 				<li class="fieldcontain">
 					<span id="nombre-label" class="property-label"><g:message code="centro.nombre.label" default="Nombre" /></span>
 					
 						<span class="property-value" aria-labelledby="nombre-label"><g:fieldValue bean="${centroInstance}" field="nombre"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${centroInstance?.siglas}">
-				<li class="fieldcontain">
-					<span id="siglas-label" class="property-label"><g:message code="centro.siglas.label" default="Siglas" /></span>
-					
-						<span class="property-value" aria-labelledby="siglas-label"><g:fieldValue bean="${centroInstance}" field="siglas"/></span>
 					
 				</li>
 				</g:if>

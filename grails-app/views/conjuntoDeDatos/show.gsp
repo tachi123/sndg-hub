@@ -23,20 +23,20 @@
 			</g:if>
 			<ol class="property-list conjuntoDeDatos">
 			
-				<g:if test="${conjuntoDeDatosInstance?.enBuscador}">
-				<li class="fieldcontain">
-					<span id="enBuscador-label" class="property-label"><g:message code="conjuntoDeDatos.enBuscador.label" default="En Buscador" /></span>
-					
-						<span class="property-value" aria-labelledby="enBuscador-label"><g:formatBoolean boolean="${conjuntoDeDatosInstance?.enBuscador}" /></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${conjuntoDeDatosInstance?.nombre}">
 				<li class="fieldcontain">
 					<span id="nombre-label" class="property-label"><g:message code="conjuntoDeDatos.nombre.label" default="Nombre" /></span>
 					
 						<span class="property-value" aria-labelledby="nombre-label"><g:fieldValue bean="${conjuntoDeDatosInstance}" field="nombre"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${conjuntoDeDatosInstance?.singiID}">
+				<li class="fieldcontain">
+					<span id="singiID-label" class="property-label"><g:message code="conjuntoDeDatos.singiID.label" default="Singi ID" /></span>
+					
+						<span class="property-value" aria-labelledby="singiID-label"><g:fieldValue bean="${conjuntoDeDatosInstance}" field="singiID"/></span>
 					
 				</li>
 				</g:if>
@@ -50,11 +50,29 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${conjuntoDeDatosInstance?.singiID}">
+				<g:if test="${conjuntoDeDatosInstance?.tipoDeOrganismo}">
 				<li class="fieldcontain">
-					<span id="singiID-label" class="property-label"><g:message code="conjuntoDeDatos.singiID.label" default="Singi ID" /></span>
+					<span id="tipoDeOrganismo-label" class="property-label"><g:message code="conjuntoDeDatos.tipoDeOrganismo.label" default="Tipo De Organismo" /></span>
 					
-						<span class="property-value" aria-labelledby="singiID-label"><g:fieldValue bean="${conjuntoDeDatosInstance}" field="singiID"/></span>
+						<span class="property-value" aria-labelledby="tipoDeOrganismo-label"><g:fieldValue bean="${conjuntoDeDatosInstance}" field="tipoDeOrganismo"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${conjuntoDeDatosInstance?.tipoDeComunidad}">
+				<li class="fieldcontain">
+					<span id="tipoDeComunidad-label" class="property-label"><g:message code="conjuntoDeDatos.tipoDeComunidad.label" default="Tipo De Comunidad" /></span>
+					
+						<span class="property-value" aria-labelledby="tipoDeComunidad-label"><g:fieldValue bean="${conjuntoDeDatosInstance}" field="tipoDeComunidad"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${conjuntoDeDatosInstance?.enBuscador}">
+				<li class="fieldcontain">
+					<span id="enBuscador-label" class="property-label"><g:message code="conjuntoDeDatos.enBuscador.label" default="En Buscador" /></span>
+					
+						<span class="property-value" aria-labelledby="enBuscador-label"><g:formatBoolean boolean="${conjuntoDeDatosInstance?.enBuscador}" /></span>
 					
 				</li>
 				</g:if>

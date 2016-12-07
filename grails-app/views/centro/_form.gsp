@@ -2,6 +2,33 @@
 
 
 
+<div class="fieldcontain ${hasErrors(bean: centroInstance, field: 'fecha', 'error')} ">
+	<label for="fecha">
+		<g:message code="centro.fecha.label" default="Fecha" />
+		
+	</label>
+	<g:datePicker name="fecha" precision="day"  value="${centroInstance?.fecha}" default="none" noSelection="['': '']" />
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: centroInstance, field: 'siglas', 'error')} ">
+	<label for="siglas">
+		<g:message code="centro.siglas.label" default="Siglas" />
+		
+	</label>
+	<g:textField name="siglas" value="${centroInstance?.siglas}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: centroInstance, field: 'paginaWeb', 'error')} ">
+	<label for="paginaWeb">
+		<g:message code="centro.paginaWeb.label" default="Pagina Web" />
+		
+	</label>
+	<g:textField name="paginaWeb" value="${centroInstance?.paginaWeb}"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: centroInstance, field: 'adherido', 'error')} ">
 	<label for="adherido">
 		<g:message code="centro.adherido.label" default="Adherido" />
@@ -38,30 +65,12 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: centroInstance, field: 'fecha', 'error')} required">
-	<label for="fecha">
-		<g:message code="centro.fecha.label" default="Fecha" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:datePicker name="fecha" precision="day"  value="${centroInstance?.fecha}"  />
-
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: centroInstance, field: 'nombre', 'error')} required">
 	<label for="nombre">
 		<g:message code="centro.nombre.label" default="Nombre" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="nombre" required="" value="${centroInstance?.nombre}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: centroInstance, field: 'siglas', 'error')} required">
-	<label for="siglas">
-		<g:message code="centro.siglas.label" default="Siglas" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="siglas" required="" value="${centroInstance?.siglas}"/>
 
 </div>
 

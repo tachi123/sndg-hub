@@ -10,7 +10,7 @@ class HerramientaController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def herramientas(Integer max) {
+    def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Herramienta.list(params), model:[herramientaInstanceCount: Herramienta.count()]
     }
@@ -86,7 +86,7 @@ class HerramientaController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Herramienta.label', default: 'Herramienta'), herramientaInstance.id])
-                redirect action:"herramientas", method:"GET"
+                redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
         }
@@ -96,7 +96,7 @@ class HerramientaController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'herramienta.label', default: 'Herramienta'), params.id])
-                redirect action: "herramientas", method: "GET"
+                redirect action: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }
         }

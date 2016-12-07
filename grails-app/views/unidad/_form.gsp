@@ -11,3 +11,12 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: unidadInstance, field: 'nombre', 'error')} required">
+	<label for="nombre">
+		<g:message code="unidad.nombre.label" default="Nombre" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="nombre" required="" value="${unidadInstance?.nombre}"/>
+
+</div>
+

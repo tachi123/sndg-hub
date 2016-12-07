@@ -18,7 +18,7 @@ class HerramientaControllerSpec extends Specification {
     void "Test the index action returns the correct model"() {
 
         when:"The index action is executed"
-            controller.herramientas()
+            controller.index()
 
         then:"The model is correct"
             !model.herramientaInstanceList

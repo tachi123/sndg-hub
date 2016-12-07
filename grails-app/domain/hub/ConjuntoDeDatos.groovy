@@ -10,8 +10,18 @@ class ConjuntoDeDatos {
 	
 	Boolean enBuscador
 	
+	String tipoDeOrganismo
+	
+	String tipoDeComunidad
+	
 	static belongsTo = [ unidad : Unidad ]
 	
     static constraints = {
+		nombre()
+		singiID()
+		porcentajeSecuenciado nullable: true
+		tipoDeOrganismo nullable: true
+		tipoDeComunidad nullable: true
+
     }
 }

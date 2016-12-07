@@ -12,11 +12,11 @@ class UrlMappings {
 		}
 		"/datos" {
 			controller = 'public'
-			action = 'centros'
+			action = 'datos'
 		}
 		"/herramientas" {
 			controller = 'public'
-			action = 'centros'
+			action = 'herramientas'
 		}
 		"/buscar" {
 			controller = 'buscar'
