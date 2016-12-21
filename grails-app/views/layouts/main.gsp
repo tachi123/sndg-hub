@@ -42,13 +42,13 @@
 				<li class="${controllerName == '' ? 'active' : ''}">
 					<g:link uri="/">INICIO</g:link>
 				</li>
-				<li class="${controllerName == 'public' && actionName == 'centros' ? 'active' : ''}">
+				<li class="${(controllerName == 'public' && actionName == 'centros') || controllerName == 'centro' ? 'active' : ''}">
 					<g:link controller="public" action="centros">CENTROS</g:link>
 				</li>
-				<li class="${controllerName == 'public' && actionName == 'datos' ? 'active' : ''}">
+				<li class="${(controllerName == 'public' && actionName == 'datos' ) || controllerName == 'conjuntoDeDatos' ? 'active' : ''}">
 					<g:link controller="public" action="datos">DATOS</g:link>
 				</li>
-				<li class="${controllerName == 'public' && actionName == 'herramientas' ? 'active' : ''}">
+				<li class="${(controllerName == 'public' && actionName == 'herramientas') || controllerName == 'herramienta' ? 'active' : ''}">
 					<g:link controller="public" action="herramientas">HERRAMIENTAS</g:link>
 				</li>
 				<li class="${controllerName == 'estatica' && actionName == 'navegador' ? 'active' : ''}">
@@ -56,22 +56,22 @@
 						NAVEGADOR DE DATOS
 					</g:link>
 				</li>
-				<li class="${controllerName == 'estatica' && actionName == 'foroMeta' ? 'active' : ''}">				
-					<g:link controller="estatica" action="foroMeta">
-						FORO DE METAGENOMICA
-					</g:link>
-				</li>
-				<li class="${controllerName == 'estatica' && actionName == 'foroGenomica' ? 'active' : ''}">
-					<g:link controller="estatica" action="foroGenomica">
-						FORO DE GENOMICA HUMANA
-					</g:link>
-				</li>
+<%--				<li class="${controllerName == 'estatica' && actionName == 'foroMeta' ? 'active' : ''}">				--%>
+<%--					<g:link controller="estatica" action="foroMeta">--%>
+<%--						FORO DE METAGENOMICA--%>
+<%--					</g:link>--%>
+<%--				</li>--%>
+<%--				<li class="${controllerName == 'estatica' && actionName == 'foroGenomica' ? 'active' : ''}">--%>
+<%--					<g:link controller="estatica" action="foroGenomica">--%>
+<%--						FORO DE GENOMICA HUMANA--%>
+<%--					</g:link>--%>
+<%--				</li>--%>
 			</ul>
 		</div>
 	  </div>
 	</nav>
 	<g:layoutBody/>
-	<div class="container-fluid" style="background-color:#0067aa; height: 190px;">
+	<div class="container-fluid" style="background-color:#0067aa; height: 142px;">
 		<div class="container">
 			<div class="col-md-4 columna-contacto">
 				<h2>SECRETARIA DE ARTICULACIÓN CIENTÍFICA TECNOLÓGICA</h2>
@@ -82,8 +82,58 @@
 					Ciudad Autónoma de Buenos Aires<br/>
 				</p>
 			</div>
-			<div class="col-md-5">logos</div>
-			<div class="col-md-3 columna-redes-sociales">redes sociales</div>
+			<div class="col-md-5" style="padding-top: 2.5em;">
+			  <div class="row">
+			  	<div class="col-md-6">
+				  <asset:image src="logo_bicentenario.png" alt="ARGENTINA - 200 años de Independencia" class="img-fluid"  style="width: 100%;"/>
+			  	</div>
+			  	<div class="col-md-6">
+				  <a href="http://www.mincyt.gob.ar/">
+					  <asset:image src="logo_mincyt.png" alt="Ministerio de Ciencia, Tecnología e Innovación Productiva" class="img-fluid"  style="width: 100%;"/>
+				  </a>
+			  	</div>
+			  </div>
+			</div>
+			<div class="col-md-3 columna-redes-sociales text-center" style="padding-top: 2.5em;">
+			  <div class="row">
+			    <div class="col-md-2">
+			    	&nbsp;
+			    </div>
+			  	<div class="col-md-8">
+				  <g:link uri="https://www.facebook.com/ministeriodeciencia">
+				  	<asset:image src="facebook_normal.png" alt="ministeriodeciencia en facebook" class="img-fluid"/>
+				  </g:link>
+				  <g:link uri="https://twitter.com/min_ciencia">
+				  	<asset:image src="twitter_normal.png" alt="@Min_Ciencia en twitter" class="img-fluid" />
+			  	  </g:link>
+				  <g:link uri="https://www.flickr.com/photos/ministeriodeciencia">
+			  		<asset:image src="flickr_normal.png" alt="ministeriodeciencia en flickr" class="img-fluid"  />
+				  </g:link>			  		
+			  	</div>
+			    <div class="col-md-2">
+			    	&nbsp;
+			    </div>
+			  </div>
+			  <div class="row">
+			    <div class="col-md-2">
+			    	&nbsp;
+			    </div>
+			  	<div class="col-md-8">
+			  	  <g:link uri="https://plus.google.com/+MinisterioDeCienciaArgentina">
+	  		  		<asset:image src="googleplus_normal.png" alt="MinisterioDeCienciaArgentina en Google+" class="img-fluid"  />
+			  	  </g:link>
+	  			  <g:link uri="https://www.instagram.com/min_ciencia">
+				  	<asset:image src="instagram_normal.png" alt="@min_ciencia en Instagram" class="img-fluid" />
+				  </g:link>
+				  <g:link uri="https://www.youtube.com/ministeriodecienciaargentina">
+				  	<asset:image src="youtube_normal.png" alt="ministeriodecienciaargentina en YouTube" class="img-fluid" />
+				  </g:link>
+			  	</div>
+			    <div class="col-md-2">
+			    	&nbsp;
+			    </div>
+			  </div>
+			</div>
 		</div>
 	</div>
 

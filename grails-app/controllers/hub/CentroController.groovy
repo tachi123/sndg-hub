@@ -11,8 +11,8 @@ class CentroController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond Centro.list(params), model:[centroInstanceCount: Centro.count()]
+		params.max = Math.min(max ?: 10, 100)
+		respond Centro.list(params), model:[centroInstanceCount: Centro.count()]
     }
 
     def show(Centro centroInstance) {

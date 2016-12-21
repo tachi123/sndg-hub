@@ -390,12 +390,12 @@ p3 a:link{
 
 .columna-redes-sociales {
 	background-color:#008fce; 
-	height: 190px; 
+	height: 142px; 
 }
 
 .columna-contacto {
 	background-color:#0f7ebc; 
-	height: 190px; 
+	height: 142px; 
 }
 
 .columna-contacto > h2  {
@@ -409,4 +409,14 @@ p3 a:link{
 	font-size: 0.8em;
 	color: #ffffff;	
 		
+}
+
+.a-veinti5 {
+	margin-top: 2em;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
 }

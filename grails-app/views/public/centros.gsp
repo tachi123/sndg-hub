@@ -2,8 +2,7 @@
 <html>
 <head>
 <meta name="layout" content="main" />
-<title>Bienvenido al portal del Sistema Nacional de Datos Genómicos</title>
-</head>
+<title>Centros - Sistema Nacional de Datos Genómicos</title></head>
 <body>
 	<div class="container-fluid descripcion-seccion">
 		<p>Conozca los centros incorporados al SNDG.</p>
@@ -31,9 +30,6 @@
 						</td>
 						<td>
 						</td>
-						
-						
-					
 					</tr>
 				</g:each>
 				</tbody>
@@ -42,6 +38,5 @@
 				<g:paginate total="${centroInstanceCount ?: 0}" />
 			</div>
 		</div>
-	
 	</div>
 </body>

@@ -18,27 +18,28 @@
 					principales estadísticas del SNDG y del uso del navegador de datos.</p>
 			</div>
 		</div>
-		<div class="container-fluid">
+		<div class="container-fluid a-veinti5">
 			<div class="container">
 				<div class="col-md-2 col-md-offset-1" >
-					<asset:image src="fotos/10363377_754014327983585_44685877224761821_n.jpg"
-						class="img-fluid" />
-				</div>
-				<div class="col-md-2" >
-					<asset:image src="fotos/agro-1920.jpg" class="img-fluid" />
+					<asset:image src="fotos/uno.jpg"
+						class="img-fluid" style="width: 100%;"/>
 				</div>
 				<div class="col-md-2">
-					<asset:image src="fotos/DSC03130.JPG" class="img-fluid" />
+					<asset:image src="fotos/dos.jpg" 
+						class="img-fluid" style="padding:1em;" style="width: 100%;"/>
 				</div>
 				<div class="col-md-2">
-					<asset:image src="fotos/Microbianas-1920.jpg" class="img-fluid" />
+					<asset:image src="fotos/tres.jpg" class="img-fluid" style="width: 100%;"/>
 				</div>
 				<div class="col-md-2">
-					<asset:image src="fotos/MACN-Or-ct 4600a.JPG" class="img-fluid" />
+					<asset:image src="fotos/cuatro.jpg" class="img-fluid"  style="width: 100%;"/>
+				</div>
+				<div class="col-md-2">
+					<asset:image src="fotos/cinco.jpg" class="img-fluid"  style="width: 100%;"/>
 				</div>
 			</div>
 		</div>
-		<div class="container-fluid" >
+		<div class="container-fluid a-veinti5" >
 			<div class="container container_buscador" >
 			<g:form name="myForm" url="[controller:'buscar']">
 				<div class="form-group">
@@ -53,7 +54,7 @@
 			</g:form>
 			</div>
 		</div>
-		<div class="container-fluid " style="padding: 0px; margin: 0px;">
+		<div class="container-fluid a-veinti5" style="padding: 0px; margin: 0px;">
 			<!-- Example row of columns -->
 			<div class="container">
 				<div class="col-md-4">
@@ -87,11 +88,17 @@
 				</div>
 			</div>
 		</div>
-		<div class="container-fluid">
-			<div class="container">
+		<div class="container-fluid a-veinti5">
+			<div class="container text-center">
 				<g:link controller="estatica" action="navegador">
 					<asset:image src="banner.png" class="img-fluid"/>
 				</g:link>
+			</div>
+		</div>
+		<div class="container-fluid a-veinti5">
+			<div class="container text-center">
+				<iframe src="https://public.tableau.com/profile/publish/tablerosndg/Historia1#!/publish-confirm"
+					frameborder="0" style="overflow:hidden;height:1100px;width:1035px;" ></iframe>
 			</div>
 		</div>
 </body>
