@@ -56,6 +56,15 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: conjuntoDeDatosInstance, field: 'enlaces', 'error')} ">
+	<label for="enlaces">
+		<g:message code="conjuntoDeDatos.enlaces.label" default="Enlaces" />
+		
+	</label>
+	<g:select name="enlaces" from="${hub.Enlace.list()}" multiple="multiple" optionKey="id" size="5" value="${conjuntoDeDatosInstance?.enlaces*.id}" class="many-to-many"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: conjuntoDeDatosInstance, field: 'unidad', 'error')} required">
 	<label for="unidad">
 		<g:message code="conjuntoDeDatos.unidad.label" default="Unidad" />

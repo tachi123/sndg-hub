@@ -23,18 +23,17 @@
 				<g:each in="${herramientaInstanceList}" status="i" var="herramientaInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td>${fieldValue(bean: herramientaInstance, field: "nombre")}
-							- ${herramientaInstance.unidad}
+						<td>
+							<g:link controller="public" action="herramientas" params="[id: herramientaInstance.id]">
+							${fieldValue(bean: herramientaInstance, field: "nombre")}</g:link>
+							- <g:link controller="public" action="centros" params="[id: herramientaInstance?.unidad?.centro?.id]">${herramientaInstance.unidad}</g:link>
 							<g:if test="${herramientaInstance?.unidad?.centro?.adherido}">
 								<asset:image src="icono_adherido.png" class="img-fluid" alt="Centro adherido" title="Adherido"/>
 							</g:if>
-							<asset:image src="icono_buscador.png" class="img-fluid" alt="Ver Herramienta" title="Ver"/>
+<%--							<asset:image src="icono_buscador.png" class="img-fluid" alt="Ver Herramienta" title="Ver"/>--%>
 						</td>
 						<td>
 						</td>
-						
-						
-					
 					</tr>
 				</g:each>
 				</tbody>

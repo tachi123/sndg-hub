@@ -6,7 +6,7 @@
 </head>
 <body>
 	<div class="container-fluid">
-		<iframe src="http://arkham.exp.dc.uba.ar/xomeq"
+		<iframe src="${ url }"
 			frameborder="0" style="overflow:hidden;height:600px;width:100%" ></iframe>
 	</div>
 </body>

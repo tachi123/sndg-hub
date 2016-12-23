@@ -77,6 +77,17 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${conjuntoDeDatosInstance?.enlaces}">
+				<li class="fieldcontain">
+					<span id="enlaces-label" class="property-label"><g:message code="conjuntoDeDatos.enlaces.label" default="Enlaces" /></span>
+					
+						<g:each in="${conjuntoDeDatosInstance.enlaces}" var="e">
+						<span class="property-value" aria-labelledby="enlaces-label"><g:link controller="enlace" action="show" id="${e.id}">${e?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${conjuntoDeDatosInstance?.unidad}">
 				<li class="fieldcontain">
 					<span id="unidad-label" class="property-label"><g:message code="conjuntoDeDatos.unidad.label" default="Unidad" /></span>

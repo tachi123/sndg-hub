@@ -27,7 +27,10 @@
 						var="conjuntoDeDatosInstance">
 						<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 							<td>
-								${fieldValue(bean: conjuntoDeDatosInstance, field: "nombre")} - ${conjuntoDeDatosInstance.unidad}
+								<g:link controller="public" action="datos" params="[id: conjuntoDeDatosInstance.id]">
+								${fieldValue(bean: conjuntoDeDatosInstance, field: "nombre")}
+								</g:link> - 
+								<g:link controller="public" action="centros" params="[id: conjuntoDeDatosInstance?.unidad?.centro?.id]">${conjuntoDeDatosInstance.unidad}</g:link>
 								<g:if
 									test="${conjuntoDeDatosInstance?.unidad?.centro?.adherido}">
 									<asset:image src="icono_adherido.png" class="img-fluid"

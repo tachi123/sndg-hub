@@ -25,11 +25,15 @@
 				<g:each in="${centrosList}" status="i" var="centroInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td>${fieldValue(bean: centroInstance, field: "nombre")} ${fieldValue(bean: centroInstance, field: "siglas") != 'N/D' ? "("+fieldValue(bean: centroInstance, field: "siglas")+")" : ""}
+						<td>
+
+							<g:link controller="public" action="centros" params="[id: centroInstance.id]">
+							${fieldValue(bean: centroInstance, field: "nombre")} ${fieldValue(bean: centroInstance, field: "siglas") != 'N/D' ? "("+fieldValue(bean: centroInstance, field: "siglas")+")" : ""}
+							</g:link>
 							<g:if test="${centroInstance?.adherido}">
 								<asset:image src="icono_adherido.png" class="img-fluid" alt="Centro adherido" title="Adherido"/>
 							</g:if>
-							<asset:image src="icono_buscador.png" class="img-fluid" alt="Ver Centro" title="Ver"/>
+<%--							<asset:image src="icono_buscador.png" class="img-fluid" alt="Ver Centro" title="Ver"/>--%>
 						</td>
 						<td>
 						</td>
@@ -65,7 +69,10 @@
 						var="conjuntoDeDatosInstance">
 						<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 							<td>
-								${fieldValue(bean: conjuntoDeDatosInstance, field: "nombre")} - ${conjuntoDeDatosInstance.unidad}
+								<g:link controller="public" action="datos" params="[id: conjuntoDeDatosInstance.id]">
+								${fieldValue(bean: conjuntoDeDatosInstance, field: "nombre")}
+								</g:link> - 
+								<g:link controller="public" action="centros" params="[id: conjuntoDeDatosInstance?.unidad?.centro?.id]">${conjuntoDeDatosInstance.unidad}</g:link>
 								<g:if
 									test="${conjuntoDeDatosInstance?.unidad?.centro?.adherido}">
 									<asset:image src="icono_adherido.png" class="img-fluid"
@@ -104,12 +111,11 @@
 				<g:each in="${herramientasList}" status="i" var="herramientaInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td>${fieldValue(bean: herramientaInstance, field: "nombre")}
-							- ${herramientaInstance.unidad}
-							<g:if test="${herramientaInstance?.unidad?.centro?.adherido}">
-								<asset:image src="icono_adherido.png" class="img-fluid" alt="Centro adherido" title="Adherido"/>
-							</g:if>
-							<asset:image src="icono_buscador.png" class="img-fluid" alt="Ver Herramienta" title="Ver"/>
+						<td>
+							<g:link controller="public" action="herramientas" params="[id: herramientaInstance.id]">
+							${fieldValue(bean: herramientaInstance, field: "nombre")}</g:link>
+							- <g:link controller="public" action="centros" params="[id: herramientaInstance?.unidad?.centro?.id]">${herramientaInstance.unidad}</g:link>
+<%--							<asset:image src="icono_buscador.png" class="img-fluid" alt="Ver Herramienta" title="Ver"/>--%>
 						</td>
 						<td>
 						</td>
