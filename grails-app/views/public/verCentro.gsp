@@ -32,7 +32,9 @@
 				<g:if test="${centroInstance?.paginaWeb}">
 					<li>
 						<asset:image src="icono_web.png"/>&nbsp;
-						<label>${centroInstance?.paginaWeb}</label>
+						<g:link target="_BLANK" uri="${ centroInstance?.paginaWeb }">
+							${ centroInstance?.paginaWeb }
+						</g:link>
 					</li>
 				</g:if>
 			</ul>

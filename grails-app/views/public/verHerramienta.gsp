@@ -32,8 +32,8 @@
 				</label></li>
 			</g:if>
 			<g:if test="${herramientaInstance?.unidad?.centro?.paginaWeb}">
-				<li><asset:image src="icono_web.png" />&nbsp; 
-					<g:link uri="herramientaInstance?.unidad?.centro?.paginaWeb">
+				<li><asset:image src="icono_web.png" />&nbsp;
+					<g:link target="_BLANK" uri="${ herramientaInstance?.unidad?.centro?.paginaWeb }">
 						${herramientaInstance?.unidad?.centro?.paginaWeb}
 					</g:link>
 				</li>

@@ -30,7 +30,6 @@
 							<g:if test="${herramientaInstance?.unidad?.centro?.adherido}">
 								<asset:image src="icono_adherido.png" class="img-fluid" alt="Centro adherido" title="Adherido"/>
 							</g:if>
-<%--							<asset:image src="icono_buscador.png" class="img-fluid" alt="Ver Herramienta" title="Ver"/>--%>
 						</td>
 						<td>
 						</td>

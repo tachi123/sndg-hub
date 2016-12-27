@@ -35,7 +35,7 @@
 			</g:if>
 			<g:if test="${conjuntoDeDatosInstance?.unidad?.centro?.paginaWeb}">
 				<li><asset:image src="icono_web.png" />&nbsp;
-					<g:link uri="conjuntoDeDatosInstance?.unidad?.centro?.paginaWeb">
+					<g:link target="_BLANK" uri="${ conjuntoDeDatosInstance?.unidad?.centro?.paginaWeb }">
 						${conjuntoDeDatosInstance?.unidad?.centro?.paginaWeb}
 					</g:link>
 				</li>
