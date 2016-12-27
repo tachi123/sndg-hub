@@ -96,10 +96,25 @@
 			</div>
 		</div>
 		<div class="container-fluid a-veinti5">
+			<div class="container">
+					<h1 class="estadisticas_titulo">El sistema en n&uacute;meros</h1>
+			</div>				
 			<div class="container text-center">
-				<iframe src="https://public.tableau.com/profile/publish/tablerosndg/Historia1#!/publish-confirm"
-					frameborder="0" style="overflow:hidden;height:1100px;width:1035px;" ></iframe>
+					<g:link controller="estatica" action="estadisticas" >
+						<asset:image src="estadisticas.jpg"/>
+					</g:link>
+<%--				<iframe src="https://public.tableau.com/profile/publish/tablerosndg/Historia1#!/publish-confirm"--%>
+<%--					frameborder="0" style="overflow:hidden;height:1100px;width:1035px;" ></iframe>--%>
 			</div>
+			<div class="container text-center">
+				<g:link controller="estatica" action="estadisticas" >
+					<input type="button" value="Ver más..." class="btn btn-warning">
+				</g:link>
+			
+			</div>
+		</div>
+		<div class="container-fluid a-veinti5">
+		&nbsp;
 		</div>
 </body>
 </html>

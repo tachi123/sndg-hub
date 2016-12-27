@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="layout" content="main" />
-<title>Navegador de Genomas</title>
+<title>${ title }</title>
 </head>
 <body>
 	<div class="container-fluid">

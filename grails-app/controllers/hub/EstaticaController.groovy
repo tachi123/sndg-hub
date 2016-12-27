@@ -7,7 +7,15 @@ class EstaticaController {
 //		if (params.genome) {
 //			url += '/genome/' + params.genome 
 //		}
-		respond url, model: [url: url]
+		respond url, model: [url: url, title: 'Navegador de genomas']
+	}
+	
+	def estadisticas() {
+		def url = 'https://public.tableau.com/profile/publish/tablerosndg/Historia1#!/publish-confirm'
+		//		if (params.genome) {
+		//			url += '/genome/' + params.genome
+		//		}
+		respond view: 'navegador', url, model: [url: url, title: 'Estad&iacute;sticas']
 	}
 	
 	def foroMeta() {

@@ -33,4 +33,8 @@ class Centro {
 	String toString() {
 		"$nombre ($singiID)" 
 	}
+	
+	String instituciones() {
+		dependeDe.collect { it.nombre }.sort().join(", ")
+	}
 }

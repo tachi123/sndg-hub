@@ -22,6 +22,10 @@ class UrlMappings {
 			controller = 'estatica'
 			action = 'navegador'
 		}
+		"/estadisticas" {
+			controller = 'estatica'
+			action = 'estadisticas'
+		}
 		"/buscar" {
 			controller = 'buscar'
 			action = 'index'

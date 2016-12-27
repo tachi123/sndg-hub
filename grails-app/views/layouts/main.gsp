@@ -56,6 +56,11 @@
 						NAVEGADOR DE DATOS
 					</g:link>
 				</li>
+				<li class="${controllerName == 'estatica' && actionName == 'estadisticas' ? 'active' : ''}">				
+					<g:link controller="estatica" action="estadisticas">
+						ESTADISTICAS
+					</g:link>
+				</li>
 <%--				<li class="${controllerName == 'estatica' && actionName == 'foroMeta' ? 'active' : ''}">				--%>
 <%--					<g:link controller="estatica" action="foroMeta">--%>
 <%--						FORO DE METAGENOMICA--%>

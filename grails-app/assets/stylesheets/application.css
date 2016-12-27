@@ -8,6 +8,7 @@
 * compiled file, but it's generally better to create a new file per style scope.
 *
 *= require bootstrap
+*= require themes/ui-lightness/jquery-ui-1.10.3.custom
 *= //require main
 *= //require mobile
 *= require_self
@@ -185,7 +186,7 @@ hr {
 	noshade: noshade;
 	background-color: #105C99;
 	margin-top: 10px;
-	height: 2px;
+	height: 1px;
 }
 
 bullet  {
@@ -352,7 +353,7 @@ p3 a:link{
 }
 
 .container_buscador {
-	background: url('../images/fondo_buscador_home.png');
+   background: url('../images/fondo_buscador_home.png');
    height: 163px;
    padding-top: 3em; 
 }
@@ -419,4 +420,37 @@ p3 a:link{
     display: inline-block;
     vertical-align: middle;
     float: none;
+}
+
+.estadisticas_titulo {
+	color: #008BC0; 
+	font-size: 1.6em;
+	font-weight: 100; 
+	text-transform: uppercase;
+}
+
+.visor_titulo {
+	font-family: Geogrotesque;
+	font-weight: 300;
+	font-size: 1.8em;
+	color: #000000;	
+}
+
+.visor-list > * > label {
+	font-family: Geogrotesque;
+	font-size: 1.6em;
+	font-weight: 200;
+	color: #000000;	
+}
+
+.visor-list > * > a {
+	font-family: Geogrotesque;
+	font-size: 1.6em;
+	font-weight: 600;
+	color: #008bc0;	
+}
+
+.visor-list > li {
+	margin: 0.5em 0 0.5em 3em;
+	vertical-align: middle;
 }

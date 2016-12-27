@@ -9,6 +9,10 @@ class Unidad {
     static constraints = {
     }
 	
+	static mapping  = {
+        sort "nombre"
+	}
+	
 	String toString () {
 		nombre
 	}
