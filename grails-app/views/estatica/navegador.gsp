@@ -2,11 +2,14 @@
 <html>
 <head>
 <meta name="layout" content="main" />
-<title>Bienvenido al portal del Sistema Nacional de Datos Genómicos</title>
+<title>Navegador de Genomas</title>
 </head>
 <body>
 	<div class="container-fluid">
-		<iframe src="${ url }"
-			frameborder="0" style="overflow:hidden;height:600px;width:100%" ></iframe>
+		<div class="row">
+			<div class="col-xs-12">
+				<iframe src="${ url }"	frameborder="0" style="overflow:hidden;height:600px;width:inherit;" ></iframe>
+			</div>
+		</div>
 	</div>
 </body>

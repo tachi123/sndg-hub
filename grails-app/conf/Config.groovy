@@ -1,3 +1,19 @@
+import org.codehaus.groovy.grails.commons.cfg.GrailsConfig;
+
+default_config = "/data/${appName}/config/${appName}-config.groovy"
+if(!grails.config.locations || !(grails.config.locations instanceof List)) {
+	grails.config.locations = []
+}
+if (new File(default_config).exists()) {
+	println "[${appName}] Including default configuration file: " + default_config;
+	grails.config.locations.add "file:" + default_config
+} else {
+	println "[${appName}] No external configuration file defined."
+}
+
+println "[${appName}] (*) grails.config.locations = ${grails.config.locations}"
+println "default_config = ${default_config}"
+
 // locations to search for config files that get merged into the main config;
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
@@ -117,3 +133,52 @@ log4j.main = {
 }
 
 grails.plugins.twitterbootstrap.fixtaglib = true
+
+
+// Added by the Spring Security Core plugin:
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'hub.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'hub.UserRole'
+grails.plugin.springsecurity.authority.className = 'hub.Role'
+grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+	'/':                ['permitAll'],
+	'/index':           ['permitAll'],
+	'/index.gsp':       ['permitAll'],
+	'/assets/**':       ['permitAll'],
+	'/**/js/**':        ['permitAll'],
+	'/**/css/**':       ['permitAll'],
+	'/**/images/**':    ['permitAll'],
+	'/**/favicon.ico':  ['permitAll'],
+	'/**':  			['permitAll'],
+	'/administrar':      ['ROLE_USER'],
+	'/centro/**':        ['ROLE_USER'],
+	'/conjuntoDeDatos/**':  ['ROLE_USER'],
+	'/herramienta/**':      ['ROLE_USER'],
+	'/unidad/**':      ['ROLE_USER'],
+	'/enlace/**':      ['ROLE_USER']
+]
+
+//grails {
+//	plugin {
+//	  springsecurity {
+//		ldap {
+//		  context {
+//			managerDn = "SVC_LDAP.AUTH"
+//			managerPassword = "NO_ME_LA_SE"
+//			server = "ldap://URL:PUERTO/"
+//		  }
+//		  authorities { ignorePartialResultException = true }
+//		  search {
+//			base = "dc=MINCYT,dc=GOB,dc=AR"
+//			filter="sAMAccountName={0}" // for Active Directory you need this
+//			searchSubtree = true
+//			attributesToReturn = [
+//			  'mail',
+//			  'displayName'] // extra attributes you want returned; see below for custom classes that access this data
+//		  }
+//		  auth { hideUserNotFoundExceptions = false }
+//		}
+//	  }
+//	}
+//  }
+
+grails.plugin.springsecurity.providerNames = ['ldapAuthProvider', 'daoAuthenticationProvider', 'anonymousAuthenticationProvider'] // specify this when you want to skip attempting to load from db and only use LDAP

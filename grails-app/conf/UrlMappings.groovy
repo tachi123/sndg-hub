@@ -18,11 +18,16 @@ class UrlMappings {
 			controller = 'public'
 			action = 'herramientas'
 		}
+		"/navegador" {
+			controller = 'estatica'
+			action = 'navegador'
+		}
 		"/buscar" {
 			controller = 'buscar'
 			action = 'index'
 		}
-        "/"(view:"/index")
+		"/administrar"(view:"/administrar")
+		"/"(view:"/index")
         "500"(view:'/error')
 	}
 }

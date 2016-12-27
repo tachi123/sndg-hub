@@ -67,7 +67,40 @@
 <%--					</g:link>--%>
 <%--				</li>--%>
 			</ul>
-		</div>
+			<sec:ifLoggedIn>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-expanded="false">ADMINISTRAR <span class="caret"></span>
+					</a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="${createLink(controller: 'centro')}">Centros</a></li>
+							<li><a href="${createLink(controller: 'unidad')}">Unidad</a></li>
+							<li><a href="${createLink(controller: 'conjuntoDeDatos')}">Conjuntos de Datos</a></li>
+							<li><a href="${createLink(controller: 'herramienta')}">Herramientas</a></li>
+							<li class="divider"></li>
+							<li><a href="${createLink(controller: 'institucion')}">Instituciones</a></li>
+	<%--						<li><a href="${createLink(controller: 'programa')}">Programas</a></li>--%>
+	<%--						<li><a href="${createLink(controller: 'area')}">&Aacute;reas</a></li>--%>
+						</ul>
+					</li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-expanded="false">${sec.username()} <span class="caret"></span>
+					</a>
+						<ul class="dropdown-menu" role="menu">
+							<li>
+								<g:remoteLink class="logout" controller="logout" method="post" asynchronous="false" onSuccess="location.reload()">
+									Cerrar Sesi&oacute;n
+								</g:remoteLink>
+							</li>
+	<%--						<li><a href="${createLink(controller: 'medio')}">Medios</a></li>--%>
+	<%--						<li><a href="${createLink(controller: 'programa')}">Programas</a></li>--%>
+	<%--						<li class="divider"></li>--%>
+	<%--						<li><a href="${createLink(controller: 'area')}">&Aacute;reas</a></li>--%>
+						</ul>
+					</li>
+				</ul>
+			</sec:ifLoggedIn>
+			</div>
 	  </div>
 	</nav>
 	<g:layoutBody/>

@@ -62,6 +62,8 @@ grails.project.dependency.resolution = {
         compile ':cache:1.1.8'
         compile ":asset-pipeline:1.9.9"
 		compile "org.grails.plugins:twitter-bootstrap:3.3.4"
+		compile ':spring-security-core:2.0.0'
+		compile ':spring-security-ldap:2.0.1'
 		
         // plugins needed at runtime but not for compilation
         runtime ":hibernate4:4.3.6.1" // or ":hibernate:3.6.10.18"
