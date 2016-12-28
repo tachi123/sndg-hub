@@ -77,9 +77,19 @@
 									test="${conjuntoDeDatosInstance?.unidad?.centro?.adherido}">
 									<asset:image src="icono_adherido.png" class="img-fluid"
 										alt="Centro adherido" title="Adherido" />
-								</g:if> <g:if test="${conjuntoDeDatosInstance?.enBuscador}">
-									<asset:image src="icono_buscador.png" class="img-fluid"
-										alt="Ver en el Navegador Datos" title="Ver" />
+								</g:if>
+								<g:if test="${conjuntoDeDatosInstance?.enBuscador}">
+									<input class="btn btn-xs" type="image" src="${assetPath(src:'icono_buscador.png')}"
+										   onclick="$('.enlaces-${conjuntoDeDatosInstance.id}').toggle('slow')"
+										   alt="Ver en el Navegador Datos" title="Mostrar entradas en el visor de genomas">
+									</input>
+									<span id="enlaces-${conjuntoDeDatosInstance.id}" class="">
+										<g:each in="${conjuntoDeDatosInstance.enlaces}" var="e" >
+											<g:link style="display: none;" class="enlaces-${conjuntoDeDatosInstance.id} btn btn-info btn-xs btn-round" target="_BLANK"
+													title="${e.nombre}"
+													controller="estatica" action="navegador" params="[genome: e.abreviatura]">${e.abreviatura ?: e.nombre}</g:link>
+										</g:each>
+									</span>
 								</g:if>
 							</td>
 						</tr>

@@ -1,5 +1,6 @@
 
 <%@ page import="hub.ConjuntoDeDatos"%>
+<%@ page import="hub.Enlace" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,6 +39,16 @@
 					<g:link target="_BLANK" uri="${ conjuntoDeDatosInstance?.unidad?.centro?.paginaWeb }">
 						${conjuntoDeDatosInstance?.unidad?.centro?.paginaWeb}
 					</g:link>
+				</li>
+			</g:if>
+			<g:if test="${conjuntoDeDatosInstance?.enBuscador}">
+				<li>
+					<asset:image src="icono_buscador.png" class="img-fluid"
+								 alt="Ver en el Navegador Datos" title="Ver" />
+					<g:eachJoin in="${conjuntoDeDatosInstance.enlaces}" var="e" delimiter=", ">
+						<g:link target="_BLANK" controller="estatica" action="navegador" params="[genome: e.abreviatura]">${e.abreviatura ?: e.nombre}</g:link>
+					</g:eachJoin>
+
 				</li>
 			</g:if>
 		</ul>

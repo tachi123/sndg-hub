@@ -15,7 +15,8 @@
 					agropecuario, biotecnológico y en salud; contar con información de
 					los centros adheridos al SNDG así como de los conjuntos de datos y
 					herramientas incorporadas y/o disponibles en el Portal; conocer las
-					principales estadísticas del SNDG y del uso del navegador de datos.</p>
+					principales estadísticas del SNDG y acceder a los datos a través del
+					navegador.</p>
 			</div>
 		</div>
 		<div class="container-fluid a-veinti5">

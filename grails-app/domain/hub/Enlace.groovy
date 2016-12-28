@@ -7,8 +7,13 @@ class Enlace {
 	String abreviatura
 	
 	String uri
-	
-    static constraints = {
+
+	String toString() {
+		nombre? (nombre + abreviatura? " ($abreviatura)" : "") : '<Nuevo enlace>'
+	}
+
+
+	static constraints = {
 		abreviatura nullable: true
     }
 }
