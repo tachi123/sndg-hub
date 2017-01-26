@@ -41,6 +41,33 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${conjuntoDeDatosInstance?.descripcion}">
+				<li class="fieldcontain">
+					<span id="descripcion-label" class="property-label"><g:message code="conjuntoDeDatos.descripcion.label" default="Descripcion" /></span>
+					
+						<span class="property-value" aria-labelledby="descripcion-label"><g:fieldValue bean="${conjuntoDeDatosInstance}" field="descripcion"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${conjuntoDeDatosInstance?.responsable}">
+				<li class="fieldcontain">
+					<span id="responsable-label" class="property-label"><g:message code="conjuntoDeDatos.responsable.label" default="Responsable" /></span>
+					
+						<span class="property-value" aria-labelledby="responsable-label"><g:fieldValue bean="${conjuntoDeDatosInstance}" field="responsable"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${conjuntoDeDatosInstance?.colaboradores}">
+				<li class="fieldcontain">
+					<span id="colaboradores-label" class="property-label"><g:message code="conjuntoDeDatos.colaboradores.label" default="Colaboradores" /></span>
+					
+						<span class="property-value" aria-labelledby="colaboradores-label"><g:fieldValue bean="${conjuntoDeDatosInstance}" field="colaboradores"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${conjuntoDeDatosInstance?.porcentajeSecuenciado}">
 				<li class="fieldcontain">
 					<span id="porcentajeSecuenciado-label" class="property-label"><g:message code="conjuntoDeDatos.porcentajeSecuenciado.label" default="Porcentaje Secuenciado" /></span>

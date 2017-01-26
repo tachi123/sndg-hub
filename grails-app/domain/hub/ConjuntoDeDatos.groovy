@@ -5,7 +5,13 @@ class ConjuntoDeDatos {
 	String singiID
 	
 	String nombre
-	
+
+	String descripcion
+
+	String responsable
+
+	String colaboradores
+
 	Integer porcentajeSecuenciado
 	
 	Boolean enBuscador
@@ -21,6 +27,9 @@ class ConjuntoDeDatos {
     static constraints = {
 		nombre()
 		singiID()
+		descripcion nullable: true
+		responsable nullable: true
+		colaboradores nullable: true
 		porcentajeSecuenciado nullable: true
 		tipoDeOrganismo nullable: true
 		tipoDeComunidad nullable: true

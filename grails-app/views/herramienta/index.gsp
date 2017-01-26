@@ -28,7 +28,13 @@
 					
 						<g:sortableColumn property="tipo" title="${message(code: 'herramienta.tipo.label', default: 'Tipo')}" />
 					
-						<th><g:message code="herramienta.unidad.label" default="Unidad" /></th>
+						<g:sortableColumn property="singiID" title="${message(code: 'herramienta.singiID.label', default: 'Singi ID')}" />
+					
+						<g:sortableColumn property="descripcion" title="${message(code: 'herramienta.descripcion.label', default: 'Descripcion')}" />
+					
+						<g:sortableColumn property="responsable" title="${message(code: 'herramienta.responsable.label', default: 'Responsable')}" />
+					
+						<g:sortableColumn property="colaboradores" title="${message(code: 'herramienta.colaboradores.label', default: 'Colaboradores')}" />
 					
 					</tr>
 				</thead>
@@ -40,7 +46,13 @@
 					
 						<td>${fieldValue(bean: herramientaInstance, field: "tipo")}</td>
 					
-						<td>${fieldValue(bean: herramientaInstance, field: "unidad")}</td>
+						<td>${fieldValue(bean: herramientaInstance, field: "singiID")}</td>
+					
+						<td>${fieldValue(bean: herramientaInstance, field: "descripcion")}</td>
+					
+						<td>${fieldValue(bean: herramientaInstance, field: "responsable")}</td>
+					
+						<td>${fieldValue(bean: herramientaInstance, field: "colaboradores")}</td>
 					
 					</tr>
 				</g:each>

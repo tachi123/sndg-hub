@@ -28,13 +28,13 @@
 					
 						<g:sortableColumn property="singiID" title="${message(code: 'conjuntoDeDatos.singiID.label', default: 'Singi ID')}" />
 					
+						<g:sortableColumn property="descripcion" title="${message(code: 'conjuntoDeDatos.descripcion.label', default: 'Descripcion')}" />
+					
+						<g:sortableColumn property="responsable" title="${message(code: 'conjuntoDeDatos.responsable.label', default: 'Responsable')}" />
+					
+						<g:sortableColumn property="colaboradores" title="${message(code: 'conjuntoDeDatos.colaboradores.label', default: 'Colaboradores')}" />
+					
 						<g:sortableColumn property="porcentajeSecuenciado" title="${message(code: 'conjuntoDeDatos.porcentajeSecuenciado.label', default: 'Porcentaje Secuenciado')}" />
-					
-						<g:sortableColumn property="tipoDeOrganismo" title="${message(code: 'conjuntoDeDatos.tipoDeOrganismo.label', default: 'Tipo De Organismo')}" />
-					
-						<g:sortableColumn property="tipoDeComunidad" title="${message(code: 'conjuntoDeDatos.tipoDeComunidad.label', default: 'Tipo De Comunidad')}" />
-					
-						<g:sortableColumn property="enBuscador" title="${message(code: 'conjuntoDeDatos.enBuscador.label', default: 'En Buscador')}" />
 					
 					</tr>
 				</thead>
@@ -46,13 +46,13 @@
 					
 						<td>${fieldValue(bean: conjuntoDeDatosInstance, field: "singiID")}</td>
 					
+						<td>${fieldValue(bean: conjuntoDeDatosInstance, field: "descripcion")}</td>
+					
+						<td>${fieldValue(bean: conjuntoDeDatosInstance, field: "responsable")}</td>
+					
+						<td>${fieldValue(bean: conjuntoDeDatosInstance, field: "colaboradores")}</td>
+					
 						<td>${fieldValue(bean: conjuntoDeDatosInstance, field: "porcentajeSecuenciado")}</td>
-					
-						<td>${fieldValue(bean: conjuntoDeDatosInstance, field: "tipoDeOrganismo")}</td>
-					
-						<td>${fieldValue(bean: conjuntoDeDatosInstance, field: "tipoDeComunidad")}</td>
-					
-						<td><g:formatBoolean boolean="${conjuntoDeDatosInstance.enBuscador}" /></td>
 					
 					</tr>
 				</g:each>

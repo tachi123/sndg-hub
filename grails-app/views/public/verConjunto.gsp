@@ -23,6 +23,15 @@
 		</h2>
 		<hr />
 		<ul class="list-unstyled visor-list">
+			<g:if test="${conjuntoDeDatosInstance.descripcion}">
+				<li><asset:image src="icono_descripcion.png" />&nbsp; <label>${conjuntoDeDatosInstance?.descripcion}</label></li>
+			</g:if>
+			<g:if test="${conjuntoDeDatosInstance.responsable}">
+				<li><asset:image src="icono_responsable.png" />&nbsp; <label>${conjuntoDeDatosInstance?.responsable}</label></li>
+			</g:if>
+			<g:if test="${conjuntoDeDatosInstance.colaboradores}">
+				<li><asset:image src="icono_colaboradores.png" />&nbsp; <label>${conjuntoDeDatosInstance?.colaboradores}</label></li>
+			</g:if>
 			<g:if test="${conjuntoDeDatosInstance.unidad?.centro?.adherido}">
 				<li><asset:image src="icono_adherido.png" />&nbsp; <label>Adherido
 						al SNDG desde <g:formatDate format="dd-MM-yyyy"

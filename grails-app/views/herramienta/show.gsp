@@ -41,6 +41,42 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${herramientaInstance?.singiID}">
+				<li class="fieldcontain">
+					<span id="singiID-label" class="property-label"><g:message code="herramienta.singiID.label" default="Singi ID" /></span>
+					
+						<span class="property-value" aria-labelledby="singiID-label"><g:fieldValue bean="${herramientaInstance}" field="singiID"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${herramientaInstance?.descripcion}">
+				<li class="fieldcontain">
+					<span id="descripcion-label" class="property-label"><g:message code="herramienta.descripcion.label" default="Descripcion" /></span>
+					
+						<span class="property-value" aria-labelledby="descripcion-label"><g:fieldValue bean="${herramientaInstance}" field="descripcion"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${herramientaInstance?.responsable}">
+				<li class="fieldcontain">
+					<span id="responsable-label" class="property-label"><g:message code="herramienta.responsable.label" default="Responsable" /></span>
+					
+						<span class="property-value" aria-labelledby="responsable-label"><g:fieldValue bean="${herramientaInstance}" field="responsable"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${herramientaInstance?.colaboradores}">
+				<li class="fieldcontain">
+					<span id="colaboradores-label" class="property-label"><g:message code="herramienta.colaboradores.label" default="Colaboradores" /></span>
+					
+						<span class="property-value" aria-labelledby="colaboradores-label"><g:fieldValue bean="${herramientaInstance}" field="colaboradores"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${herramientaInstance?.unidad}">
 				<li class="fieldcontain">
 					<span id="unidad-label" class="property-label"><g:message code="herramienta.unidad.label" default="Unidad" /></span>

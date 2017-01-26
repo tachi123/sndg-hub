@@ -20,6 +20,33 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: conjuntoDeDatosInstance, field: 'descripcion', 'error')} ">
+	<label for="descripcion">
+		<g:message code="conjuntoDeDatos.descripcion.label" default="Descripcion" />
+		
+	</label>
+	<g:textField name="descripcion" value="${conjuntoDeDatosInstance?.descripcion}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: conjuntoDeDatosInstance, field: 'responsable', 'error')} ">
+	<label for="responsable">
+		<g:message code="conjuntoDeDatos.responsable.label" default="Responsable" />
+		
+	</label>
+	<g:textField name="responsable" value="${conjuntoDeDatosInstance?.responsable}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: conjuntoDeDatosInstance, field: 'colaboradores', 'error')} ">
+	<label for="colaboradores">
+		<g:message code="conjuntoDeDatos.colaboradores.label" default="Colaboradores" />
+		
+	</label>
+	<g:textField name="colaboradores" value="${conjuntoDeDatosInstance?.colaboradores}"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: conjuntoDeDatosInstance, field: 'porcentajeSecuenciado', 'error')} ">
 	<label for="porcentajeSecuenciado">
 		<g:message code="conjuntoDeDatos.porcentajeSecuenciado.label" default="Porcentaje Secuenciado" />
