@@ -34,7 +34,7 @@
 		<g:message code="herramienta.descripcion.label" default="Descripcion" />
 		
 	</label>
-	<g:textField name="descripcion" value="${herramientaInstance?.descripcion}"/>
+	<g:textArea name="descripcion" value="${herramientaInstance?.descripcion}" rows="10" cols="100"/>
 
 </div>
 

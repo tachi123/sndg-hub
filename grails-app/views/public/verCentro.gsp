@@ -39,6 +39,11 @@
 				</g:if>
 			</ul>
 		</div>
+		<div class="container">
+				<g:link controller="public" action="datos" params="[centroId: centroInstance.singiID]" class="btn btn-warning">
+					Ver conjuntos de datos...
+				</g:link>
+		</div>
 			<div class="container a-veinti5">
 				&nbsp;			
 			</div>

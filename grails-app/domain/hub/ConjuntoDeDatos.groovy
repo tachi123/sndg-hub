@@ -23,7 +23,11 @@ class ConjuntoDeDatos {
 	static belongsTo = [ unidad : Unidad ]
 	
 	static hasMany = [ enlaces : Enlace ]
-	
+
+	static mapping = {
+		descripcion type: 'text'
+	}
+
     static constraints = {
 		nombre()
 		singiID()

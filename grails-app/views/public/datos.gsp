@@ -28,9 +28,7 @@
 						<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 							<td class="row-fluid">
 								<g:link controller="public" action="datos" params="[id: conjuntoDeDatosInstance.id]">
-								${fieldValue(bean: conjuntoDeDatosInstance, field: "nombre")}
-								</g:link> - 
-								<g:link controller="public" action="centros" params="[id: conjuntoDeDatosInstance?.unidad?.centro?.id]">${conjuntoDeDatosInstance.unidad}</g:link>
+								${fieldValue(bean: conjuntoDeDatosInstance, field: "nombre")} - ${conjuntoDeDatosInstance.unidad}</g:link>
 								<g:if test="${conjuntoDeDatosInstance?.unidad?.centro?.adherido}">
 									<asset:image src="icono_adherido.png" class="img-fluid"
 										alt="Centro adherido" title="Adherido" />
@@ -60,7 +58,7 @@
 				</tbody>
 			</table>
 			<div class="pagination">
-				<g:paginate total="${conjuntoDeDatosInstanceCount ?: 0}" />
+				<g:paginate total="${conjuntoDeDatosInstanceCount ?: 0}" params="${params}"/>
 			</div>
 		</div>
 	</div>

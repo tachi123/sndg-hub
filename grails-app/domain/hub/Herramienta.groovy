@@ -24,4 +24,8 @@ class Herramienta {
 		responsable nullable: true
 		colaboradores nullable: true
 	}
+
+	static mapping = {
+		descripcion type: 'text'
+	}
 }

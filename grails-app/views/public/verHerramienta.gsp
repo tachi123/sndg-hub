@@ -17,37 +17,80 @@
 	<div class="container">
 		<h2 class="visor_titulo">
 			${ herramientaInstance?.nombre }
+			<sec:ifLoggedIn>&nbsp;<g:link controller="herramienta" action="edit" resource="${herramientaInstance}"
+										  class="btn btn-warning">Editar...</g:link></sec:ifLoggedIn>
+
 		</h2>
 		<hr />
-		<ul class="list-unstyled visor-list">
-			<g:if test="${herramientaInstance.descripcion}">
-				<li><asset:image src="icono_descripcion.png" />&nbsp; <label>${herramientaInstance?.descripcion}</label></li>
-			</g:if>
-			<g:if test="${herramientaInstance.responsable}">
-				<li><asset:image src="icono_responsable.png" />&nbsp; <label>${herramientaInstance?.responsable}</label></li>
-			</g:if>
-			<g:if test="${herramientaInstance.colaboradores}">
-				<li><asset:image src="icono_colaboradores.png" />&nbsp; <label>${herramientaInstance?.colaboradores}</label></li>
-			</g:if>
-			<g:if test="${herramientaInstance.unidad?.centro?.adherido}">
-				<li><asset:image src="icono_adherido.png" />&nbsp; <label>Adherido
-						al SNDG desde <g:formatDate format="dd-MM-yyyy"
-							date="${herramientaInstance?.unidad?.centro?.fecha}" />
-				</label></li>
-			</g:if>
-			<g:if test="${herramientaInstance?.unidad?.centro}">
-				<li><asset:image src="icono_institucion.png" />&nbsp; <label>
-						${ herramientaInstance?.unidad?.centro }
-				</label></li>
-			</g:if>
-			<g:if test="${herramientaInstance?.unidad?.centro?.paginaWeb}">
-				<li><asset:image src="icono_web.png" />&nbsp;
-					<g:link target="_BLANK" uri="${ herramientaInstance?.unidad?.centro?.paginaWeb }">
+
+		<g:if test="${herramientaInstance.descripcion}">
+			<div class="row visor-list">
+				<div class="col-md-1"><asset:image src="icono_descripcion.png" class="pull-right"/></div>
+				<div class="col-md-11"><label>${herramientaInstance?.descripcion}<br/></label></div>
+			</div>
+		</g:if>
+
+		<g:if test="${herramientaInstance.responsable}">
+			<div class="row visor-list">
+				<div class="col-md-1">
+					<asset:image class="pull-right" src="icono_responsable.png"/>
+				</div>
+				<div>
+					<label>${herramientaInstance?.responsable}</label>
+				</div>
+			</div>
+		</g:if>
+		<g:if test="${herramientaInstance.colaboradores}">
+			<div class="row visor-list">
+				<div class="col-md-1">
+					<asset:image class="pull-right" src="icono_colaboradores.png"/>
+				</div>
+				<div>
+					<label>${herramientaInstance?.colaboradores}</label>
+				</div>
+			</div>
+		</g:if>
+
+		<g:if test="${herramientaInstance.unidad?.centro?.adherido}">
+			<div class="row visor-list">
+				<div class="col-md-1">
+					<asset:image class="pull-right" src="icono_adherido.png"/>
+				</div>
+				<div>
+					<label>Adherido
+					al SNDG desde <g:formatDate format="dd-MM-yyyy" date="${herramientaInstance?.unidad?.centro?.fecha}"/></label>
+				</div>
+			</div>
+		</g:if>
+		<g:if test="${herramientaInstance?.unidad?.centro}">
+			<div class="row visor-list">
+				<div class="col-md-1">
+					<asset:image src="icono_institucion.png" class="pull-right"/>
+				</div>
+
+				<div>
+					<label>
+						${herramientaInstance?.unidad?.centro}
+					</label>
+				</div>
+			</div>
+		</g:if>
+		<g:if test="${herramientaInstance?.unidad?.centro?.paginaWeb}">
+			<div class="row visor-list">
+				<div class="col-md-1">
+					<asset:image src="icono_web.png" class="pull-right"/>
+				</div>
+
+				<div>
+					<g:link target="_BLANK" uri="${herramientaInstance?.unidad?.centro?.paginaWeb}">
 						${herramientaInstance?.unidad?.centro?.paginaWeb}
 					</g:link>
-				</li>
-			</g:if>
-		</ul>
+				</div>
+			</div>
+		</g:if>
+
 	</div>
+<div class="container a-veinti5">&nbsp;</div>
+
 </body>
 </html>

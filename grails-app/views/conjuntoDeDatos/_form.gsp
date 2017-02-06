@@ -25,8 +25,7 @@
 		<g:message code="conjuntoDeDatos.descripcion.label" default="Descripcion" />
 		
 	</label>
-	<g:textField name="descripcion" value="${conjuntoDeDatosInstance?.descripcion}"/>
-
+	<g:textArea name="descripcion" value="${conjuntoDeDatosInstance?.descripcion}" rows="10" cols="100"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: conjuntoDeDatosInstance, field: 'responsable', 'error')} ">
