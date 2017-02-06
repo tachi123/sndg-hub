@@ -14,6 +14,6 @@ class Unidad {
 	}
 	
 	String toString () {
-		nombre
+		nombre + (centro?.siglas? " ($centro.siglas)" : "")
 	}
 }

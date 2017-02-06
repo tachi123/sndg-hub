@@ -59,7 +59,19 @@ class PublicController {
 				respond Herramienta.findAllByNombreIlike(q, [max: 10, offset: params.offset ?: 0, sort: "nombre"]), model:[herramientaInstanceCount: Herramienta.countByNombreIlike(q)]
 
 			} else {
-	        	respond Herramienta.list(params), model:[herramientaInstanceCount: Herramienta.count()]
+				if (params.centroId) {
+					def losDatos = Herramienta.createCriteria().list(params) {
+						unidad {
+							centro {
+								eq('singiID', params.centroId)
+							}
+						}
+						order('nombre', 'asc')
+					}
+					respond losDatos, model:[herramientaInstanceCount: losDatos.totalCount]
+				} else {
+					respond Herramienta.list(params), model:[herramientaInstanceCount: Herramienta.count()]
+				}
 			}
 		} else {
 			respond Herramienta.get(params.id), view: 'verHerramienta'

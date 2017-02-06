@@ -20,7 +20,7 @@
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<table>
+			<table class="table">
 			<thead>
 					<tr>
 					
@@ -45,8 +45,8 @@
 						<td><g:link action="show" id="${conjuntoDeDatosInstance.id}">${fieldValue(bean: conjuntoDeDatosInstance, field: "nombre")}</g:link></td>
 					
 						<td>${fieldValue(bean: conjuntoDeDatosInstance, field: "singiID")}</td>
-					
-						<td>${fieldValue(bean: conjuntoDeDatosInstance, field: "descripcion")}</td>
+
+						<td>${fieldValue(bean: conjuntoDeDatosInstance, field: "descripcion").length()>30 ? fieldValue(bean: conjuntoDeDatosInstance, field: "descripcion").take(30) + " ..." : fieldValue(bean: conjuntoDeDatosInstance, field: "descripcion")}</td>
 					
 						<td>${fieldValue(bean: conjuntoDeDatosInstance, field: "responsable")}</td>
 					

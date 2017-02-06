@@ -89,7 +89,8 @@
 			</ol>
 			<g:form url="[resource:herramientaInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">
-					<g:link class="btn btn-warning" controller="public" action="datos" params="[id: herramientaInstance.id]"><g:message code="default.button.verEnPortal.label" default="Ver en el portal" /></g:link>
+					<g:link class="btn btn-warning" controller="public" action="herramienta" params="[id: herramientaInstance.id]"><g:message code="default.button.verEnPortal.label" default="Ver en el portal" /></g:link>
+					<g:link class="btn btn-success" controller="public" action="herramienta" params="[centroId: herramientaInstance.unidad.centro.singiID]"><g:message code="default.button.verHerramientasDelCentro.label" default="Ver todas las herramientas del centro" /></g:link>
 					<g:link class="edit btn btn-primary" action="edit" resource="${herramientaInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
 					<g:actionSubmit class="delete btn btn-danger" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 				</fieldset>

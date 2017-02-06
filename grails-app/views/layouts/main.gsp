@@ -79,7 +79,7 @@
 					</a>
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="${createLink(controller: 'centro')}">Centros</a></li>
-							<li><a href="${createLink(controller: 'unidad')}">Unidad</a></li>
+							<li><a href="${createLink(controller: 'unidad')}">Laboratorios</a></li>
 							<li><a href="${createLink(controller: 'conjuntoDeDatos')}">Conjuntos de Datos</a></li>
 							<li><a href="${createLink(controller: 'herramienta')}">Herramientas</a></li>
 							<li class="divider"></li>

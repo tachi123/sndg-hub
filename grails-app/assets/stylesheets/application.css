@@ -436,7 +436,7 @@ p3 a:link{
 	color: #000000;	
 }
 
-.visor-list > * > label {
+.visor-list > * > label, .elemento-descripcion > label {
 	font-family: Geogrotesque;
 	font-size: 1.6em;
 	font-weight: 200;
@@ -460,3 +460,4 @@ p3 a:link{
 	padding-right: 1.0em;
 	border-radius: 1.5em;
 }
+

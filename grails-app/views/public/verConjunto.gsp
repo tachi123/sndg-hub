@@ -27,11 +27,25 @@
         </sec:ifLoggedIn>
     </h2>
     <hr/>
-        <g:if test="${conjuntoDeDatosInstance.descripcion}">
+        <g:if test="${conjuntoDeDatosInstance.descripcion || conjuntoDeDatosInstance.tipoDeOrganismo || conjuntoDeDatosInstance.tipoDeComunidad }">
             <div class="row visor-list">
                 <div class="col-md-1"><asset:image src="icono_descripcion.png" class="pull-right"/></div>
 
-                <div class="col-md-11"><label>${conjuntoDeDatosInstance?.descripcion}<br/></label></div>
+                <div class="col-md-11">
+                    <g:if test="${conjuntoDeDatosInstance.descripcion}">
+                        <div class="elemento-descripcion"><label>${conjuntoDeDatosInstance?.descripcion}<br/></label></div>
+                    </g:if>
+                    <g:if test="${conjuntoDeDatosInstance.tipoDeOrganismo}">
+                        <div class="elemento-descripcion">
+                            <label><strong>Tipo de organismo: </strong> ${conjuntoDeDatosInstance.tipoDeOrganismo}</label>
+                        </div>
+                    </g:if>
+                    <g:if test="${conjuntoDeDatosInstance.tipoDeComunidad}">
+                        <div class="elemento-descripcion">
+                            <label><strong>Tipo de comunidad: </strong> ${conjuntoDeDatosInstance.tipoDeComunidad}</label>
+                        </div>
+                    </g:if>
+                </div>
             </div>
         </g:if>
 
