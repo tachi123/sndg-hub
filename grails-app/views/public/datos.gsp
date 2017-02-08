@@ -6,8 +6,7 @@
 </head>
 <body>
 	<div class="container-fluid descripcion-seccion">
-		<p>Conozca los conjuntos de datos incorporados al SNDG y/o
-			disponibles en el portal del SNDG.</p>
+		<p>Conozca los conjuntos de datos incorporados al SNDG.</p>
 	</div>
 	<div class="container-fluid titulo-seccion">
 		<div class="container">
