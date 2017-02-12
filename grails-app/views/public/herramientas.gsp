@@ -37,7 +37,7 @@
 				</tbody>
 			</table>
 			<div class="pagination">
-				<g:paginate total="${herramientaInstanceCount ?: 0}" />
+				<g:paginate total="${herramientaInstanceCount ?: 0}" params="${params}"/>
 			</div>
 		</div>
 	</div>

@@ -7,14 +7,17 @@ class BuscarController {
     		def q = "%"+params.q+"%"
 			if (params.q == '*')
 				q = "%%"
-			def centros = Centro.findAllByNombreIlike(q, [max: 10])
-			def centrosCount = Centro.countByNombreIlike(q) 
-			def datos = ConjuntoDeDatos.findAllByNombreIlike(q, [max: 10 ])
-			def datosCount = ConjuntoDeDatos.countByNombreIlike(q)
-			def herramientas = Herramienta.findAllByNombreIlike(q, [max: 10 ])
-			def herramientasCount = Herramienta.countByNombreIlike(q)
-			System.out.println(datos)
-			respond q, model: [ centrosList: centros,
+			def datos = ConjuntoDeDatos.findAllByNombreIlikeOrDescripcionIlike(q, q, [max: 10 , sort: "nombre"])
+            def datosCount = ConjuntoDeDatos.countByNombreIlikeOrDescripcionIlike(q, q)
+            def herramientas = Herramienta.findAllByNombreIlikeOrDescripcionIlike(q, q, [max: 10, sort: "nombre" ])
+            def herramientasCount = Herramienta.countByNombreIlikeOrDescripcionIlike(q, q)
+            List<Long> idsDeCentros = datos.collect{ it.unidad?.centro?.id }
+            idsDeCentros.addAll(herramientas.collect{ it.unidad?.centro?.id })
+
+            def centros = Centro.findAllByNombreIlikeOrIdInList(q, idsDeCentros, [max: 10, sort: "nombre"])
+            def centrosCount = Centro.countByNombreIlikeOrIdInList(q, idsDeCentros)
+
+            respond q, model: [ centrosList: centros,
 							 centrosInstanceCount: centrosCount, 
 				 			 datosList: datos,
 							 datosInstanceCount: datosCount, 

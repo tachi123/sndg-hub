@@ -45,7 +45,7 @@
 				<div class="message" role="status">No se han hallado centros que satisfagan esta b&uacute;squeda.</div>
 			</g:if>
 			<g:if test="${centrosInstanceCount > centrosList.size()}">
-				<g:link controller="public" action="centros" params="[q: params.q, max: centrosList.size(), offset: centrosList.size()+1]">
+				<g:link controller="public" action="centros" params="[q: params.q, max: centrosList.size(), offset: centrosList.size()]">
 					<input type="button" value="Ver más..." class="btn btn-warning">
 				</g:link>
 			</g:if>
@@ -100,7 +100,7 @@
 				<div class="message" role="status">No se han hallado conjuntos de datos que satisfagan esta b&uacute;squeda.</div>
 			</g:if>
 			<g:if test="${datosInstanceCount > datosList.size()}">
-				<g:link controller="public" action="datos" params="[q: params.q, max: datosList.size(), offset: datosList.size() + 1]">
+				<g:link controller="public" action="datos" params="[q: params.q, max: datosList.size(), offset: datosList.size() ]">
 					<input type="button" value="Ver más..." class="btn btn-warning">
 				</g:link>
 			</g:if>
@@ -137,7 +137,7 @@
 				<div class="message" role="status">No se han hallado herramientas que satisfagan esta b&uacute;squeda.</div>
 			</g:if>
 			<g:if test="${herramientasInstanceCount > herramientasList.size()}">
-				<g:link controller="public" action="herramientas" params="[q: params.q, max: herramientasList.size(), offset: herramientasList.size()+1]">
+				<g:link controller="public" action="herramientas" params="[q: params.q, max: herramientasList.size(), offset: herramientasList.size()]">
 					<input type="button" value="Ver más..." class="btn btn-warning">
 				</g:link>
 			</g:if>

@@ -38,7 +38,7 @@
 				</tbody>
 			</table>
 			<div class="pagination">
-				<g:paginate total="${centroInstanceCount ?: 0}" />
+				<g:paginate total="${centroInstanceCount ?: 0}" params="${params}"/>
 			</div>
 		</div>
 	</div>

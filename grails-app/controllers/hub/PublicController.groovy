@@ -9,7 +9,11 @@ class PublicController {
 				def q = "%"+params.q+"%"
 				if (params.q == '*')
 					q = "%%"
-				respond Centro.findAllByNombreIlike(q, [max: 10, offset: params.offset ?: 0, sort: "nombre"]), model:[centroInstanceCount: Centro.countByNombreIlike(q)]
+                def datos = ConjuntoDeDatos.findAllByNombreIlikeOrDescripcionIlike(q, q)
+                def herramientas = Herramienta.findAllByNombreIlikeOrDescripcionIlike(q, q )
+                List<Long> idsDeCentros = datos.collect{ it.unidad?.centro?.id }
+                idsDeCentros.addAll(herramientas.collect{ it.unidad?.centro?.id })
+				respond Centro.findAllByNombreIlikeOrIdInList(q, idsDeCentros, [max: 10, offset: params.offset ?: 0, sort: "nombre"]), model:[centroInstanceCount: Centro.countByNombreIlikeOrIdInList(q, idsDeCentros)]
 			} else {
 				respond Centro.list(params), model:[centroInstanceCount: Centro.count()]
 			}		
@@ -27,7 +31,7 @@ class PublicController {
 				def q = "%"+params.q+"%"
 				if (params.q == '*')
 					q = "%%"
-				respond ConjuntoDeDatos.findAllByNombreIlike(q, [max: 10, offset: params.offset ?: 0, sort: "nombre"]), model:[conjuntoDeDatosInstanceCount: ConjuntoDeDatos.countByNombreIlike(q)]
+				respond ConjuntoDeDatos.findAllByNombreIlikeOrDescripcionIlike(q, q, [max: 10, offset: params.offset ?: 0, sort: "nombre"]), model:[conjuntoDeDatosInstanceCount: ConjuntoDeDatos.countByNombreIlike(q)]
 			} else {
 				if (params.centroId) {
 					def losDatos = ConjuntoDeDatos.createCriteria().list(params) {
@@ -56,7 +60,7 @@ class PublicController {
 				def q = "%"+params.q+"%"
 				if (params.q == '*')
 					q = "%%"
-				respond Herramienta.findAllByNombreIlike(q, [max: 10, offset: params.offset ?: 0, sort: "nombre"]), model:[herramientaInstanceCount: Herramienta.countByNombreIlike(q)]
+				respond Herramienta.findAllByNombreIlikeOrDescripcionIlike(q, q, [max: 10, offset: params.offset ?: 0, sort: "nombre"]), model:[herramientaInstanceCount: Herramienta.countByNombreIlike(q)]
 
 			} else {
 				if (params.centroId) {
