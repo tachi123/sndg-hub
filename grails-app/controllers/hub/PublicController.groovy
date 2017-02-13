@@ -11,7 +11,8 @@ class PublicController {
 					q = "%%"
                 def datos = ConjuntoDeDatos.findAllByNombreIlikeOrDescripcionIlike(q, q)
                 def herramientas = Herramienta.findAllByNombreIlikeOrDescripcionIlike(q, q )
-                List<Long> idsDeCentros = datos.collect{ it.unidad?.centro?.id }
+		List<Long> idsDeCentros = [ -1 ]
+                idsDeCentros.addAll(datos.collect{ it.unidad?.centro?.id })
                 idsDeCentros.addAll(herramientas.collect{ it.unidad?.centro?.id })
 				respond Centro.findAllByNombreIlikeOrIdInList(q, idsDeCentros, [max: 10, offset: params.offset ?: 0, sort: "nombre"]), model:[centroInstanceCount: Centro.countByNombreIlikeOrIdInList(q, idsDeCentros)]
 			} else {

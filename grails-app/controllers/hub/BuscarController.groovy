@@ -11,7 +11,10 @@ class BuscarController {
             def datosCount = ConjuntoDeDatos.countByNombreIlikeOrDescripcionIlike(q, q)
             def herramientas = Herramienta.findAllByNombreIlikeOrDescripcionIlike(q, q, [max: 10, sort: "nombre" ])
             def herramientasCount = Herramienta.countByNombreIlikeOrDescripcionIlike(q, q)
-            List<Long> idsDeCentros = datos.collect{ it.unidad?.centro?.id }
+
+            List<Long> idsDeCentros = [ -1 ] // por si viene nula!
+
+            idsDeCentros.addAll(datos.collect{ it.unidad?.centro?.id })
             idsDeCentros.addAll(herramientas.collect{ it.unidad?.centro?.id })
 
             def centros = Centro.findAllByNombreIlikeOrIdInList(q, idsDeCentros, [max: 10, sort: "nombre"])
