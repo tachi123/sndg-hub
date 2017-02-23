@@ -49,7 +49,23 @@
 					
 				</li>
 				</g:if>
-			
+
+				<g:if test="${conjuntoDeDatosInstance?.proyecto}">
+					<li class="fieldcontain">
+						<span id="proyecto-label" class="property-label"><g:message code="conjuntoDeDatos.proyecto.label" default="Proyecto" /></span>
+
+						<span class="property-value" aria-labelledby="proyecto-label"><g:fieldValue bean="${conjuntoDeDatosInstance}" field="proyecto"/></span>
+
+					</li>
+				</g:if>
+
+				<g:if test="${conjuntoDeDatosInstance?.proyectoDescripcion}">
+					<li class="fieldcontain">
+						<span id="proyectoDescripcion-label" class="property-label"><g:message code="conjuntoDeDatos.proyectoDescripcion.label" default="Descripcion del proyecto" /></span>
+						<span class="property-value" aria-labelledby="proyectoDescripcion-label"><g:fieldValue bean="${conjuntoDeDatosInstance}" field="proyectoDescripcion"/></span>
+					</li>
+				</g:if>
+
 				<g:if test="${conjuntoDeDatosInstance?.responsable}">
 				<li class="fieldcontain">
 					<span id="responsable-label" class="property-label"><g:message code="conjuntoDeDatos.responsable.label" default="Responsable" /></span>

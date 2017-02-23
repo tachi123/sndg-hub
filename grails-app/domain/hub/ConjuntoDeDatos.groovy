@@ -8,6 +8,10 @@ class ConjuntoDeDatos {
 
 	String descripcion
 
+	String proyectoDescripcion
+
+	String proyecto
+
 	String responsable
 
 	String colaboradores
@@ -26,12 +30,15 @@ class ConjuntoDeDatos {
 
 	static mapping = {
 		descripcion type: 'text'
+		proyectoDescripcion type: 'text'
 	}
 
     static constraints = {
 		nombre()
 		singiID()
 		descripcion nullable: true
+		proyecto nullable: true
+		proyectoDescripcion nullable: true
 		responsable nullable: true
 		colaboradores nullable: true
 		porcentajeSecuenciado nullable: true

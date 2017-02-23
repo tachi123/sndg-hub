@@ -7,8 +7,15 @@ class BuscarController {
     		def q = "%"+params.q+"%"
 			if (params.q == '*')
 				q = "%%"
-			def datos = ConjuntoDeDatos.findAllByNombreIlikeOrDescripcionIlike(q, q, [max: 10 , sort: "nombre"])
-            def datosCount = ConjuntoDeDatos.countByNombreIlikeOrDescripcionIlike(q, q)
+
+	    def datos = ConjuntoDeDatos.createCriteria().list(max: 10 , sort: "nombre") {
+			or { ilike('descripcion', q)
+			     ilike('nombre', q) 
+			     ilike('tipoDeOrganismo', q) 
+			     ilike('tipoDeComunidad', q) }
+	    }
+            def datosCount = datos.totalCount
+
             def herramientas = Herramienta.findAllByNombreIlikeOrDescripcionIlike(q, q, [max: 10, sort: "nombre" ])
             def herramientasCount = Herramienta.countByNombreIlikeOrDescripcionIlike(q, q)
 

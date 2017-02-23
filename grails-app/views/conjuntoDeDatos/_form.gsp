@@ -28,6 +28,23 @@
 	<g:textArea name="descripcion" value="${conjuntoDeDatosInstance?.descripcion}" rows="10" cols="100"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: conjuntoDeDatosInstance, field: 'proyecto', 'error')} ">
+	<label for="proyecto">
+		<g:message code="conjuntoDeDatos.proyecto.label" default="Proyecto" />
+
+	</label>
+	<g:textField name="proyecto" value="${conjuntoDeDatosInstance?.proyecto}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: conjuntoDeDatosInstance, field: 'proyectoDescripcion', 'error')} ">
+	<label for="proyectoDescripcion">
+		<g:message code="conjuntoDeDatos.proyectoDescripcion.label" default="Descripcion del proyecto" />
+
+	</label>
+	<g:textArea name="proyectoDescripcion" value="${conjuntoDeDatosInstance?.proyectoDescripcion}" rows="10" cols="100"/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: conjuntoDeDatosInstance, field: 'responsable', 'error')} ">
 	<label for="responsable">
 		<g:message code="conjuntoDeDatos.responsable.label" default="Responsable" />

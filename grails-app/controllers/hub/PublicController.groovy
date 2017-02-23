@@ -9,7 +9,14 @@ class PublicController {
 				def q = "%"+params.q+"%"
 				if (params.q == '*')
 					q = "%%"
-                def datos = ConjuntoDeDatos.findAllByNombreIlikeOrDescripcionIlike(q, q)
+	    def datos = ConjuntoDeDatos.createCriteria().list(max: 10 , sort: "nombre") {
+			or { ilike('descripcion', q)
+			     ilike('nombre', q) 
+			     ilike('tipoDeOrganismo', q) 
+			     ilike('tipoDeComunidad', q) }
+	    }
+            def datosCount = datos.totalCount
+
                 def herramientas = Herramienta.findAllByNombreIlikeOrDescripcionIlike(q, q )
 		List<Long> idsDeCentros = [ -1 ]
                 idsDeCentros.addAll(datos.collect{ it.unidad?.centro?.id })
@@ -32,7 +39,15 @@ class PublicController {
 				def q = "%"+params.q+"%"
 				if (params.q == '*')
 					q = "%%"
-				respond ConjuntoDeDatos.findAllByNombreIlikeOrDescripcionIlike(q, q, [max: 10, offset: params.offset ?: 0, sort: "nombre"]), model:[conjuntoDeDatosInstanceCount: ConjuntoDeDatos.countByNombreIlike(q)]
+			    def datos = ConjuntoDeDatos.createCriteria().list(max: 10 , offset: params.offset ?: 0, sort: "nombre") {
+					or { ilike('descripcion', q)
+					     ilike('nombre', q) 
+					     ilike('tipoDeOrganismo', q) 
+					     ilike('tipoDeComunidad', q) }
+			    }
+			    def datosCount = datos.totalCount
+
+				respond datos, model:[conjuntoDeDatosInstanceCount: datosCount]
 			} else {
 				if (params.centroId) {
 					def losDatos = ConjuntoDeDatos.createCriteria().list(params) {

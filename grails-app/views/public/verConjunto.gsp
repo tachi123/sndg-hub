@@ -49,6 +49,22 @@
             </div>
         </g:if>
 
+        <g:if test="${conjuntoDeDatosInstance.proyecto || conjuntoDeDatosInstance.proyectoDescripcion }">
+            <div class="row visor-list">
+                <div class="col-md-1">
+                    <asset:image class="pull-right" src="icono_maletin.jpg" width="26" height="26"/>
+                </div>
+                <div class="col-md-11">
+                    <g:if test="${conjuntoDeDatosInstance.proyecto}">
+                        <label><strong>Proyecto:&nbsp;</strong></label><label>${conjuntoDeDatosInstance?.proyecto}</label>
+                    </g:if>
+                    <g:if test="${conjuntoDeDatosInstance.proyectoDescripcion}">
+                        <div class="elemento-descripcion"><label>${conjuntoDeDatosInstance?.proyectoDescripcion}<br/></label></div>
+                    </g:if>
+                </div>
+            </div>
+        </g:if>
+
         <g:if test="${conjuntoDeDatosInstance.responsable}">
             <div class="row visor-list">
                 <div class="col-md-1">
