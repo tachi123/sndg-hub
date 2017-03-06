@@ -31,11 +31,16 @@
 						<g:sortableColumn property="singiID" title="${message(code: 'herramienta.singiID.label', default: 'Singi ID')}" />
 					
 						<g:sortableColumn property="descripcion" title="${message(code: 'herramienta.descripcion.label', default: 'Descripcion')}" />
-					
+
+						<g:sortableColumn property="proyecto" title="${message(code: 'conjuntoDeDatos.proyecto.label', default: 'Proyecto')}" />
+
+						<g:sortableColumn property="proyectoDescripcion" title="${message(code: 'conjuntoDeDatos.proyectoDescripcion.label', default: 'Descripcion de proyecto')}" />
+
 						<g:sortableColumn property="responsable" title="${message(code: 'herramienta.responsable.label', default: 'Responsable')}" />
 					
 						<g:sortableColumn property="colaboradores" title="${message(code: 'herramienta.colaboradores.label', default: 'Colaboradores')}" />
-					
+
+						<g:sortableColumn property="url" title="${message(code: 'herramienta.url.label', default: 'URL')}" />
 					</tr>
 				</thead>
 				<tbody>
@@ -50,10 +55,16 @@
 					
 						<td>${fieldValue(bean: herramientaInstance, field: "descripcion").length()>30 ? fieldValue(bean: herramientaInstance, field: "descripcion").take(30) + " ..." : fieldValue(bean: herramientaInstance, field: "descripcion")}</td>
 
+						<td>${fieldValue(bean: herramientaInstance, field: "proyecto")}</td>
+
+						<td>${fieldValue(bean: herramientaInstance, field: "proyectoDescripcion").length()>30 ? fieldValue(bean: herramientaInstance, field: "proyectoDescripcion").take(30) + " ..." : fieldValue(bean: herramientaInstance, field: "proyectoDescripcion")}</td>
+
 						<td>${fieldValue(bean: herramientaInstance, field: "responsable")}</td>
 					
 						<td>${fieldValue(bean: herramientaInstance, field: "colaboradores")}</td>
-					
+
+						<td>${fieldValue(bean: herramientaInstance, field: "url")}</td>
+
 					</tr>
 				</g:each>
 				</tbody>

@@ -38,6 +38,23 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: herramientaInstance, field: 'proyecto', 'error')} ">
+	<label for="proyecto">
+		<g:message code="herramienta.proyecto.label" default="Proyecto" />
+
+	</label>
+	<g:textField name="proyecto" value="${herramientaInstance?.proyecto}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: herramientaInstance, field: 'proyectoDescripcion', 'error')} ">
+	<label for="proyectoDescripcion">
+		<g:message code="herramienta.proyectoDescripcion.label" default="Descripcion del proyecto" />
+
+	</label>
+	<g:textArea name="proyectoDescripcion" value="${herramientaInstance?.proyectoDescripcion}" rows="10" cols="100"/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: herramientaInstance, field: 'responsable', 'error')} ">
 	<label for="responsable">
 		<g:message code="herramienta.responsable.label" default="Responsable" />
@@ -62,6 +79,15 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="unidad" name="unidad.id" from="${hub.Unidad.list()}" optionKey="id" required="" value="${herramientaInstance?.unidad?.id}" class="many-to-one"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: herramientaInstance, field: 'url', 'error')} ">
+	<label for="url">
+		<g:message code="herramienta.url.label" default="Enlace" />
+
+	</label>
+	<g:textField name="url" value="${herramientaInstance?.url}"/>
 
 </div>
 

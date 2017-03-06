@@ -29,7 +29,21 @@
 				<div class="col-md-11"><label>${herramientaInstance?.descripcion}<br/></label></div>
 			</div>
 		</g:if>
-
+		<g:if test="${herramientaInstance.proyecto || herramientaInstance.proyectoDescripcion }">
+			<div class="row visor-list">
+				<div class="col-md-1">
+					<asset:image class="pull-right" src="icono_maletin.jpg" width="26" height="26"/>
+				</div>
+				<div class="col-md-11">
+					<g:if test="${herramientaInstance.proyecto}">
+						<label><strong>Proyecto:&nbsp;</strong></label><label>${herramientaInstance?.proyecto}</label>
+					</g:if>
+					<g:if test="${herramientaInstance.proyectoDescripcion}">
+						<div class="elemento-descripcion"><label>${herramientaInstance?.proyectoDescripcion}<br/></label></div>
+					</g:if>
+				</div>
+			</div>
+		</g:if>
 		<g:if test="${herramientaInstance.responsable}">
 			<div class="row visor-list">
 				<div class="col-md-1">
@@ -88,6 +102,19 @@
 				</div>
 			</div>
 		</g:if>
+		<g:if test="${herramientaInstance.url}">
+			<div class="row visor-list">
+                <div class="col-md-1">
+				<asset:image src="icono_enlace.png" class="img-fluid pull-right"
+							 alt="Ir a la herramienta" title="Ver"/>
+			</div>
+			<div>
+					<g:link target="_BLANK" uri="${herramientaInstance.url}" >
+						${herramientaInstance.url}</g:link>
+
+			</div>
+		</g:if>
+
 
 	</div>
 <div class="container a-veinti5">&nbsp;</div>
