@@ -32,7 +32,7 @@
 		<g:if test="${herramientaInstance.proyecto || herramientaInstance.proyectoDescripcion }">
 			<div class="row visor-list">
 				<div class="col-md-1">
-					<asset:image class="pull-right" src="icono_maletin.jpg" width="26" height="26"/>
+					<asset:image class="pull-right" src="icono_maletin.png" width="26" height="26"/>
 				</div>
 				<div class="col-md-11">
 					<g:if test="${herramientaInstance.proyecto}">
