@@ -29,8 +29,14 @@
 							<g:if test="${herramientaInstance?.unidad?.centro?.adherido}">
 								<asset:image src="icono_adherido.png" class="img-fluid" alt="Centro adherido" title="Adherido"/>
 							</g:if>
-						</td>
-						<td>
+							<g:if test="${herramientaInstance.url}">
+								<g:link target="_BLANK" uri="${herramientaInstance.url}" >
+								<asset:image src="icono_enlace.png" class="img-fluid"
+												 alt="Ir a la herramienta" title="Ver">
+											${herramientaInstance.url}
+								</asset:image>
+								</g:link>
+							</g:if>
 						</td>
 					</tr>
 				</g:each>

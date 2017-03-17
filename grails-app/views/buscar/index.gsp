@@ -126,8 +126,12 @@
 							${fieldValue(bean: herramientaInstance, field: "nombre")}</g:link>
 							- <g:link controller="public" action="centros" params="[id: herramientaInstance?.unidad?.centro?.id]">${herramientaInstance.unidad}</g:link>
 <%--							<asset:image src="icono_buscador.png" class="img-fluid" alt="Ver Herramienta" title="Ver"/>--%>
-						</td>
-						<td>
+							<g:if test="${herramientaInstance.url}">
+								<g:link target="_BLANK" uri="${herramientaInstance.url}" >
+								<asset:image src="icono_enlace.png" class="img-fluid" alt="Ir a la herramienta" title="Ver">
+									</asset:image>
+								</g:link>
+							</g:if>
 						</td>
 					</tr>
 				</g:each>
