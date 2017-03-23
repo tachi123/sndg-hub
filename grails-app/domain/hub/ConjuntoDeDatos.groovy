@@ -23,6 +23,8 @@ class ConjuntoDeDatos {
 	String tipoDeOrganismo
 	
 	String tipoDeComunidad
+
+	Integer orden = 0
 	
 	static belongsTo = [ unidad : Unidad ]
 	
@@ -31,6 +33,7 @@ class ConjuntoDeDatos {
 	static mapping = {
 		descripcion type: 'text'
 		proyectoDescripcion type: 'text'
+		colaboradores type: 'text'
 	}
 
     static constraints = {
@@ -44,6 +47,6 @@ class ConjuntoDeDatos {
 		porcentajeSecuenciado nullable: true
 		tipoDeOrganismo nullable: true
 		tipoDeComunidad nullable: true
-
+		orden nullable: true
     }
 }

@@ -20,6 +20,8 @@ class Herramienta {
 
 	String url
 
+	Integer orden
+
 	static belongsTo = [ unidad : Unidad ]
 	
     static constraints = {
@@ -32,9 +34,12 @@ class Herramienta {
 		responsable nullable: true
 		colaboradores nullable: true
 		url nullable: true
+		orden nullable: true
 	}
 
 	static mapping = {
 		descripcion type: 'text'
+		proyectoDescripcion type: 'text'
+		colaboradores type: 'text'
 	}
 }

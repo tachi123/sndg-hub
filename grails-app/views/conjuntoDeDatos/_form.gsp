@@ -117,3 +117,12 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: conjuntoDeDatosInstance, field: 'orden', 'error')} ">
+	<label for="orden">
+		<g:message code="conjuntoDeDatos.orden.label" default="Orden" />
+
+	</label>
+	<g:field name="orden" type="number" value="${conjuntoDeDatosInstance.orden}"/>
+
+</div>
+

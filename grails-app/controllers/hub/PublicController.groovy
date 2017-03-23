@@ -56,6 +56,7 @@ class PublicController {
 								eq('singiID', params.centroId)
 							}
 						}
+						order('orden', 'asc')
 						order('nombre', 'asc')
 					}
 					respond losDatos, model:[conjuntoDeDatosInstanceCount: losDatos.totalCount]

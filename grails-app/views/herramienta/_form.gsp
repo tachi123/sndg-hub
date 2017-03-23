@@ -91,3 +91,11 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: herramientaInstance, field: 'orden', 'error')} ">
+	<label for="orden">
+		<g:message code="herramienta.orden.label" default="Orden" />
+
+	</label>
+	<g:field name="orden" type="number" value="${herramientaInstance.orden}"/>
+
+</div>

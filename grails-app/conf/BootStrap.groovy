@@ -6,10 +6,14 @@ class BootStrap {
 
 	def init = { servletContext ->
 		def sql = new Sql(dataSource)
-		String dml = 'ALTER TABLE conjunto_de_datos ALTER COLUMN DESCRIPCION TEXT'
+		String dml = 'ALTER TABLE conjunto_de_datos ALTER COLUMN PROYECTO_DESCRIPCION TEXT'
+        sql.execute(dml)
+        dml = 'ALTER TABLE conjunto_de_datos ALTER COLUMN COLABORADORES TEXT'
 		sql.execute(dml)
 
-        dml = 'ALTER TABLE herramienta ALTER COLUMN DESCRIPCION TEXT'
+        dml = 'ALTER TABLE herramienta ALTER COLUMN PROYECTO_DESCRIPCION TEXT'
+        sql.execute(dml)
+        dml = 'ALTER TABLE herramienta ALTER COLUMN COLABORADORES TEXT'
         sql.execute(dml)
 
     }
