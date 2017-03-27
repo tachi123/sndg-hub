@@ -10,7 +10,6 @@ Para colaborar es necesario instalar Grails 2.4.4 e importar el proyecto con tu 
 
 ##Agradecimientos
 
-Este portal se desarrolló usando software libre e [IntelliJ IDEA](https://www.jetbrains.com/idea/).
-
-<img src="logo-ij.png" alt="logo IJ IDEA" width="20px" height="20px">
+Este portal se desarrolló usando software libre e [IntelliJ IDEA](https://www.jetbrains.com/idea/). 
+<img src="logo-ij.png" alt="logo IJ IDEA" width="30px" height="30px">
 
