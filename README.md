@@ -2,7 +2,9 @@
 
 Este es el repositorio de código del portal de Datos Genómicos.
 
-Esta es una aplicación web basada en grails.
+Esta es una aplicación web basada que permite listar y buscar en un listado de instituciones, conjuntos de datos y herramientas para trabajar con datos genómicos.
+
+A su vez permite administrar estos listados y enlazarse con [XomeQ](http://arkham.exp.dc.uba.ar/xomeq/public/html/tutorial.html).
 
 ## Requerimientos técnicos
 
