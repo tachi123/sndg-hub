@@ -15,7 +15,7 @@ class EstaticaController {
 		//		if (params.genome) {
 		//			url += '/genome/' + params.genome
 		//		}
-		respond view: 'navegador', url, model: [url: url, title: 'Estad&iacute;sticas']
+		respond view: 'estadisticas', url, model: [url: url, title: 'Estad&iacute;sticas']
 	}
 	
 	def foroMeta() {
