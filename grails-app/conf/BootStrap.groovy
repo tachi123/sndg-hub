@@ -1,4 +1,5 @@
 import groovy.sql.Sql
+import hub.User
 
 class BootStrap {
 
@@ -17,6 +18,13 @@ class BootStrap {
         dml = 'ALTER TABLE herramienta ALTER COLUMN COLABORADORES TEXT'
         sql.execute(dml)
 */
+        def elAdmin = User.findByUsername('admin')
+        if (!elAdmin) {
+            elAdmin = new User()
+            elAdmin.username = 'admin'
+            elAdmin.password = '123'
+            elAdmin.save()
+        }
     }
     def destroy = {
     }
