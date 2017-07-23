@@ -181,4 +181,4 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 //	}
 //  }
 
-grails.plugin.springsecurity.providerNames = ['ldapAuthProvider', 'daoAuthenticationProvider', 'anonymousAuthenticationProvider'] // specify this when you want to skip attempting to load from db and only use LDAP
+grails.plugin.springsecurity.providerNames = [ 'daoAuthenticationProvider', 'ldapAuthProvider', 'anonymousAuthenticationProvider'] // specify this when you want to skip attempting to load from db and only use LDAP
