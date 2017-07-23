@@ -30,6 +30,16 @@ class UrlMappings {
 			controller = 'buscar'
 			action = 'index'
 		}
+
+        "/conjuntosDeDatosDe/$id" {
+            controller = 'interoperating'
+            action = 'conjuntosDeDatosPorCentro'
+        }
+        "/nuevoRecurso" {
+            controller = 'interoperating'
+            action = 'agregarOModificarRecurso'
+        }
+
 		"/administrar"(view:"/administrar")
 		"/"(view:"/index")
         "500"(view:'/error')
