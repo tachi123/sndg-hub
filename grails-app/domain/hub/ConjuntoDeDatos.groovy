@@ -28,7 +28,7 @@ class ConjuntoDeDatos {
 	
 	static belongsTo = [ unidad : Unidad ]
 	
-	static hasMany = [ enlaces : Enlace ]
+	static hasMany = [ enlaces : Enlace, recursos: Recurso ]
 
 	static mapping = {
 		descripcion type: 'text'

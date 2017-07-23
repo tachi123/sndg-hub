@@ -123,6 +123,8 @@
                 </div>
             </div>
         </g:if>
+
+        <!--
         <g:if test="${conjuntoDeDatosInstance?.enBuscador}">
             <div class="row visor-list">
                 <div class="col-md-1">
@@ -139,6 +141,27 @@
                 </div>
             </div>
         </g:if>
+        -->
+
+    <div class="row visor-list">
+        <div class="col-md-1">&nbsp;</div>
+        <div class="col-md-11">
+            <label><strong>Recursos&nbsp;</strong></label>
+            <table class="table">
+                <tbody>
+                <g:each in="${conjuntoDeDatosInstance.recursos}" status="i"
+                        var="recursoInstance">
+                    <tr>
+                        <td class="row-fluid">
+                            ${recursoInstance.nombre}
+                        </td>
+                    </tr>
+                </g:each>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </div>
 
 <div class="container a-veinti5">&nbsp;</div>
