@@ -1,0 +1,15 @@
+
+curl -X GET http://localhost:8080/sndg-hub/conjuntosDeDatosDe/101
+
+curl -X POST http://localhost:8080/sndg-hub/nuevoRecurso --data @nuevoRecurso.json
+{
+  "recurso": 1,
+  "dato": 1,
+  "nombre": "primer recurso",
+  "descripcion": "la descripci¢n del mismo",
+  "urlDescargaArchivo": "http://www.google.com/index.html",
+  "taxId": 123,
+  "pathNavegador": "ASD432",
+  "usuario": "sarasa",
+  "webRecurso" : ""
+}

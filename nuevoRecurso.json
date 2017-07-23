@@ -1,0 +1,11 @@
+{
+  "recurso": 1,
+  "dato": 143,
+  "nombre": "primer recurso",
+  "descripcion": "la descripci¢n del mismo",
+  "taxId": 123,
+  "urlDescargaArchivo": "http://www.google.com/index.html",
+  "pathNavegador": "ASD432",
+  "usuario": "sarasa",
+  "webRecurso" : ""
+}
