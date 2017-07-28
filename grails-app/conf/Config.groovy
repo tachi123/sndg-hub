@@ -149,36 +149,15 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/images/**':    ['permitAll'],
 	'/**/favicon.ico':  ['permitAll'],
 	'/**':  			['permitAll'],
-	'/administrar':      ['ROLE_USER'],
-	'/centro/**':        ['ROLE_USER'],
-	'/conjuntoDeDatos/**':  ['ROLE_USER'],
-	'/herramienta/**':      ['ROLE_USER'],
-	'/unidad/**':      ['ROLE_USER'],
-	'/enlace/**':      ['ROLE_USER']
+	'/administrar':     ['ROLE_USER','ROLE_ADMIN'],
+    '/user/**':         ['ROLE_ADMIN'],
+    '/userRole/**':         ['ROLE_ADMIN'],
+    '/role/**':         ['ROLE_ADMIN'],
+	'/centro/**':       ['ROLE_USER','ROLE_ADMIN'],
+	'/conjuntoDeDatos/**':  ['ROLE_USER','ROLE_ADMIN'],
+	'/herramienta/**':      ['ROLE_USER','ROLE_ADMIN'],
+	'/unidad/**':      ['ROLE_USER','ROLE_ADMIN'],
+	'/enlace/**':      ['ROLE_USER','ROLE_ADMIN']
 ]
-
-//grails {
-//	plugin {
-//	  springsecurity {
-//		ldap {
-//		  context {
-//			managerDn = "SVC_LDAP.AUTH"
-//			managerPassword = "NO_ME_LA_SE"
-//			server = "ldap://URL:PUERTO/"
-//		  }
-//		  authorities { ignorePartialResultException = true }
-//		  search {
-//			base = "dc=MINCYT,dc=GOB,dc=AR"
-//			filter="sAMAccountName={0}" // for Active Directory you need this
-//			searchSubtree = true
-//			attributesToReturn = [
-//			  'mail',
-//			  'displayName'] // extra attributes you want returned; see below for custom classes that access this data
-//		  }
-//		  auth { hideUserNotFoundExceptions = false }
-//		}
-//	  }
-//	}
-//  }
 
 grails.plugin.springsecurity.providerNames = [ 'daoAuthenticationProvider', 'ldapAuthProvider', 'anonymousAuthenticationProvider'] // specify this when you want to skip attempting to load from db and only use LDAP

@@ -1,29 +1,26 @@
 import groovy.sql.Sql
 import hub.User
+import hub.Role
+import hub.UserRole
 
 class BootStrap {
 
 	def dataSource
 
 	def init = { servletContext ->
-/*
-		def sql = new Sql(dataSource)
-		String dml = 'ALTER TABLE conjunto_de_datos ALTER COLUMN PROYECTO_DESCRIPCION TEXT'
-        sql.execute(dml)
-        dml = 'ALTER TABLE conjunto_de_datos ALTER COLUMN COLABORADORES TEXT'
-		sql.execute(dml)
+        def rolAdmin = Role.findByAuthority('ROLE_ADMIN')
+        if (!rolAdmin) {
+            rolAdmin = new Role(authority: 'ROLE_ADMIN')
+            rolAdmin.save()
+        }
 
-        dml = 'ALTER TABLE herramienta ALTER COLUMN PROYECTO_DESCRIPCION TEXT'
-        sql.execute(dml)
-        dml = 'ALTER TABLE herramienta ALTER COLUMN COLABORADORES TEXT'
-        sql.execute(dml)
-*/
         def elAdmin = User.findByUsername('admin')
         if (!elAdmin) {
             elAdmin = new User()
             elAdmin.username = 'admin'
             elAdmin.password = '123'
             elAdmin.save()
+            new UserRole(user: elAdmin, role: rolAdmin).save()
         }
     }
     def destroy = {

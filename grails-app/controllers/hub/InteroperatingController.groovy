@@ -4,6 +4,10 @@ class InteroperatingController {
 
     static responseFormats = ['json', 'xml']
 
+    def springSecurityService
+
+    static allowedMethods = [agregarOModificarRecurso:'POST']
+
     def agregarOModificarRecurso() {
         def datos = request.JSON
         def elRecurso = Recurso.findOrCreateByRecursoId(datos.recurso)
@@ -21,10 +25,6 @@ class InteroperatingController {
         }
         respond elRecurso
     }
-
-    def springSecurityService
-
-    static allowedMethods = [agregarOModificarRecurso:'POST']
 
     def conjuntosDeDatosPorCentro() {
         def us = ConjuntoDeDatos.createCriteria().list(params) {
@@ -44,5 +44,6 @@ class InteroperatingController {
                 nombre: x.nombre,
                 idSingi: x.singiID
         ]
+
     }
 }
