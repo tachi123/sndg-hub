@@ -25,6 +25,10 @@
             &nbsp;<g:link controller="conjuntoDeDatos" action="edit" resource="${conjuntoDeDatosInstance}"
                           class="btn btn-warning">Editar...</g:link>
         </sec:ifLoggedIn>
+        <sec:ifLoggedIn>
+            &nbsp;<g:link uri="http://target.sbg.qb.fcen.uba.ar/sndgupload/${conjuntoDeDatosInstance?.unidad?.centro?.singiID}/${conjuntoDeDatosInstance?.singiID}"
+                          class="btn btn-danger">Administrar recursos</g:link>
+        </sec:ifLoggedIn>
     </h2>
     <hr/>
         <g:if test="${conjuntoDeDatosInstance.descripcion || conjuntoDeDatosInstance.tipoDeOrganismo || conjuntoDeDatosInstance.tipoDeComunidad }">
