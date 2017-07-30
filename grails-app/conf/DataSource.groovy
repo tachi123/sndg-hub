@@ -21,20 +21,20 @@ environments {
     development {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:mysql://168.83.5.199/sndg?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8"
+            url = "jdbc:mysql://localhost/sndg?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull"
 	    logSql = true
         }
     }
     test {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://168.83.5.199/sndg?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8"
-        }
+            url = "jdbc:mysql://localhost/sndg?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8"
+            }
     }
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://168.83.5.199/sndg?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8"
+            url = "jdbc:mysql://localhost/sndg?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8"
             properties {
                // See http://grails.org/doc/latest/guide/conf.html#dataSource for documentation
                jmxEnabled = true

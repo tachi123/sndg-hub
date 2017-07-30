@@ -157,7 +157,13 @@
                         var="recursoInstance">
                     <tr>
                         <td class="row-fluid">
-                            ${recursoInstance.nombre}
+                            <span>${recursoInstance.nombre}</span>
+                            <g:if test="recursoInstance.path">
+                                <g:link class="btn btn-info btn-xs btn-round"
+                                        controller="estatica" action="navegador" params="[genome: recursoInstance.path]" target="_BLANK">
+                                    ${recursoInstance.path ?: recursoInstance.nombre}
+                                </g:link>
+                            </g:if>
                         </td>
                     </tr>
                 </g:each>
