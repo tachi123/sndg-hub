@@ -5,7 +5,8 @@
     <title>${ title }</title>
 </head>
 <body>
-<div class="container-fluid">
+<%--<div class="container-fluid">--%>
+<div class="container text-center">
     <div class="row">
         <div class="col-xs-12">
 
@@ -29,7 +30,7 @@
             <script type='text/javascript'>
                 var divElement = document.getElementById('viz1490291152298');
                 var vizElement = divElement.getElementsByTagName('object')[0];
-                vizElement.style.width='100%';vizElement.style.height='90vh';
+                vizElement.style.width='100%';vizElement.style.height='850px';
                 //vizElement.style.width='1220px';vizElement.style.height='933px';
                 var scriptElement = document.createElement('script');
                 scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';

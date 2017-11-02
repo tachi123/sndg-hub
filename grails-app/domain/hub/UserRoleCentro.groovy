@@ -6,26 +6,34 @@ import groovy.transform.ToString
 import org.apache.commons.lang.builder.HashCodeBuilder
 
 @ToString(cache=true, includeNames=true, includePackage=false)
-class UserRole implements Serializable {
-
-	private static final long serialVersionUID = 1
+class UserRoleCentro implements Serializable {
 
 	User user
 	Role role
+	Centro centro
 
-	UserRole(User u, Role r) {
+	UserRoleCentro(User u, Role r) {
 		this()
 		user = u
 		role = r
+		centro = null
+	}
+	
+	
+	UserRoleCentro(User u, Role r, Centro c) {
+		this()
+		user = u
+		role = r
+		centro = c
 	}
 
 	@Override
 	boolean equals(other) {
-		if (!(other instanceof UserRole)) {
+		if (!(other instanceof UserRoleCentro)) {
 			return false
 		}
 
-		other.user?.id == user?.id && other.role?.id == role?.id
+		other.user?.id == user?.id && other.role?.id == role?.id && other.centro?.id == centro?.id
 	}
 
 	@Override
@@ -33,36 +41,38 @@ class UserRole implements Serializable {
 		def builder = new HashCodeBuilder()
 		if (user) builder.append(user.id)
 		if (role) builder.append(role.id)
+		if (centro) builder.append(centro.id)
 		builder.toHashCode()
 	}
 
-	static UserRole get(long userId, long roleId) {
-		criteriaFor(userId, roleId).get()
+	static UserRoleCentro get(long userId, long roleId, long centroId) {
+		criteriaFor(userId, roleId, centroId).get()
 	}
 
-	static boolean exists(long userId, long roleId) {
-		criteriaFor(userId, roleId).count()
+	static boolean exists(long userId, long roleId, long centroId) {
+		criteriaFor(userId, roleId, centroId).count()
 	}
 
-	private static DetachedCriteria criteriaFor(long userId, long roleId) {
-		UserRole.where {
+	private static DetachedCriteria criteriaFor(long userId, long roleId, long centroId) {
+		UserRoleCentro.where {
 			user == User.load(userId) &&
-			role == Role.load(roleId)
+			role == Role.load(roleId) &&
+			centro == Centro.load(centroId)
 		}
 	}
 
-	static UserRole create(User user, Role role, boolean flush = false) {
-		def instance = new UserRole(user: user, role: role)
+	static UserRoleCentro create(User user, Role role, Centro centro, boolean flush = false) {
+		def instance = new UserRoleCentro(user: user, role: role, centro: centro)
 		instance.save(flush: flush, insert: true)
 		instance
 	}
 
-	static boolean remove(User u, Role r, boolean flush = false) {
+	static boolean remove(User u, Role r, Centro c, boolean flush = false) {
 		if (u == null || r == null) return false
 
-		int rowCount = UserRole.where { user == u && role == r }.deleteAll()
+		int rowCount = UserRoleCentro.where { user == u && role == r && centro == c}.deleteAll()
 
-		if (flush) { UserRole.withSession { it.flush() } }
+		if (flush) { UserRoleCentro.withSession { it.flush() } }
 
 		rowCount
 	}
@@ -70,34 +80,37 @@ class UserRole implements Serializable {
 	static void removeAll(User u, boolean flush = false) {
 		if (u == null) return
 
-		UserRole.where { user == u }.deleteAll()
+		UserRoleCentro.where { user == u }.deleteAll()
 
-		if (flush) { UserRole.withSession { it.flush() } }
+		if (flush) { UserRoleCentro.withSession { it.flush() } }
 	}
 
 	static void removeAll(Role r, boolean flush = false) {
 		if (r == null) return
 
-		UserRole.where { role == r }.deleteAll()
+		UserRoleCentro.where { role == r }.deleteAll()
 
-		if (flush) { UserRole.withSession { it.flush() } }
+		if (flush) { UserRoleCentro.withSession { it.flush() } }
 	}
 
 	static constraints = {
-		role validator: { Role r, UserRole ur ->
+		role validator: { Role r, UserRoleCentro ur ->
 			if (ur.user == null || ur.user.id == null) return
+			if (ur.centro == null || ur.centro.id == null) return
 			boolean existing = false
-			UserRole.withNewSession {
-				existing = UserRole.exists(ur.user.id, r.id)
+			UserRoleCentro.withNewSession {
+				existing = UserRoleCentro.exists(ur.user.id, r.id, ur.centro.id)
 			}
 			if (existing) {
-				return 'userRole.exists'
+				return 'userRoleCentro.exists'
 			}
 		}
+		centro nullable:true
 	}
 
 	static mapping = {
-		id composite: ['user', 'role']
+		id composite: ['user', 'role', 'centro']
 		version false
 	}
+	
 }

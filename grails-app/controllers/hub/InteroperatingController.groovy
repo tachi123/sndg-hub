@@ -7,23 +7,24 @@ class InteroperatingController {
     def springSecurityService
 
     static allowedMethods = [agregarOModificarRecurso:'POST']
-
+	
     def agregarOModificarRecurso() {
         def datos = request.JSON
-        def elRecurso = Recurso.findOrCreateByRecursoId(datos.recurso)
-        elRecurso.conjunto = ConjuntoDeDatos.findBySingiID(datos.dato)
-        elRecurso.nombre = datos.nombre
-        elRecurso.descripcion = datos.descripcion
-        elRecurso.url = datos.urlDescargaArchivo
-        elRecurso.path = datos.pathNavegador
-        elRecurso.taxonomia = datos.taxId;
-        elRecurso.usuarioAlta = datos.usuario;
-        elRecurso.web = datos.webRecurso;
+        def elRecurso = Recurso.findOrCreateByRecursoId(datos.recursoId)
+        elRecurso.conjunto = ConjuntoDeDatos.findBySingiID(datos.conjunto.id)
+        elRecurso.nombre = datos.nombre;
+		byte[] asdf = datos.descripcion.getBytes("UTF-8");
+        elRecurso.descripcion =  new String(asdf, "UTF-8");
+        elRecurso.url = datos.url;
+        elRecurso.path = datos.path;
+        elRecurso.taxonomia = datos.taxonomia;
+        elRecurso.usuarioAlta = datos.usuarioAlta;
+        elRecurso.web = datos.web;
         elRecurso.save()
         if (elRecurso.errors) {
             respond errors
         }
-        respond elRecurso
+		respond elRecurso
     }
 
     def conjuntosDeDatosPorCentro() {

@@ -137,7 +137,7 @@ grails.plugins.twitterbootstrap.fixtaglib = true
 
 // Added by the Spring Security Core plugin:
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'hub.User'
-grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'hub.UserRole'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'hub.UserRoleCentro'
 grails.plugin.springsecurity.authority.className = 'hub.Role'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                ['permitAll'],
@@ -151,13 +151,13 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**':  			['permitAll'],
     '/administrar':     ['ROLE_USER','ROLE_ADMIN'],
     '/user/**':         ['ROLE_ADMIN'],
-    '/userRole/**':         ['ROLE_ADMIN'],
+    '/userRoleCentro/**':         ['ROLE_ADMIN'],
     '/role/**':         ['ROLE_ADMIN'],
 	'/centro/**':       ['ROLE_USER','ROLE_ADMIN'],
-	'/conjuntoDeDatos/**':  ['ROLE_USER','ROLE_ADMIN'],
+	'/conjuntoDeDatos/**':  ['ROLE_USER','ROLE_ADMIN','USER_CENTRO'],
 	'/herramienta/**':      ['ROLE_USER','ROLE_ADMIN'],
 	'/unidad/**':      ['ROLE_USER','ROLE_ADMIN'],
 	'/enlace/**':      ['ROLE_USER','ROLE_ADMIN']
 ]
-
+grails.plugin.springsecurity.password.algorithm='SHA-1'
 grails.plugin.springsecurity.providerNames = [ 'daoAuthenticationProvider', 'ldapAuthProvider', 'anonymousAuthenticationProvider'] // specify this when you want to skip attempting to load from db and only use LDAP

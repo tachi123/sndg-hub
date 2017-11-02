@@ -72,6 +72,13 @@
 <%--					</g:link>--%>
 <%--				</li>--%>
 			</ul>
+			<sec:ifNotLoggedIn>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="${controllerName == '' ? 'active' : ''}">
+						<g:link uri="/login">INICIAR SESIÓN</g:link>
+					</li>
+				</ul>
+			</sec:ifNotLoggedIn>
 			<sec:ifLoggedIn>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown"><a href="#" class="dropdown-toggle"

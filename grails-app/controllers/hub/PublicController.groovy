@@ -1,7 +1,9 @@
 package hub
 
 class PublicController {
-
+	
+	def springSecurityService
+	
     def centros(Integer max) {
 		if (!params.id) {
 			params.max = Math.min(max ?: 20, 100)
@@ -35,7 +37,7 @@ class PublicController {
 		params.sort = "nombre"
 		if (!params.id) {
 	        params.max = Math.min(max ?: 10, 100)
-			if (params.q) {
+			if (params.q) {				
 				def q = "%"+params.q+"%"
 				if (params.q == '*')
 					q = "%%"
@@ -65,6 +67,17 @@ class PublicController {
 				}
 			}
 		} else {
+		
+		def user = springSecurityService.currentUser
+		
+		def userRoleCentro = null
+		if(user != null) userRoleCentro = UserRoleCentro.get(user.id, 2.toLong(), 8.toLong())
+		//UserRoleCentro.get(2.toLong(),2.toLong(), params.id.toString().toLong()),
+		
+//		Map paramsdata = [
+//		    conjuntoDeDatos: ConjuntoDeDatos.get(params.id),
+//			userRoleCentro: userRoleCentro
+//		]
 			respond ConjuntoDeDatos.get(params.id), view: 'verConjunto'
 		}
     }

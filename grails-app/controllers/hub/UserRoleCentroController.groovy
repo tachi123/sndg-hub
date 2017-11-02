@@ -6,86 +6,87 @@ import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
-class UserRoleController {
+class UserRoleCentroController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond UserRole.list(params), model:[userRoleInstanceCount: UserRole.count()]
+        respond UserRoleCentro.list(params), model:[userRoleCentroInstanceCount: UserRoleCentro.count()]
     }
 
-    def show(UserRole userRoleInstance) {
-        respond userRoleInstance
+    def show(UserRoleCentro userRoleCentroInstance) {
+        respond userRoleCentroInstance
     }
 
     def create() {
-        respond new UserRole(params)
+        respond new UserRoleCentro(params)
     }
 
     @Transactional
-    def save(UserRole userRoleInstance) {
-        if (userRoleInstance == null) {
+    def save(UserRoleCentro userRoleCentroInstance) {
+        if (userRoleCentroInstance == null) {
             notFound()
             return
         }
 
-        if (userRoleInstance.hasErrors()) {
-            respond userRoleInstance.errors, view:'create'
+        if (userRoleCentroInstance.hasErrors()) {
+            respond userRoleCentroInstance.errors, view:'create'
             return
         }
 
-        userRoleInstance.save flush:true
+        userRoleCentroInstance.save flush:true
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'userRole.label', default: 'UserRole'), userRoleInstance.id])
-                redirect userRoleInstance
+                flash.message = message(code: 'default.created.message', args: [message(code: 'userRoleCentro.label', default: 'UserRoleCentro'), userRoleCentroInstance.id])
+                redirect action: 'index'
+				//redirect userRoleCentroInstance
             }
-            '*' { respond userRoleInstance, [status: CREATED] }
+            '*' { respond userRoleCentroInstance, [status: CREATED] }
         }
     }
 
-    def edit(UserRole userRoleInstance) {
-        respond userRoleInstance
+    def edit(UserRoleCentro userRoleCentroInstance) {
+        respond userRoleCentroInstance
     }
 
     @Transactional
-    def update(UserRole userRoleInstance) {
-        if (userRoleInstance == null) {
+    def update(UserRoleCentro userRoleCentroInstance) {
+        if (userRoleCentroInstance == null) {
             notFound()
             return
         }
 
-        if (userRoleInstance.hasErrors()) {
-            respond userRoleInstance.errors, view:'edit'
+        if (userRoleCentroInstance.hasErrors()) {
+            respond userRoleCentroInstance.errors, view:'edit'
             return
         }
 
-        userRoleInstance.save flush:true
+        userRoleCentroInstance.save flush:true
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'UserRole.label', default: 'UserRole'), userRoleInstance.id])
-                redirect userRoleInstance
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'UserRoleCentro.label', default: 'UserRoleCentro'), userRoleCentroInstance.id])
+                redirect userRoleCentroInstance
             }
-            '*'{ respond userRoleInstance, [status: OK] }
+            '*'{ respond userRoleCentroInstance, [status: OK] }
         }
     }
 
     @Transactional
-    def delete(UserRole userRoleInstance) {
+    def delete(UserRoleCentro userRoleCentroInstance) {
 
-        if (userRoleInstance == null) {
+        if (userRoleCentroInstance == null) {
             notFound()
             return
         }
 
-        userRoleInstance.delete flush:true
+        userRoleCentroInstance.delete flush:true
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'UserRole.label', default: 'UserRole'), userRoleInstance.id])
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'UserRoleCentro.label', default: 'UserRoleCentro'), userRoleCentroInstance.id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
@@ -95,7 +96,7 @@ class UserRoleController {
     protected void notFound() {
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'userRole.label', default: 'UserRole'), params.id])
+                flash.message = message(code: 'default.not.found.message', args: [message(code: 'userRoleCentro.label', default: 'UserRoleCentro'), params.id])
                 redirect action: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }

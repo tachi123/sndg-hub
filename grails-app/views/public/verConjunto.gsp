@@ -1,4 +1,5 @@
 <%@ page import="hub.ConjuntoDeDatos" %>
+<%@ page import="hub.UserRoleCentro" %>
 <%@ page import="hub.Enlace" %>
 <!DOCTYPE html>
 <html>
@@ -22,12 +23,22 @@
     <h2 class="visor_titulo">
         ${conjuntoDeDatosInstance?.nombre}
         <sec:ifLoggedIn>
-            &nbsp;<g:link controller="conjuntoDeDatos" action="edit" resource="${conjuntoDeDatosInstance}"
+	    <sec:access expression="hasRole('ROLE_ADMIN')">
+            &nbsp;
+            <g:link controller="conjuntoDeDatos" action="edit" resource="${conjuntoDeDatosInstance}"
                           class="btn btn-warning">Editar...</g:link>
-        </sec:ifLoggedIn>
-        <sec:ifLoggedIn>
+           &nbsp;
+           <g:link uri="http://target.sbg.qb.fcen.uba.ar/sndgupload/${conjuntoDeDatosInstance?.unidad?.centro?.singiID}/${conjuntoDeDatosInstance?.singiID}"
+             class="btn btn-danger">Administrar recursos</g:link>    
+	    </sec:access>
+	    </sec:ifLoggedIn>
+	    <sec:ifLoggedIn>
+        <sec:access expression="hasRole('USER_CENTRO')">
+			<g:if test="${UserRoleCentro.get(sec.loggedInUserInfo(field: 'id').toLong(), 2.toLong(), conjuntoDeDatosInstance?.unidad?.centro?.id) != null}">
             &nbsp;<g:link uri="http://target.sbg.qb.fcen.uba.ar/sndgupload/${conjuntoDeDatosInstance?.unidad?.centro?.singiID}/${conjuntoDeDatosInstance?.singiID}"
-                          class="btn btn-danger">Administrar recursos</g:link>
+                          class="btn btn-danger">Administrar recursos</g:link>         
+	        </g:if>
+        </sec:access>
         </sec:ifLoggedIn>
     </h2>
     <hr/>
