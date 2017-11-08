@@ -1,6 +1,7 @@
 <%@ page import="hub.ConjuntoDeDatos" %>
 <%@ page import="hub.UserRoleCentro" %>
 <%@ page import="hub.Enlace" %>
+<%@ page import="hub.Role" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,15 +29,32 @@
             <g:link controller="conjuntoDeDatos" action="edit" resource="${conjuntoDeDatosInstance}"
                           class="btn btn-warning">Editar...</g:link>
            &nbsp;
-           <g:link uri="http://target.sbg.qb.fcen.uba.ar/sndgupload/${conjuntoDeDatosInstance?.unidad?.centro?.singiID}/${conjuntoDeDatosInstance?.singiID}"
-             class="btn btn-danger">Administrar recursos</g:link>    
+           <g:link 
+              class="btn btn-danger" target="_SELF"
+				controller="estatica" action="formRecursos" 
+				params="[centroSingiID: conjuntoDeDatosInstance.unidad.centro.singiID, conjuntoSingiID: conjuntoDeDatosInstance.singiID]">
+				Administrar recursos
+			</g:link>
+<%--           <g:link uri="http://target.sbg.qb.fcen.uba.ar/sndgupload/${conjuntoDeDatosInstance?.unidad?.centro?.singiID}/${conjuntoDeDatosInstance?.singiID}"--%>
+<%--             class="btn btn-danger">Administrar recursos</g:link>    --%>
 	    </sec:access>
 	    </sec:ifLoggedIn>
 	    <sec:ifLoggedIn>
-        <sec:access expression="hasRole('USER_CENTRO')">
-			<g:if test="${UserRoleCentro.get(sec.loggedInUserInfo(field: 'id').toLong(), 2.toLong(), conjuntoDeDatosInstance?.unidad?.centro?.id) != null}">
-            &nbsp;<g:link uri="http://target.sbg.qb.fcen.uba.ar/sndgupload/${conjuntoDeDatosInstance?.unidad?.centro?.singiID}/${conjuntoDeDatosInstance?.singiID}"
-                          class="btn btn-danger">Administrar recursos</g:link>         
+        <sec:access expression="hasRole('ROLE_CENTRO')">
+			<g:if test="${UserRoleCentro.get(
+					sec.loggedInUserInfo(field: 'id').toLong(),
+					Role.findByAuthority('ROLE_CENTRO').id, 
+					conjuntoDeDatosInstance?.unidad?.centro?.id
+					) != null}">
+            &nbsp;
+            <g:link 
+              class="btn btn-danger" target="_SELF"
+				controller="estatica" action="formRecursos" 
+				params="[centroSingiID: conjuntoDeDatosInstance.unidad.centro.singiID, conjuntoSingiID: conjuntoDeDatosInstance.singiID]">
+				Administrar recursos
+			</g:link>
+<%--            <g:link uri="http://target.sbg.qb.fcen.uba.ar/sndgupload/${conjuntoDeDatosInstance?.unidad?.centro?.singiID}/${conjuntoDeDatosInstance?.singiID}"--%>
+<%--                          class="btn btn-danger">Administrar recursos</g:link>         --%>
 	        </g:if>
         </sec:access>
         </sec:ifLoggedIn>
@@ -157,7 +175,8 @@
             </div>
         </g:if>
         -->
-
+	<g:if test="${conjuntoDeDatosInstance?.recursos?.size() > 0}">  
+	<br>
     <div class="row visor-list">
         <div class="col-md-1">&nbsp;</div>
         <div class="col-md-11">
@@ -168,6 +187,13 @@
                         var="recursoInstance">
                     <tr>
                         <td class="row-fluid">
+                        	<g:if test="recursoInstance.path">
+	                        	<g:link 
+	                        	class="btn btn-xs" target="_BLANK"
+								controller="estatica" action="descarga" params="[genome: recursoInstance.path]">
+									<asset:image src="icono_descarga.png" class="" alt="Descargar el dato" title="Descarga" />
+								</g:link>
+							</g:if>
                             <span>${recursoInstance.nombre}</span>
                             <g:if test="recursoInstance.path">
                                 <g:link class="btn btn-info btn-xs btn-round"
@@ -182,7 +208,7 @@
             </table>
         </div>
     </div>
-
+	</g:if>
 </div>
 
 <div class="container a-veinti5">&nbsp;</div>

@@ -149,15 +149,17 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/images/**':    ['permitAll'],
 	'/**/favicon.ico':  ['permitAll'],
 	'/**':  			['permitAll'],
-    '/administrar':     ['ROLE_USER','ROLE_ADMIN'],
+    '/administrar':     ['ROLE_ADMIN'],
     '/user/**':         ['ROLE_ADMIN'],
     '/userRoleCentro/**':         ['ROLE_ADMIN'],
     '/role/**':         ['ROLE_ADMIN'],
-	'/centro/**':       ['ROLE_USER','ROLE_ADMIN'],
-	'/conjuntoDeDatos/**':  ['ROLE_USER','ROLE_ADMIN','USER_CENTRO'],
-	'/herramienta/**':      ['ROLE_USER','ROLE_ADMIN'],
-	'/unidad/**':      ['ROLE_USER','ROLE_ADMIN'],
-	'/enlace/**':      ['ROLE_USER','ROLE_ADMIN']
+	'/cambiarContrasenia/**':       ['ROLE_ADMIN','ROLE_CENTRO'],
+	'/centro/**':       ['ROLE_ADMIN'],
+	'/conjuntoDeDatos/**':  ['ROLE_ADMIN','ROLE_CENTRO'],
+	'/herramienta/**':      ['ROLE_ADMIN'],
+	'/unidad/**':      ['ROLE_ADMIN'],
+	'/enlace/**':      ['ROLE_ADMIN'],
+	'/estatica/formRecursos**': ['ROLE_ADMIN','ROLE_CENTRO']
 ]
-grails.plugin.springsecurity.password.algorithm='SHA-1'
+// grails.plugin.springsecurity.password.algorithm='SHA-256'
 grails.plugin.springsecurity.providerNames = [ 'daoAuthenticationProvider', 'ldapAuthProvider', 'anonymousAuthenticationProvider'] // specify this when you want to skip attempting to load from db and only use LDAP

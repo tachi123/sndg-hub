@@ -1,5 +1,8 @@
 package hub
 
+import static org.springframework.http.HttpStatus.*
+import grails.transaction.Transactional;
+
 class PublicController {
 	
 	def springSecurityService
@@ -68,16 +71,6 @@ class PublicController {
 			}
 		} else {
 		
-		def user = springSecurityService.currentUser
-		
-		def userRoleCentro = null
-		if(user != null) userRoleCentro = UserRoleCentro.get(user.id, 2.toLong(), 8.toLong())
-		//UserRoleCentro.get(2.toLong(),2.toLong(), params.id.toString().toLong()),
-		
-//		Map paramsdata = [
-//		    conjuntoDeDatos: ConjuntoDeDatos.get(params.id),
-//			userRoleCentro: userRoleCentro
-//		]
 			respond ConjuntoDeDatos.get(params.id), view: 'verConjunto'
 		}
     }
@@ -111,4 +104,36 @@ class PublicController {
 			respond Herramienta.get(params.id), view: 'verHerramienta'
 		}
     }
+	
+	static allowedMethods = [update: "POST"]
+	
+	def cambiarContrasenia(Integer max) {
+		
+		def user = springSecurityService.currentUser
+		
+        respond user
+	}
+	
+	@Transactional
+	def update(User userInstance) {
+		if (userInstance == null) {
+			notFound()
+			return
+		}
+
+		if (userInstance.hasErrors()) {
+			respond userInstance.errors, view:'cambiarContrasenia'
+			return
+		}
+
+		userInstance.save flush:true
+
+		request.withFormat {
+			form multipartForm {
+				flash.message = message(code: 'default.updated.message', args: [message(code: 'User.label', default: 'User'), userInstance.id])
+				redirect(url:'/')
+			}
+			'*'{ respond userInstance, [status: OK] }
+		}
+	}
 }

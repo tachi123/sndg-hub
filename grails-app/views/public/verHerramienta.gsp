@@ -17,8 +17,16 @@
 	<div class="container">
 		<h2 class="visor_titulo">
 			${ herramientaInstance?.nombre }
-			<sec:ifLoggedIn>&nbsp;<g:link controller="herramienta" action="edit" resource="${herramientaInstance}"
-										  class="btn btn-warning">Editar...</g:link></sec:ifLoggedIn>
+			<sec:ifLoggedIn>
+			<sec:access expression="hasRole('ROLE_ADMIN')">
+				&nbsp;
+				<g:link 
+					controller="herramienta" 
+					action="edit" 
+					resource="${herramientaInstance}"
+					class="btn btn-warning">Editar...</g:link>
+			</sec:access>
+			</sec:ifLoggedIn>
 
 		</h2>
 		<hr />

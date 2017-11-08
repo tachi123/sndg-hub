@@ -1,5 +1,7 @@
 package hub
 
+import grails.gorm.DetachedCriteria
+
 class Centro {
 
 	String singiID
@@ -37,4 +39,5 @@ class Centro {
 	String instituciones() {
 		dependeDe.collect { it.nombre }.sort().join(", ")
 	}
+	
 }

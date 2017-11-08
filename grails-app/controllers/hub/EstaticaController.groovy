@@ -2,6 +2,8 @@ package hub
 
 class EstaticaController {
 
+	def springSecurityService
+	
     def navegador() { 
 		def url = 'http://arkham.exp.dc.uba.ar/xomeq'
 		if (params.genome) {
@@ -10,12 +12,20 @@ class EstaticaController {
 		respond url, model: [url: url, title: 'Navegador de genomas']
 	}
 	
-	def formRecursos() {
+	def descarga() {
 		def url = 'http://arkham.exp.dc.uba.ar/xomeq'
 		if (params.genome) {
-			url += '/genome/' + params.genome
+			url += '/genome/' + params.genome + '/download/fasta'
 		}
-		respond url, model: [url: url, title: 'Navegador de genomas']
+		redirect(url: url)
+	}
+	
+	def formRecursos() {
+		def url = 'http://target.sbg.qb.fcen.uba.ar/sndgupload/'
+		if (params.centroSingiID && params.conjuntoSingiID) {
+			url += params.centroSingiID + '/' + params.conjuntoSingiID
+		}
+		respond url, model: [url: url, title: 'Administración de recursos del centro']
 	}
 	
 	def estadisticas() {

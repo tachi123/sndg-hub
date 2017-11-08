@@ -66,7 +66,7 @@ grails.project.dependency.resolution = {
 		compile ':spring-security-ldap:2.0.1'
 		
         // plugins needed at runtime but not for compilation
-        runtime ":hibernate4:4.3.6.1" // or ":hibernate:3.6.10.18"
+        runtime ":hibernate4:4.3.6.1" // or 
         runtime ":database-migration:1.4.0"
         runtime ":jquery:1.11.1"
 		runtime ":jquery-ui:1.10.3"

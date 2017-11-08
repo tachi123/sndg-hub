@@ -75,12 +75,13 @@
 			<sec:ifNotLoggedIn>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="${controllerName == '' ? 'active' : ''}">
-						<g:link uri="/login">INICIAR SESIÓN</g:link>
+						<g:link uri="/login">INICIAR SESI&Oacute;N</g:link>
 					</li>
 				</ul>
 			</sec:ifNotLoggedIn>
 			<sec:ifLoggedIn>
 				<ul class="nav navbar-nav navbar-right">
+					<sec:access expression="hasRole('ROLE_ADMIN')">
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-expanded="false">ADMINISTRAR <span class="caret"></span>
 					</a>
@@ -91,14 +92,23 @@
 							<li><a href="${createLink(controller: 'herramienta')}">Herramientas</a></li>
 							<li class="divider"></li>
 							<li><a href="${createLink(controller: 'institucion')}">Instituciones</a></li>
+							<li><a href="${createLink(controller: 'user')}">Usuarios</a></li>
+							<li><a href="${createLink(controller: 'userRoleCentro')}">Responsables de centros</a></li>
 	<%--						<li><a href="${createLink(controller: 'programa')}">Programas</a></li>--%>
 	<%--						<li><a href="${createLink(controller: 'area')}">&Aacute;reas</a></li>--%>
 						</ul>
 					</li>
+					</sec:access>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-expanded="false">${sec.username()} <span class="caret"></span>
 					</a>
 						<ul class="dropdown-menu" role="menu">
+							<li>
+								<g:link controller="public" action="cambiarContrasenia">
+									Cambiar contrase&ntilde;a
+								</g:link>
+							</li>
+							<li class="divider"></li>
 							<li>
 								<g:remoteLink class="logout" controller="logout" method="post" asynchronous="false" onSuccess="location.reload()">
 									Cerrar Sesi&oacute;n

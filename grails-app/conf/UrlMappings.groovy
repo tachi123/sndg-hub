@@ -6,6 +6,10 @@ class UrlMappings {
                 // apply constraints here
             }
         }
+		"/cambiarContrasenia" {
+			controller = 'public'
+			action = 'cambiarContrasenia'
+		}
 		"/centros/$id?" {
 			controller = 'public'
 			action = 'centros'

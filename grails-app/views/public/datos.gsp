@@ -34,10 +34,15 @@
 								</g:if>
 								<g:if test="${conjuntoDeDatosInstance?.enBuscador}">
 									<input class="btn btn-xs" type="image" src="${assetPath(src:'icono_buscador.png')}"
+											style="padding:0px"
 										   onclick="$('.enlaces-${conjuntoDeDatosInstance.id}').toggle('slow')"
-										   alt="Ver en el Navegador Datos" title="Mostrar entradas en el visor de genomas">
-									</input>
-%{--
+										   alt="Ver en el Navegador Datos" title="Mostrar entradas en el visor de genomas" />
+									<input class="btn btn-xs" type="image" src="${assetPath(src:'icono_descarga.png')}"
+										   style="padding:0px"
+										   onclick="$('.descargas-${conjuntoDeDatosInstance.id}').toggle('slow')"
+										   alt="Descargar el dato" title="Descargar las entradas con los genomas" />
+									
+%{--	
 									<asset:image src="icono_buscador.png" class=""
 												 alt="Ver en el Navegador Datos" title="Ver" />
 --}%
@@ -47,6 +52,16 @@
 											<g:link style="display: none;" class="enlaces-${conjuntoDeDatosInstance.id} btn btn-info btn-xs btn-round" target="_BLANK"
 													title="${e.nombre}"
 													controller="estatica" action="navegador" params="[genome: e.abreviatura]">${e.abreviatura ?: e.nombre}</g:link>
+										</g:each>
+									</span>
+									<span id="descargas-${conjuntoDeDatosInstance.id}" class="">
+										<g:each in="${conjuntoDeDatosInstance.enlaces}" var="e" >
+											<g:link style="display: none;" class="descargas-${conjuntoDeDatosInstance.id} btn btn-success btn-xs btn-round" 
+													target="_BLANK"
+													title="${e.nombre}"
+													controller="estatica" action="descarga" params="[genome: e.abreviatura]">
+														${e.abreviatura ?: e.nombre}
+											</g:link>
 										</g:each>
 									</span>
 

@@ -48,11 +48,23 @@ class UserRoleCentro implements Serializable {
 	static UserRoleCentro get(long userId, long roleId, long centroId) {
 		criteriaFor(userId, roleId, centroId).get()
 	}
+	
+	static UserRoleCentro get(long userId, String role, long centroId) {
+		criteriaFor(userId, role, centroId).get()
+	}
 
 	static boolean exists(long userId, long roleId, long centroId) {
 		criteriaFor(userId, roleId, centroId).count()
 	}
-
+		
+	private static DetachedCriteria criteriaFor(long userId, String rol, long centroId) {
+		UserRoleCentro.where {
+			user == User.load(userId) &&
+			role == Role.get(rol) &&
+			centro == Centro.load(centroId)
+		}
+	}
+	
 	private static DetachedCriteria criteriaFor(long userId, long roleId, long centroId) {
 		UserRoleCentro.where {
 			user == User.load(userId) &&
