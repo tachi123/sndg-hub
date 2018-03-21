@@ -11,7 +11,8 @@ class InteroperatingController {
     def agregarOModificarRecurso() {
         def datos = request.JSON
         def elRecurso = Recurso.findOrCreateByRecursoId(datos.recursoId)
-        elRecurso.conjunto = ConjuntoDeDatos.findBySingiID(datos.conjuntoId)
+		//Conjunto SINGIID
+        elRecurso.conjunto = ConjuntoDeDatos.findBySingiID(datos.singiID)
         elRecurso.nombre = datos.nombre;
 		byte[] asdf = datos.descripcion.getBytes("UTF-8");
         elRecurso.descripcion =  new String(asdf, "UTF-8");

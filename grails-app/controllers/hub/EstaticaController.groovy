@@ -5,7 +5,7 @@ class EstaticaController {
 	def springSecurityService
 	
     def navegador() { 
-		def url = 'http://arkham.exp.dc.uba.ar/xomeq'
+		def url = 'http://sndg.qb.fcen.uba.ar/sndg'
 		if (params.genome) {
 			url += '/genome/' + params.genome
 		}
@@ -13,7 +13,7 @@ class EstaticaController {
 	}
 	
 	def descarga() {
-		def url = 'http://arkham.exp.dc.uba.ar/xomeq'
+		def url = 'http://sndg.qb.fcen.uba.ar/sndg'
 		if (params.genome) {
 			url += '/genome/' + params.genome + '/download/fasta'
 		}
