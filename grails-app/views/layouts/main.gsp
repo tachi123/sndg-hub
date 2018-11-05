@@ -160,7 +160,7 @@
 			  	</div>
 			  	<div class="col-md-6">
 				  <a href="http://www.mincyt.gob.ar/">
-					  <asset:image src="logo_mincyt.png" alt="Ministerio de Ciencia, Tecnología e Innovación Productiva" class="img-fluid"  style="width: 100%;"/>
+					  <asset:image src="00_Logo_Ministerio_ECCyT.png" alt="Ministerio de Ciencia, Tecnología e Innovación Productiva" class="img-fluid"  style="width: 100%;"/>
 				  </a>
 			  	</div>
 			  </div>

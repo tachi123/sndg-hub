@@ -25,13 +25,23 @@
 		<g:message code="conjuntoDeDatos.descripcion.label" default="Descripcion" />
 		
 	</label>
-	<g:textArea name="descripcion" value="${conjuntoDeDatosInstance?.descripcion}" rows="10" cols="100"/>
+	<g:textField name="descripcion" value="${conjuntoDeDatosInstance?.descripcion}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: conjuntoDeDatosInstance, field: 'publicacionesAsociadas', 'error')} ">
+	<label for="publicacionesAsociadas">
+		<g:message code="conjuntoDeDatos.publicacionesAsociadas.label" default="Publicaciones Asociadas" />
+		
+	</label>
+	<g:textField name="publicacionesAsociadas" value="${conjuntoDeDatosInstance?.publicacionesAsociadas}"/>
+
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: conjuntoDeDatosInstance, field: 'proyecto', 'error')} ">
 	<label for="proyecto">
 		<g:message code="conjuntoDeDatos.proyecto.label" default="Proyecto" />
-
+		
 	</label>
 	<g:textField name="proyecto" value="${conjuntoDeDatosInstance?.proyecto}"/>
 
@@ -39,10 +49,11 @@
 
 <div class="fieldcontain ${hasErrors(bean: conjuntoDeDatosInstance, field: 'proyectoDescripcion', 'error')} ">
 	<label for="proyectoDescripcion">
-		<g:message code="conjuntoDeDatos.proyectoDescripcion.label" default="Descripcion del proyecto" />
-
+		<g:message code="conjuntoDeDatos.proyectoDescripcion.label" default="Proyecto Descripcion" />
+		
 	</label>
-	<g:textArea name="proyectoDescripcion" value="${conjuntoDeDatosInstance?.proyectoDescripcion}" rows="10" cols="100"/>
+	<g:textField name="proyectoDescripcion" value="${conjuntoDeDatosInstance?.proyectoDescripcion}"/>
+
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: conjuntoDeDatosInstance, field: 'responsable', 'error')} ">
@@ -90,6 +101,15 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: conjuntoDeDatosInstance, field: 'orden', 'error')} ">
+	<label for="orden">
+		<g:message code="conjuntoDeDatos.orden.label" default="Orden" />
+		
+	</label>
+	<g:field name="orden" type="number" value="${conjuntoDeDatosInstance.orden}"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: conjuntoDeDatosInstance, field: 'enBuscador', 'error')} ">
 	<label for="enBuscador">
 		<g:message code="conjuntoDeDatos.enBuscador.label" default="En Buscador" />
@@ -108,21 +128,30 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: conjuntoDeDatosInstance, field: 'recursos', 'error')} ">
+	<label for="recursos">
+		<g:message code="conjuntoDeDatos.recursos.label" default="Recursos" />
+		
+	</label>
+	
+<ul class="one-to-many">
+<g:each in="${conjuntoDeDatosInstance?.recursos?}" var="r">
+    <li><g:link controller="recurso" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="recurso" action="create" params="['conjuntoDeDatos.id': conjuntoDeDatosInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'recurso.label', default: 'Recurso')])}</g:link>
+</li>
+</ul>
+
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: conjuntoDeDatosInstance, field: 'unidad', 'error')} required">
 	<label for="unidad">
 		<g:message code="conjuntoDeDatos.unidad.label" default="Unidad" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="unidad" name="unidad.id" from="${hub.Unidad.list()}" optionKey="id" required="" value="${conjuntoDeDatosInstance?.unidad?.id}" class="many-to-one"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: conjuntoDeDatosInstance, field: 'orden', 'error')} ">
-	<label for="orden">
-		<g:message code="conjuntoDeDatos.orden.label" default="Orden" />
-
-	</label>
-	<g:field name="orden" type="number" value="${conjuntoDeDatosInstance.orden}"/>
 
 </div>
 

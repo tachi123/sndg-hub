@@ -78,6 +78,9 @@
                             <label><strong>Tipo de comunidad: </strong> ${conjuntoDeDatosInstance.tipoDeComunidad}</label>
                         </div>
                     </g:if>
+                    <g:if test="${conjuntoDeDatosInstance.publicacionesAsociadas}">
+                        <div class="elemento-descripcion"><label>Publicaciones asociadas: </label> ${conjuntoDeDatosInstance?.publicacionesAsociadas}</div>
+                    </g:if>
                 </div>
             </div>
         </g:if>
@@ -207,8 +210,20 @@
                                     ${recursoInstance.path ?: recursoInstance.nombre}
                                 </g:link>
                             </g:if>
+                            <g:if test="${recursoInstance?.descripcion != null && recursoInstance.descripcion.length() > 1}">
+								<span  class="btn btn-xs btn-warning" onclick="$('.descripcion-${recursoInstance.id}').toggle('slow')"
+									alt="Ver descripción" title="Mostrar descripción del recurso">
+									Ver más +</span>
+							</g:if>
                         </td>
                     </tr>
+					<g:if test="${recursoInstance.descripcion != null && recursoInstance.descripcion.length() >1}">
+                        <tr class="descripcion-${recursoInstance.id}" style="display: none;">
+                       		<td style="border: none;">
+								<span style="margin-left:20px"><strong>Descripción:</strong> ${recursoInstance.descripcion}</span>
+							</td>
+                   		</tr>
+                    </g:if>
                 </g:each>
                 </tbody>
             </table>

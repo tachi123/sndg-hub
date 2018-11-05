@@ -20,7 +20,7 @@
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<table class="table">
+			<table>
 			<thead>
 					<tr>
 					
@@ -31,40 +31,29 @@
 						<g:sortableColumn property="singiID" title="${message(code: 'herramienta.singiID.label', default: 'Singi ID')}" />
 					
 						<g:sortableColumn property="descripcion" title="${message(code: 'herramienta.descripcion.label', default: 'Descripcion')}" />
-
-						<g:sortableColumn property="proyecto" title="${message(code: 'conjuntoDeDatos.proyecto.label', default: 'Proyecto')}" />
-
-						<g:sortableColumn property="proyectoDescripcion" title="${message(code: 'conjuntoDeDatos.proyectoDescripcion.label', default: 'Descripcion de proyecto')}" />
-
-						<g:sortableColumn property="responsable" title="${message(code: 'herramienta.responsable.label', default: 'Responsable')}" />
 					
-						<g:sortableColumn property="colaboradores" title="${message(code: 'herramienta.colaboradores.label', default: 'Colaboradores')}" />
-
-						<g:sortableColumn property="url" title="${message(code: 'herramienta.url.label', default: 'URL')}" />
+						<g:sortableColumn property="palabrasClaves" title="${message(code: 'herramienta.palabrasClaves.label', default: 'Palabras Claves')}" />
+					
+						<g:sortableColumn property="proyecto" title="${message(code: 'herramienta.proyecto.label', default: 'Proyecto')}" />
+					
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${herramientaInstanceList}" status="i" var="herramientaInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-
+					
 						<td><g:link action="show" id="${herramientaInstance.id}">${fieldValue(bean: herramientaInstance, field: "nombre")}</g:link></td>
 					
 						<td>${fieldValue(bean: herramientaInstance, field: "tipo")}</td>
 					
 						<td>${fieldValue(bean: herramientaInstance, field: "singiID")}</td>
 					
-						<td>${fieldValue(bean: herramientaInstance, field: "descripcion").length()>30 ? fieldValue(bean: herramientaInstance, field: "descripcion").take(30) + " ..." : fieldValue(bean: herramientaInstance, field: "descripcion")}</td>
-
-						<td>${fieldValue(bean: herramientaInstance, field: "proyecto")}</td>
-
-						<td>${fieldValue(bean: herramientaInstance, field: "proyectoDescripcion").length()>30 ? fieldValue(bean: herramientaInstance, field: "proyectoDescripcion").take(30) + " ..." : fieldValue(bean: herramientaInstance, field: "proyectoDescripcion")}</td>
-
-						<td>${fieldValue(bean: herramientaInstance, field: "responsable")}</td>
+						<td>${fieldValue(bean: herramientaInstance, field: "descripcion")}</td>
 					
-						<td>${fieldValue(bean: herramientaInstance, field: "colaboradores")}</td>
-
-						<td>${fieldValue(bean: herramientaInstance, field: "url")}</td>
-
+						<td>${fieldValue(bean: herramientaInstance, field: "palabrasClaves")}</td>
+					
+						<td>${fieldValue(bean: herramientaInstance, field: "proyecto")}</td>
+					
 					</tr>
 				</g:each>
 				</tbody>

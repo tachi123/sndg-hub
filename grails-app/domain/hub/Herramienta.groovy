@@ -9,6 +9,8 @@ class Herramienta {
 	String tipo
 
 	String descripcion
+	
+	String palabrasClaves
 
 	String proyecto
 
@@ -29,6 +31,7 @@ class Herramienta {
 		tipo()
 		singiID nullable: true
 		descripcion nullable: true
+		palabrasClaves nullable: true
 		proyecto nullable: true
 		proyectoDescripcion nullable: true
 		responsable nullable: true
@@ -41,5 +44,6 @@ class Herramienta {
 		descripcion type: 'text'
 		proyectoDescripcion type: 'text'
 		colaboradores type: 'text'
+		palabrasClaves type: 'text'
 	}
 }

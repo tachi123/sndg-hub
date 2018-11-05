@@ -49,23 +49,34 @@
 					
 				</li>
 				</g:if>
-
+			
+				<g:if test="${conjuntoDeDatosInstance?.publicacionesAsociadas}">
+				<li class="fieldcontain">
+					<span id="publicacionesAsociadas-label" class="property-label"><g:message code="conjuntoDeDatos.publicacionesAsociadas.label" default="Publicaciones Asociadas" /></span>
+					
+						<span class="property-value" aria-labelledby="publicacionesAsociadas-label"><g:fieldValue bean="${conjuntoDeDatosInstance}" field="publicacionesAsociadas"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${conjuntoDeDatosInstance?.proyecto}">
-					<li class="fieldcontain">
-						<span id="proyecto-label" class="property-label"><g:message code="conjuntoDeDatos.proyecto.label" default="Proyecto" /></span>
-
+				<li class="fieldcontain">
+					<span id="proyecto-label" class="property-label"><g:message code="conjuntoDeDatos.proyecto.label" default="Proyecto" /></span>
+					
 						<span class="property-value" aria-labelledby="proyecto-label"><g:fieldValue bean="${conjuntoDeDatosInstance}" field="proyecto"/></span>
-
-					</li>
+					
+				</li>
 				</g:if>
-
+			
 				<g:if test="${conjuntoDeDatosInstance?.proyectoDescripcion}">
-					<li class="fieldcontain">
-						<span id="proyectoDescripcion-label" class="property-label"><g:message code="conjuntoDeDatos.proyectoDescripcion.label" default="Descripcion del proyecto" /></span>
+				<li class="fieldcontain">
+					<span id="proyectoDescripcion-label" class="property-label"><g:message code="conjuntoDeDatos.proyectoDescripcion.label" default="Proyecto Descripcion" /></span>
+					
 						<span class="property-value" aria-labelledby="proyectoDescripcion-label"><g:fieldValue bean="${conjuntoDeDatosInstance}" field="proyectoDescripcion"/></span>
-					</li>
+					
+				</li>
 				</g:if>
-
+			
 				<g:if test="${conjuntoDeDatosInstance?.responsable}">
 				<li class="fieldcontain">
 					<span id="responsable-label" class="property-label"><g:message code="conjuntoDeDatos.responsable.label" default="Responsable" /></span>
@@ -111,6 +122,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${conjuntoDeDatosInstance?.orden}">
+				<li class="fieldcontain">
+					<span id="orden-label" class="property-label"><g:message code="conjuntoDeDatos.orden.label" default="Orden" /></span>
+					
+						<span class="property-value" aria-labelledby="orden-label"><g:fieldValue bean="${conjuntoDeDatosInstance}" field="orden"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${conjuntoDeDatosInstance?.enBuscador}">
 				<li class="fieldcontain">
 					<span id="enBuscador-label" class="property-label"><g:message code="conjuntoDeDatos.enBuscador.label" default="En Buscador" /></span>
@@ -131,6 +151,17 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${conjuntoDeDatosInstance?.recursos}">
+				<li class="fieldcontain">
+					<span id="recursos-label" class="property-label"><g:message code="conjuntoDeDatos.recursos.label" default="Recursos" /></span>
+					
+						<g:each in="${conjuntoDeDatosInstance.recursos}" var="r">
+						<span class="property-value" aria-labelledby="recursos-label"><g:link controller="recurso" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${conjuntoDeDatosInstance?.unidad}">
 				<li class="fieldcontain">
 					<span id="unidad-label" class="property-label"><g:message code="conjuntoDeDatos.unidad.label" default="Unidad" /></span>
@@ -143,10 +174,8 @@
 			</ol>
 			<g:form url="[resource:conjuntoDeDatosInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">
-                    <g:link class="btn btn-warning" controller="public" action="datos" params="[id: conjuntoDeDatosInstance.id]"><g:message code="default.button.verEnPortal.label" default="Ver en el portal" /></g:link>
-					<g:link class="btn btn-success" controller="public" action="datos" params="[centroId: conjuntoDeDatosInstance.unidad.centro.singiID]"><g:message code="default.button.verDatosDelCentro.label" default="Ver todos los datos del centro" /></g:link>
-                    <g:link class="edit btn btn-primary" action="edit" resource="${conjuntoDeDatosInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-                    <g:actionSubmit class="delete btn btn-danger" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+					<g:link class="edit" action="edit" resource="${conjuntoDeDatosInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 				</fieldset>
 			</g:form>
 		</div>

@@ -20,7 +20,7 @@
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<table class="table">
+			<table>
 			<thead>
 					<tr>
 					
@@ -29,16 +29,12 @@
 						<g:sortableColumn property="singiID" title="${message(code: 'conjuntoDeDatos.singiID.label', default: 'Singi ID')}" />
 					
 						<g:sortableColumn property="descripcion" title="${message(code: 'conjuntoDeDatos.descripcion.label', default: 'Descripcion')}" />
-
+					
+						<g:sortableColumn property="publicacionesAsociadas" title="${message(code: 'conjuntoDeDatos.publicacionesAsociadas.label', default: 'Publicaciones Asociadas')}" />
+					
 						<g:sortableColumn property="proyecto" title="${message(code: 'conjuntoDeDatos.proyecto.label', default: 'Proyecto')}" />
-
-						<g:sortableColumn property="proyectoDescripcion" title="${message(code: 'conjuntoDeDatos.proyectoDescripcion.label', default: 'Descripcion de proyecto')}" />
-
-						<g:sortableColumn property="responsable" title="${message(code: 'conjuntoDeDatos.responsable.label', default: 'Responsable')}" />
 					
-						<g:sortableColumn property="colaboradores" title="${message(code: 'conjuntoDeDatos.colaboradores.label', default: 'Colaboradores')}" />
-					
-						<g:sortableColumn property="porcentajeSecuenciado" title="${message(code: 'conjuntoDeDatos.porcentajeSecuenciado.label', default: 'Porcentaje Secuenciado')}" />
+						<g:sortableColumn property="proyectoDescripcion" title="${message(code: 'conjuntoDeDatos.proyectoDescripcion.label', default: 'Proyecto Descripcion')}" />
 					
 					</tr>
 				</thead>
@@ -49,18 +45,14 @@
 						<td><g:link action="show" id="${conjuntoDeDatosInstance.id}">${fieldValue(bean: conjuntoDeDatosInstance, field: "nombre")}</g:link></td>
 					
 						<td>${fieldValue(bean: conjuntoDeDatosInstance, field: "singiID")}</td>
-
-						<td>${fieldValue(bean: conjuntoDeDatosInstance, field: "descripcion").length()>30 ? fieldValue(bean: conjuntoDeDatosInstance, field: "descripcion").take(30) + " ..." : fieldValue(bean: conjuntoDeDatosInstance, field: "descripcion")}</td>
-
+					
+						<td>${fieldValue(bean: conjuntoDeDatosInstance, field: "descripcion")}</td>
+					
+						<td>${fieldValue(bean: conjuntoDeDatosInstance, field: "publicacionesAsociadas")}</td>
+					
 						<td>${fieldValue(bean: conjuntoDeDatosInstance, field: "proyecto")}</td>
-
-						<td>${fieldValue(bean: conjuntoDeDatosInstance, field: "proyectoDescripcion").length()>30 ? fieldValue(bean: conjuntoDeDatosInstance, field: "proyectoDescripcion").take(30) + " ..." : fieldValue(bean: conjuntoDeDatosInstance, field: "proyectoDescripcion")}</td>
-
-						<td>${fieldValue(bean: conjuntoDeDatosInstance, field: "responsable")}</td>
 					
-						<td>${fieldValue(bean: conjuntoDeDatosInstance, field: "colaboradores")}</td>
-					
-						<td>${fieldValue(bean: conjuntoDeDatosInstance, field: "porcentajeSecuenciado")}</td>
+						<td>${fieldValue(bean: conjuntoDeDatosInstance, field: "proyectoDescripcion")}</td>
 					
 					</tr>
 				</g:each>

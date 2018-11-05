@@ -58,23 +58,34 @@
 					
 				</li>
 				</g:if>
-
+			
+				<g:if test="${herramientaInstance?.palabrasClaves}">
+				<li class="fieldcontain">
+					<span id="palabrasClaves-label" class="property-label"><g:message code="herramienta.palabrasClaves.label" default="Palabras Claves" /></span>
+					
+						<span class="property-value" aria-labelledby="palabrasClaves-label"><g:fieldValue bean="${herramientaInstance}" field="palabrasClaves"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${herramientaInstance?.proyecto}">
-					<li class="fieldcontain">
-						<span id="proyecto-label" class="property-label"><g:message code="herramientaInstance.proyecto.label" default="Proyecto" /></span>
-
+				<li class="fieldcontain">
+					<span id="proyecto-label" class="property-label"><g:message code="herramienta.proyecto.label" default="Proyecto" /></span>
+					
 						<span class="property-value" aria-labelledby="proyecto-label"><g:fieldValue bean="${herramientaInstance}" field="proyecto"/></span>
-
-					</li>
+					
+				</li>
 				</g:if>
-
+			
 				<g:if test="${herramientaInstance?.proyectoDescripcion}">
-					<li class="fieldcontain">
-						<span id="proyectoDescripcion-label" class="property-label"><g:message code="conjuntoDeDatos.proyectoDescripcion.label" default="Descripcion del proyecto" /></span>
+				<li class="fieldcontain">
+					<span id="proyectoDescripcion-label" class="property-label"><g:message code="herramienta.proyectoDescripcion.label" default="Proyecto Descripcion" /></span>
+					
 						<span class="property-value" aria-labelledby="proyectoDescripcion-label"><g:fieldValue bean="${herramientaInstance}" field="proyectoDescripcion"/></span>
-					</li>
+					
+				</li>
 				</g:if>
-
+			
 				<g:if test="${herramientaInstance?.responsable}">
 				<li class="fieldcontain">
 					<span id="responsable-label" class="property-label"><g:message code="herramienta.responsable.label" default="Responsable" /></span>
@@ -93,6 +104,24 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${herramientaInstance?.url}">
+				<li class="fieldcontain">
+					<span id="url-label" class="property-label"><g:message code="herramienta.url.label" default="Url" /></span>
+					
+						<span class="property-value" aria-labelledby="url-label"><g:fieldValue bean="${herramientaInstance}" field="url"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${herramientaInstance?.orden}">
+				<li class="fieldcontain">
+					<span id="orden-label" class="property-label"><g:message code="herramienta.orden.label" default="Orden" /></span>
+					
+						<span class="property-value" aria-labelledby="orden-label"><g:fieldValue bean="${herramientaInstance}" field="orden"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${herramientaInstance?.unidad}">
 				<li class="fieldcontain">
 					<span id="unidad-label" class="property-label"><g:message code="herramienta.unidad.label" default="Unidad" /></span>
@@ -101,23 +130,12 @@
 					
 				</li>
 				</g:if>
-
-				<g:if test="${herramientaInstance?.url}">
-					<li class="fieldcontain">
-						<span id="url-label" class="property-label"><g:message code="herramienta.url.label" default="Enlace a la herramienta" /></span>
-
-						<span class="property-value" aria-labelledby="url-label"><g:fieldValue bean="${herramientaInstance}" field="url"/></span>
-
-					</li>
-				</g:if>
-
+			
 			</ol>
 			<g:form url="[resource:herramientaInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">
-					<g:link class="btn btn-warning" controller="public" action="herramientas" params="[id: herramientaInstance.id]"><g:message code="default.button.verEnPortal.label" default="Ver en el portal" /></g:link>
-					<g:link class="btn btn-success" controller="public" action="herramientas" params="[centroId: herramientaInstance.unidad.centro.singiID]"><g:message code="default.button.verHerramientasDelCentro.label" default="Ver todas las herramientas del centro" /></g:link>
-					<g:link class="edit btn btn-primary" action="edit" resource="${herramientaInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete btn btn-danger" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+					<g:link class="edit" action="edit" resource="${herramientaInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 				</fieldset>
 			</g:form>
 		</div>

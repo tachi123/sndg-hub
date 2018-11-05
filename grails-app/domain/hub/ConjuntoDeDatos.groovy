@@ -15,6 +15,8 @@ class ConjuntoDeDatos {
 	String responsable
 
 	String colaboradores
+	
+	String publicacionesAsociadas
 
 	Integer porcentajeSecuenciado
 	
@@ -34,12 +36,14 @@ class ConjuntoDeDatos {
 		descripcion type: 'text'
 		proyectoDescripcion type: 'text'
 		colaboradores type: 'text'
+		publicacionesAsociadas type : 'text'
 	}
 
     static constraints = {
 		nombre()
 		singiID()
 		descripcion nullable: true
+		publicacionesAsociadas nullable: true
 		proyecto nullable: true
 		proyectoDescripcion nullable: true
 		responsable nullable: true
