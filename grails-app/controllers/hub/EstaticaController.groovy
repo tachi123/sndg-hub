@@ -13,9 +13,10 @@ class EstaticaController {
 	}
 	
 	def descarga() {
-		def url = 'http://sndg.qb.fcen.uba.ar/sndg'
+		def url = 'http://target.sbg.qb.fcen.uba.ar/sndgdata/'
 		if (params.genome) {
-			url += '/genome/' + params.genome + '/download/fasta'
+			url += params.genome
+			//url += '/genome/' + params.genome + '/download/fasta'
 		}
 		redirect(url: url)
 	}

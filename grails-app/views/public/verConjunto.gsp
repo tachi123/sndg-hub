@@ -125,8 +125,7 @@
                     <asset:image class="pull-right" src="icono_adherido.png"/>
                 </div>
                 <div>
-                    <label>Adherido
-                    al SNDG desde <g:formatDate format="dd-MM-yyyy" date="${conjuntoDeDatosInstance?.unidad?.centro?.fecha}"/></label>
+                    <label>Adherido al SNDG desde <g:formatDate format="dd-MM-yyyy" date="${conjuntoDeDatosInstance?.unidad?.centro?.fecha}"/></label>
                 </div>
             </div>
         </g:if>
@@ -187,15 +186,22 @@
                         var="recursoInstance">
                     <tr>
                         <td class="row-fluid">
-                        	<g:if test="recursoInstance.path">
+                        	<g:if test="${recursoInstance.url != null && recursoInstance.url.length() > 1}">
 	                        	<g:link 
 	                        	class="btn btn-xs" target="_BLANK"
-								controller="estatica" action="descarga" params="[genome: recursoInstance.path]">
+								controller="estatica" action="descarga" params="[genome: recursoInstance.url]">
 									<asset:image src="icono_descarga.png" class="" alt="Descargar el dato" title="Descarga" />
 								</g:link>
 							</g:if>
+							<g:else>
+								<g:if test="${recursoInstance.web != null && recursoInstance.web.length() > 1}">
+									<g:link class="btn btn-xs" target="_BLANK" base="${recursoInstance.web}">
+										<asset:image src="icono_ver.png" class="" alt="Ver web del recurso" title="Ver web del recurso" />
+									</g:link>
+								</g:if>
+							</g:else>
                             <span>${recursoInstance.nombre}</span>
-                            <g:if test="recursoInstance.path">
+                            <g:if test="${recursoInstance.path != null && recursoInstance.path.length() > 1}">
                                 <g:link class="btn btn-info btn-xs btn-round"
                                         controller="estatica" action="navegador" params="[genome: recursoInstance.path]" target="_BLANK">
                                     ${recursoInstance.path ?: recursoInstance.nombre}

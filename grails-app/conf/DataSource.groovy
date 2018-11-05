@@ -21,7 +21,7 @@ environments {
     development {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:mysql://localhost/sndg?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull"
+            url = "jdbc:mysql://192.168.120.36/sndg?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull"
 	    logSql = true
         }
     }

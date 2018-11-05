@@ -24,7 +24,7 @@
 					
 						<td>
 							<g:link controller="public" action="centros" params="[id: centroInstance.id]">
-							${fieldValue(bean: centroInstance, field: "nombre")} ${fieldValue(bean: centroInstance, field: "siglas") != 'N/D' ? "("+fieldValue(bean: centroInstance, field: "siglas")+")" : ""}
+							${fieldValue(bean: centroInstance, field: "nombre")} ${fieldValue(bean: centroInstance, field: "siglas") != 'N/D' ? "("+centroInstance.siglas+")" : ""}
 							</g:link>
 							<g:if test="${centroInstance?.adherido}">
 								<asset:image src="icono_adherido.png" class="img-fluid" alt="Centro adherido" title="Adherido"/>

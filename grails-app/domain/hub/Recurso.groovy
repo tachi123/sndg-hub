@@ -13,6 +13,10 @@ class Recurso {
 
     static belongsTo = [ conjunto : ConjuntoDeDatos ]
 
+	static mapping = {
+		descripcion type: "text"
+	 }
+	
     static constraints = {
     }
 }

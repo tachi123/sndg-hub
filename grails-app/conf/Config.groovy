@@ -104,9 +104,11 @@ grails.hibernate.osiv.readonly = false
 environments {
     development {
         grails.logging.jul.usebridge = true
+		dataFolder = "C:/data/sndg/"
     }
     production {
         grails.logging.jul.usebridge = false
+		dataFolder = "/data/sndg/"
         // TODO: grails.serverURL = "http://www.changeme.com"
     }
 }

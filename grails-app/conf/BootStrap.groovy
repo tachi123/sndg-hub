@@ -1,4 +1,5 @@
 import groovy.sql.Sql
+import hub.Centro;
 import hub.User
 import hub.Role
 import hub.UserRoleCentro
@@ -30,8 +31,11 @@ class BootStrap {
             elAdmin.username = 'admin'
             elAdmin.password = 'Passe01'
             elAdmin.save()
-            new UserRoleCentro(user: elAdmin, role: rolAdmin).save()
+            new UserRoleCentro(user: elAdmin, role: rolAdmin, centro: Centro.findAll().first()).save()
         }else{
+			
+			def userRoleCentro = UserRoleCentro.findByUserAndRole(elAdmin,rolAdmin)
+			if(!userRoleCentro) new UserRoleCentro(user: elAdmin, role: rolAdmin, centro: Centro.findAll().first()).save()
 			elAdmin.password = 'Passe01'
             elAdmin.save()
         }

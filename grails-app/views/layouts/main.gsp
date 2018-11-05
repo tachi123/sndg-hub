@@ -86,6 +86,9 @@
 						data-toggle="dropdown" role="button" aria-expanded="false">ADMINISTRAR <span class="caret"></span>
 					</a>
 						<ul class="dropdown-menu" role="menu">
+						
+							<li><g:link controller="public" action="downloadInstructivo">Descargar manual</g:link></li>
+							<li class="divider"></li>
 							<li><a href="${createLink(controller: 'centro')}">Centros</a></li>
 							<li><a href="${createLink(controller: 'unidad')}">Laboratorios</a></li>
 							<li><a href="${createLink(controller: 'conjuntoDeDatos')}">Conjuntos de Datos</a></li>
@@ -104,11 +107,16 @@
 					</a>
 						<ul class="dropdown-menu" role="menu">
 							<li>
+								<g:link controller="public" action="downloadInstructivo">
+									Descargar instructivo
+								</g:link>
+							</li>
+							<li class="divider"></li>
+							<li>
 								<g:link controller="public" action="cambiarContrasenia">
 									Cambiar contrase&ntilde;a
 								</g:link>
 							</li>
-							<li class="divider"></li>
 							<li>
 								<g:remoteLink class="logout" controller="logout" method="post" asynchronous="false" onSuccess="location.reload()">
 									Cerrar Sesi&oacute;n
@@ -126,7 +134,7 @@
 	  </div>
 	</nav>
 	<g:layoutBody/>
-	<div class="container-fluid" style="background-color:#0067aa; height: 142px;">
+	<div class="container-fluid" style="background-color:#0067aa; height: 170px;">
 		<div class="container">
 			<div class="col-md-4 columna-contacto">
 				<h2>SECRETARIA DE ARTICULACIÓN CIENTÍFICA TECNOLÓGICA</h2>
@@ -138,6 +146,14 @@
 				</p>
 			</div>
 			<div class="col-md-5" style="padding-top: 2.5em;">
+				<div class="text-center" style="color:white">
+			  		<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+			  			<img alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+			  		</a>
+			  		<br />
+			  		<span style="opacity: 0.80">Esta obra está bajo una </span><a rel="license" style="color:white" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Atribución-CompartirIgual 4.0 Internacional
+			  		</a>
+			  	</div>
 			  <div class="row">
 			  	<div class="col-md-6">
 				  <asset:image src="logo_bicentenario.png" alt="ARGENTINA - 200 años de Independencia" class="img-fluid"  style="width: 100%;"/>

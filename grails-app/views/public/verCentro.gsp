@@ -43,6 +43,9 @@
 				<g:link controller="public" action="datos" params="[centroId: centroInstance.singiID]" class="btn btn-warning">
 					Ver conjuntos de datos...
 				</g:link>
+				<g:link controller="public" action="herramientas" params="[centroId: centroInstance.singiID]" class="btn btn-success">
+					Ver herramientas...
+				</g:link>
 		</div>
 			<div class="container a-veinti5">
 				&nbsp;			

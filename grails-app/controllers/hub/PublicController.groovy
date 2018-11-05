@@ -7,6 +7,8 @@ class PublicController {
 	
 	def springSecurityService
 	
+	def grailsApplication
+	
     def centros(Integer max) {
 		if (!params.id) {
 			params.max = Math.min(max ?: 20, 100)
@@ -112,6 +114,19 @@ class PublicController {
 		def user = springSecurityService.currentUser
 		
         respond user
+	}
+	
+	def downloadInstructivo() {
+		
+		def file = new File(grailsApplication.config.dataFolder+"instructivoCarga.pdf")
+		if (file.exists()) {
+			
+			response.setContentType("APPLICATION/OCTET-STREAM")
+			response.setHeader("Content-Disposition", "Attachment;Filename=\"10 pasos para compartir Recursos en el Portal de Datos Genomicos.pdf\"")
+			response.outputStream << file.bytes
+			return
+		}
+
 	}
 	
 	@Transactional
