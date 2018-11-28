@@ -24,8 +24,18 @@ class BuscarController {
             idsDeCentros.addAll(datos.collect{ it.unidad?.centro?.id })
             idsDeCentros.addAll(herramientas.collect{ it.unidad?.centro?.id })
 
-            def centros = Centro.findAllByNombreIlikeOrIdInList(q, idsDeCentros, [max: 10, sort: "nombre"])
-            def centrosCount = Centro.countByNombreIlikeOrIdInList(q, idsDeCentros)
+  //          def centros = Centro.findAllByNombreIlikeOrIdInListOr(q, idsDeCentros,[max: 10, sort: "nombre"])
+			def centros = Centro.createCriteria().list(max: 10 , sort: "nombre") {
+				or {
+					ilike('nombre', q)
+					'nombre' in idsDeCentros
+					'dependeDe'{
+						ilike('nombre',q)
+					}
+				}
+			}
+			
+			def centrosCount = centros.size()
 
             respond q, model: [ centrosList: centros,
 							 centrosInstanceCount: centrosCount, 

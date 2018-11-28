@@ -61,10 +61,6 @@ body {
     font-size: 12px;
 }
 
-.navbar {
-	margin-bottom: 0;
-}
-
 #main-content #customiseFacetsButton > .dropdown-menu,
 #main-content #resultsReturned .dropdown-menu {
     background-color: #fff;
@@ -92,21 +88,8 @@ body {
   height: 50px;
   background-image: url(../images/footer.jpg);
   width: 990px;
-  margin-right: auto;
+  margin-right: auto;	
   margin-left: auto;
-}
-
-/* estilos sndb */
-h1 {
-	font-family: Calibri;
-	font-size: 24px;
-	font-weight: bold;
-	color: #105C99;
-	text-decoration: none;
-	line-height: 24px;
-	text-align: left;
-	margin-bottom: 20px;
-	padding-bottom: 10px;
 }
 
 h2 {

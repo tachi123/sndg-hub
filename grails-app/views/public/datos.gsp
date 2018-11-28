@@ -5,14 +5,42 @@
 <title>Conjuntos de Datos - Sistema Nacional de Datos Genómicos</title>
 </head>
 <body>
-	<div class="container-fluid descripcion-seccion">
-		<p>Conozca los conjuntos de datos incorporados al SNDG.</p>
-	</div>
-	<div class="container-fluid titulo-seccion">
-		<div class="container">
-			<h1>Conjuntos de datos</h1>
+	<header>
+		<div class="panel-pane pane-imagen-destacada">
+			<div class="pane-content">
+                <section class="jumbotron" style="background-color: #2E7D33">
+                <div class="jumbotron_bar">
+                  <div class="container">
+			    	<div class="row">
+	                  	<div class="col-md-12">
+	                    	<ol class="breadcrumb pull-left">
+	                        	<li><a href="">Argentina</a></li>
+	                        	<li><span>Ministerio de Educación, Cultura, Ciencia y Tecnología</span></li>
+	                        	<li><span>Ciencia, Tecnología e Innovación Productiva</span></li>
+	                        	<li><a href="/">Datos Genómicos</a></li>
+	                        	<li class="active"><span>Conjunto de datos</span></li>
+	                    	</ol>
+	                  </div>
+	                </div>
+                  </div>
+                </div>
+                <div class="jumbotron_body">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-xs-12 col-md-8 col-md-offset-2 text-center">
+                        <h1>Conjunto de datos</h1>
+                        <p>Conozca los conjuntos de datos incorporados al SNDG.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="overlay"></div>
+              </section>
+			</div>
 		</div>
-	</div>
+	</header>
+	
+	
 	<div class="container">
 		<div id="list-datos" class="content scaffold-list" role="main">
 			<g:if test="${flash.message}">

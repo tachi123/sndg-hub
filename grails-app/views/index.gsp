@@ -1,150 +1,202 @@
 <!DOCTYPE html>
+<%@ page import="hub.Centro"%>
+<%@ page import="hub.ConjuntoDeDatos"%>
 <html>
 <head>
 <meta name="layout" content="main" />
 <title>Bienvenido al portal del Sistema Nacional de Datos Genómicos</title>
 </head>
 <body>
-		
-		<div class="container-fluid presentacion">
-			<div class="container">
-				<h1>Sistema Nacional de Datos Genómicos - Portal de datos</h1>
-				<p>Bienvenidos al Portal de Datos Genómicos del SNDG. Desde este
-					sitio usted podrá acceder a la base de datos nacional unificada de
-					información genómica, para todas las especies de interés ecológico,
-					agropecuario, biotecnológico y en salud; contar con información de
-					los centros adheridos al SNDG así como de los conjuntos de datos y
-					herramientas incorporadas y/o disponibles en el Portal; conocer las
-					principales estadísticas del SNDG y acceder a los datos a través del
-					navegador.</p>
+	<header>
+		<div class="panel-pane pane-imagen-destacada">
+			<div class="pane-content">
+                <section class="jumbotron" style="background-image: url('${resource(dir: "images", file: "fotos/cuatro.jpg")}');">
+                <div class="jumbotron_bar">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <ol class="breadcrumb pull-left">
+                            <li><a href="">Argentina</a></li>
+                            <li class="active"><span>Ministerio de Educación, Cultura, Ciencia y Tecnología</span></li>
+                            <li class="active"><span>Ciencia, Tecnología e Innovación Productiva</span></li>
+                            <li class="active"><span>Datos Genómicos</span></li>
+                        </ol>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jumbotron_body">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-xs-12 col-md-8 col-md-offset-2 text-center">
+                        <h1>Sistema Nacional de Datos Genómicos - Portal de datos</h1>
+                        <p>Bienvenidos al Portal de Datos Genómicos del SNDG. Desde este sitio usted podrá acceder a la base de datos nacional unificada de información genómica, para todas las especies de interés ecológico, agropecuario, biotecnológico y en salud; contar con información de los centros adheridos al SNDG así como de los conjuntos de datos y herramientas incorporadas y/o disponibles en el Portal; conocer las	principales estadísticas del SNDG y acceder a los datos a través del navegador.</p>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div id="buscador" class="col-md-8 col-md-offset-2">
+                            <g:form name="myForm" url="[controller:'buscar']">
+                                <div>
+                                    <div class="input-group">
+                                        <input placeholder="Buscar..." class="form-control form-text" type="text" id="q" name="q" value="" size="20" maxlength="255">
+                                        <span class="input-group-btn">
+                                            <button class="btn-primary btn form-submit" type="submit" id="edit-submit"><i class="fa fa-search"></i></button></span>
+                                    </div>
+                                </div>
+                            </g:form>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                <div class="overlay"></div>
+              </section>
 			</div>
 		</div>
-		<div class="container-fluid a-veinti5">
+	</header>
+	<main role="main">
+		<section class="bg-gray section-sm">
+            <div class="container">
+                <div class="row numbers">
+                  <div class="col-md-4">
+                    <div class="h2 text-success">+1.000.000</div>
+                    <p class="lead">registros</p>
+		                <p class="text-muted">disponibles en el navegador de datos</p>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="h2 text-success">${ConjuntoDeDatos.findAll().size() }</div>
+                    <p class="lead">conjunto de datos</p>
+    <!--                <p class="text-muted">del 1 al 26 de Febrero</p>-->
+                  </div>
+                  <div class="col-md-4">
+                    <div class="h2 text-success">${Centro.findAll().size()}</div>
+                    <p class="lead">centros</p>
+    <!--                <p class="text-muted">Duramente los últimos 30 días.</p>-->
+                  </div>
+                </div>
+            </div>
+		</section>
+		<section>
 			<div class="container">
-				<div class="col-md-2 col-md-offset-1" >
-					<asset:image src="fotos/uno.jpg"
-						class="img-fluid" style="width: 100%;"/>
-				</div>
-				<div class="col-md-2">
-					<asset:image src="fotos/dos.jpg" 
-						class="img-fluid" style="padding:1em;" style="width: 100%;"/>
-				</div>
-				<div class="col-md-2">
-					<asset:image src="fotos/tres.jpg" class="img-fluid" style="width: 100%;"/>
-				</div>
-				<div class="col-md-2">
-					<asset:image src="fotos/cuatro.jpg" class="img-fluid"  style="width: 100%;"/>
-				</div>
-				<div class="col-md-2">
-					<asset:image src="fotos/cinco.jpg" class="img-fluid"  style="width: 100%;"/>
-				</div>
-			</div>
-		</div>
-		<div class="container-fluid a-veinti5" >
-			<div class="container container_buscador" >
-			<g:form name="myForm" url="[controller:'buscar']">
-				<div class="form-group">
-					<label for="buscar" class="label_buscador">Palabras claves</label>
-					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Buscar" id="q" name="q">
-						<span class="input-group-btn">
-						    <input class="btn btn-warning" type="submit">Buscar</button>
-						</span>
-					</div> 
-				</div>
-			</g:form>
-			</div>
-		</div>
-		<div class="container-fluid a-veinti5" style="padding: 0px; margin: 0px;">
-			<!-- Example row of columns -->
-			<div class="container">
-				<div class="col-md-4">
-					<h2
-						style="color: #008BC0; font-size: 1.6em; text-transform: uppercase;">CENTROS</h2>
-					<div class="grow-pic">
-						<g:link controller="public" action="centros">
-							<asset:image src="img_centros.png" class="img-fluid" />
-						</g:link>
-						
-						</a>
+				<div class="panel-separator"></div>
+				<div class="panel-pane pane-atajos">
+					<div class="pane-content">
+						<div class="row panels-row">
+							<div class="col-xs-12 col-sm-4 col-md-4">
+								<g:link controller="public" action="centros" class="panel panel-default">
+										<div style="background-image:url('${resource(dir: "images", file: "img_centros.png")}');" class="panel-heading"></div>
+										<div class="panel-body">
+											<h4>Centros</h4>
+											<div class="text-muted">
+												<p>Centros descripci&oacute;n</p>
+											</div>
+										</div>
+								</g:link>
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-4">
+								<g:link controller="public" action="datos" class="panel panel-default">
+									<div style="background-image:url('${resource(dir: "images", file: "img_conjuntos_de_datos.png")}');" class="panel-heading"></div>
+									<div class="panel-body">
+										<h4>Conjuntos de datos</h4>
+										<div class="text-muted">
+											<p>Conjunto de datos infoooo.</p>
+										</div>
+									</div>
+								</g:link>
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-4">
+								<g:link controller="public" action="herramientas" class="panel panel-default">
+									<div style="background-image:url('${resource(dir: "images", file: "img_herramientas.png")}');" class="panel-heading"></div>
+									<div class="panel-body">
+										<h4>Herramientas</h4>
+										<div class="text-muted">
+											<p>Herramientas infoooo...</p>
+										</div>
+									</div>
+								</g:link>
+							</div>
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+								<g:link controller="estatica" action="navegador" class="panel panel-default">
+									<div style="background-image:url('${resource(dir: "images", file: "fotos/salud.jpg")}');" class="panel-heading"></div>
+									<div class="panel-body">
+										<h4>Navegador de datos</h4>
+										<div class="text-muted">
+											<p>Navegador de datos infooo</p>
+										</div>
+									</div>
+								</g:link>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="col-md-4">
-					<h2 style="color: #008BC0; font-size: 1.6em; text-transform: uppercase;">Conjuntos
-						de datos</h2>
-					<div class="grow-pic">
-						<g:link controller="public" action="datos">
- 							<asset:image src="img_conjuntos_de_datos.png" class="img-fluid" />
-						</g:link>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<h2
-						style="color: #008BC0; font-size: 1.6em; text-transform: uppercase;">Herramientas</h2>
-					<div class="grow-pic">
-						<g:link controller="public" action="herramientas"> 
-							<asset:image src="img_herramientas.png" class="img-fluid" />
-						</g:link>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="container-fluid a-veinti5">
-			<div class="container text-center">
-				<g:link controller="estatica" action="navegador">
-					<asset:image src="banner.png" class="img-fluid"/>
-				</g:link>
-			</div>
-		</div>
-		<div class="container-fluid a-veinti5">
+            </div>
+        </section>
+        <hr>
+        <section>
 			<div class="container">
-					<h1 class="estadisticas_titulo">El sistema en n&uacute;meros</h1>
-			</div>				
-			<div class="container text-center">
-			
-	            <div class='tableauPlaceholder' id='viz1490291152298' style='position: relative;width: 100%; height: 100%;'>
-	                <!--div class='tableauPlaceholder' id='viz1490291152298' style='position: relative'-->
-	                <noscript><a href='#'>
-	                    <img alt='Sistema Nacional de Datos Genómicos. ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ta&#47;tablerosndg&#47;Historia1&#47;1_rss.png' style='border: none' />
-	                </a></noscript>
-	                <object class='tableauViz'  style='display:none;'>
-	                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-	                    <param name='site_root' value='' />
-	                    <param name='name' value='tablerosndg&#47;Historia1' />
-	                    <param name='tabs' value='no' />
-	                    <param name='toolbar' value='no' />
-	                    <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ta&#47;tablerosndg&#47;Historia1&#47;1.png' />
-	                    <param name='animate_transition' value='yes' />
-	                    <param name='display_static_image' value='no' />
-	                    <param name='display_spinner' value='yes' />
-	                    <param name='display_overlay' value='yes' />
-	                    <param name='display_count' value='yes' /></object>
-	            </div>
-	            <script type='text/javascript'>
-	                var divElement = document.getElementById('viz1490291152298');
-	                var vizElement = divElement.getElementsByTagName('object')[0];
-	                vizElement.style.width='100%';vizElement.style.height='850px';
-	                //vizElement.style.width='1220px';vizElement.style.height='933px';
-	                var scriptElement = document.createElement('script');
-	                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-	                vizElement.parentNode.insertBefore(scriptElement, vizElement);
-	            </script>
-       	 	</div>
-<%--
-			<div class="container text-center">
-					<g:link controller="estatica" action="estadisticas" >
-						<asset:image src="estadisticas.jpg"/>
-					</g:link>
+                <div class="row panels-row">
+                  <div class="col-xs-12 col-sm-6 col-md-4">
+                  	<g:link controller="estatica" action="estadisticas" class="panel panel-default panel-icon panel-primary">
+                      <div class="panel-heading hidden-xs bg-maiz">
+                      	<i id="icono-arg-informes-y-estadisticas" class="icono-arg-informes-y-estadisticas"></i>
+                      </div>
+                      <div class="panel-body">
+                        <h3><span class="visible-xs-inline">
+                        <i id="icono-arg-informes-y-estadisticas" class="icono-arg-informes-y-estadisticas text-secondary"></i>&nbsp; 
+                        </span>Estadísticas</h3>
+                        <!--p class="text-muted">quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p-->
+                      </div>
+                    </g:link>
+                  </div>
+                </div>
 			</div>
-			<div class="container text-center">
-				<g:link controller="estatica" action="estadisticas" >
-					<input type="button" value="Ver más..." class="btn btn-warning">
-				</g:link>
+		</section>
+        <section>
+            <div class="container">
+                <h4>También te puede interesar...</h4>
+
+                <div class="row panels-row">
+                  <div class="col-xs-12 col-sm-6 col-md-3">
+                    <a class="panel panel-default" href="http://datos.sndb.mincyt.gob.ar/">
+                      <div class="panel-body">
+                        <h3>Datos Biológicos</h3>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-xs-12 col-sm-6 col-md-3">
+                    <a class="panel panel-default" href="http://www.datosdelmar.mincyt.gob.ar/">
+                      <div class="panel-body">
+                        <h3>Datos del Mar</h3>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-xs-12 col-sm-6 col-md-3">
+                    <a class="panel panel-default" href="http://repositoriosdigitales.mincyt.gob.ar/dnet-web-generic/">
+                      <div class="panel-body">
+                        <h3>Publicaciones en Acceso Abierto</h3>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+            
+            </div>
+        </section>
+		<section>
+			<div class="container">
+				<div class="pane-content">
+					<h2 class="h3 section-title">Contacto</h2>
+					<p class="margin-40">
+						<strong>Dirección:</strong> Godoy Cruz 2320. Ciudad Autónoma de Buenos Aires.
+						<br>
+						<strong>Código postal:</strong> C1425FQD
+						<br>
+						<strong>Teléfono:</strong> (+54 11) 4891-8359 Int. 2174,2182
+						<br>
+						<strong>Correo electrónico:</strong>
+						<a href="mailto:sact@mincyt.gob.ar">sact@mincyt.gob.ar</a>
+					</p>
+				</div>
 			</div>
---%>
-		</div>
-		<div class="container-fluid a-veinti5">
-		&nbsp;
-		</div>
+		</section>
+	</main>
 </body>
 </html>
