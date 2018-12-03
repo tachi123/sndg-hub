@@ -29,7 +29,7 @@
                     <div class="row">
                       <div class="col-xs-12 col-md-8 col-md-offset-2 text-center">
                         <h1>Conjunto de datos</h1>
-                        <p>Conozca los conjuntos de datos incorporados al SNDG.</p>
+                        <p>Acceda a los conjuntos de datos incorporados al SNDG, conozca sus metadatos y por qué son de interés para la comunidad científica.</p>
                       </div>
                     </div>
                   </div>

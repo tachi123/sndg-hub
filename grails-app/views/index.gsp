@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <%@ page import="hub.Centro"%>
 <%@ page import="hub.ConjuntoDeDatos"%>
+<%@ page import="hub.Herramienta"%>
 <html>
 <head>
 <meta name="layout" content="main" />
@@ -57,20 +58,24 @@
 		<section class="bg-gray section-sm">
             <div class="container">
                 <div class="row numbers">
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <div class="h2 text-success">+1.000.000</div>
                     <p class="lead">registros</p>
 		                <p class="text-muted">disponibles en el navegador de datos</p>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <div class="h2 text-success">${ConjuntoDeDatos.findAll().size() }</div>
                     <p class="lead">conjunto de datos</p>
     <!--                <p class="text-muted">del 1 al 26 de Febrero</p>-->
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <div class="h2 text-success">${Centro.findAll().size()}</div>
                     <p class="lead">centros</p>
     <!--                <p class="text-muted">Duramente los últimos 30 días.</p>-->
+                  </div>
+                  <div class="col-md-3">
+                    <div class="h2 text-success">${Herramienta.findAll().size()}</div>
+                    <p class="lead">herramientas</p>
                   </div>
                 </div>
             </div>
@@ -87,7 +92,7 @@
 										<div class="panel-body">
 											<h4>Centros</h4>
 											<div class="text-muted">
-												<p>Centros descripci&oacute;n</p>
+												<p>Conozca los centros incorporados al SNDG.</p>
 											</div>
 										</div>
 								</g:link>
@@ -98,7 +103,7 @@
 									<div class="panel-body">
 										<h4>Conjuntos de datos</h4>
 										<div class="text-muted">
-											<p>Conjunto de datos infoooo.</p>
+											<p>Acceda a los conjuntos de datos incorporados al SNDG, conozca sus metadatos y por qué son de interés para la comunidad científica.</p>
 										</div>
 									</div>
 								</g:link>
@@ -109,7 +114,7 @@
 									<div class="panel-body">
 										<h4>Herramientas</h4>
 										<div class="text-muted">
-											<p>Herramientas infoooo...</p>
+											<p>Acceda a los Software de análisis de datos genómicos desarrollados por los centros adheridos al SNDG y disponibles para su uso.</p>
 										</div>
 									</div>
 								</g:link>
@@ -120,7 +125,7 @@
 									<div class="panel-body">
 										<h4>Navegador de datos</h4>
 										<div class="text-muted">
-											<p>Navegador de datos infooo</p>
+											<p>Visualice y acceda a una variedad de datos genómicos.</p>
 										</div>
 									</div>
 								</g:link>
@@ -189,10 +194,10 @@
 						<br>
 						<strong>Código postal:</strong> C1425FQD
 						<br>
-						<strong>Teléfono:</strong> (+54 11) 4891-8359 Int. 2174,2182
+						<strong>Teléfono:</strong> (+54 11) 4891-8359 Int. 2182, 2174
 						<br>
 						<strong>Correo electrónico:</strong>
-						<a href="mailto:sact@mincyt.gob.ar">sact@mincyt.gob.ar</a>
+						<a href="mailto:sact@mincyt.gob.ar">sndg@mincyt.gob.ar</a>
 					</p>
 				</div>
 			</div>
