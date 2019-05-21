@@ -33,7 +33,14 @@ class PublicController {
 				respond Centro.list(params), model:[centroInstanceCount: Centro.count()]
 			}		
 		} else {
-			respond Centro.get(params.id), view: 'verCentro'
+			def losDatos = Herramienta.createCriteria().list(params) {
+				unidad {
+					centro {
+						eq('singiID', Centro.get(params.id).getSingiID())
+					}
+				}
+			}
+			respond Centro.get(params.id), model:[herramientaInstanceCount: losDatos.totalCount], view: 'verCentro'
 		}
 		
 	}

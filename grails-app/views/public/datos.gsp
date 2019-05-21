@@ -108,7 +108,7 @@
 											<g:if test="${e.web.length() > 0}">
 											<g:link style="display: none;" class="ver-${conjuntoDeDatosInstance.id} btn btn-warning btn-xs btn-round" target="_BLANK"
 													title="${e.nombre}"
-													base="${e.web}">${e.nombre ?: e.nombre}</g:link>
+													url="${e.web}">${e.nombre ?: e.nombre}</g:link>
 											</g:if>
 										</g:each>
 									</span>

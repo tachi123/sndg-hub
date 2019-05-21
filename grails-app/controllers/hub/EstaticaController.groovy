@@ -9,7 +9,8 @@ class EstaticaController {
 		if (params.genome) {
 			url += '/genome/' + params.genome
 		}
-		respond url, model: [url: url, title: 'Navegador de genomas']
+		redirect(url: url)
+		//respond url, model: [url: url, title: 'Navegador de genomas']
 	}
 	
 	def descarga() {
@@ -26,7 +27,8 @@ class EstaticaController {
 		if (params.centroSingiID && params.conjuntoSingiID) {
 			url += params.centroSingiID + '/' + params.conjuntoSingiID
 		}
-		respond url, model: [url: url, title: 'Administración de recursos del centro']
+		redirect(url: url)
+		//respond url, model: [url: url, title: 'Administración de recursos del centro']
 	}
 	
 	def estadisticas() {

@@ -28,8 +28,8 @@
                   <div class="container">
                     <div class="row">
                       <div class="col-xs-12 col-md-8 col-md-offset-2 text-center">
-                        <h1>Estadísticas</h1>
-                        <p>--------------------------------</p>
+                        <h1>Estadísticas del SNDG</h1>
+                        <p>Conozca la composición y ubicación de los centros y recursos adheridos.</p>
                       </div>
                     </div>
                   </div>

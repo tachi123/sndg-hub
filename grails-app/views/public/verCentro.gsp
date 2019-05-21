@@ -43,9 +43,11 @@
 				<g:link controller="public" action="datos" params="[centroId: centroInstance.singiID]" class="btn btn-warning">
 					Ver conjuntos de datos...
 				</g:link>
-				<g:link controller="public" action="herramientas" params="[centroId: centroInstance.singiID]" class="btn btn-success">
-					Ver herramientas...
-				</g:link>
+				<g:if test="${herramientaInstanceCount > 0}">
+					<g:link controller="public" action="herramientas" params="[centroId: centroInstance.singiID]" class="btn btn-success">
+						Ver herramientas...
+					</g:link>
+				</g:if>
 		</div>
 			<div class="container a-veinti5">
 				&nbsp;			

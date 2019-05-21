@@ -78,8 +78,13 @@
                             <label><strong>Tipo de comunidad: </strong> ${conjuntoDeDatosInstance.tipoDeComunidad}</label>
                         </div>
                     </g:if>
+                </div>
+               <div class="col-md-1"><asset:image src="icono_publicaciones.jpg" class="pull-right"/></div>
+               <div class="col-md-11">
                     <g:if test="${conjuntoDeDatosInstance.publicacionesAsociadas}">
-                        <div class="elemento-descripcion"><label>Publicaciones asociadas: </label> ${conjuntoDeDatosInstance?.publicacionesAsociadas}</div>
+                        <div class="elemento-descripcion">
+                        	<label><strong>Publicaciones asociadas: </strong> ${conjuntoDeDatosInstance?.publicacionesAsociadas}</label>
+                        </div>
                     </g:if>
                 </div>
             </div>
@@ -198,7 +203,7 @@
 							</g:if>
 							<g:else>
 								<g:if test="${recursoInstance.web != null && recursoInstance.web.length() > 1}">
-									<g:link class="btn btn-xs" target="_BLANK" base="${recursoInstance.web}">
+									<g:link class="btn btn-xs" target="_BLANK" url="${recursoInstance.web}">
 										<asset:image src="icono_ver.png" class="" alt="Ver web del recurso" title="Ver web del recurso" />
 									</g:link>
 								</g:if>

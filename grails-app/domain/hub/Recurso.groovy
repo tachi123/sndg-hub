@@ -18,5 +18,6 @@ class Recurso {
 	 }
 	
     static constraints = {
+		//url size: 250..250
     }
 }

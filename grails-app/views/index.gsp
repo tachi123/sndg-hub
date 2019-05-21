@@ -147,7 +147,7 @@
                       <div class="panel-body">
                         <h3><span class="visible-xs-inline">
                         <i id="icono-arg-informes-y-estadisticas" class="icono-arg-informes-y-estadisticas text-secondary"></i>&nbsp; 
-                        </span>Estadísticas</h3>
+                        </span>Estadísticas del SNDG</h3>
                         <!--p class="text-muted">quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p-->
                       </div>
                     </g:link>
@@ -175,7 +175,7 @@
                     </a>
                   </div>
                   <div class="col-xs-12 col-sm-6 col-md-3">
-                    <a class="panel panel-default" href="http://repositoriosdigitales.mincyt.gob.ar/dnet-web-generic/">
+                    <a class="panel panel-default" href="http://repositoriosdigitales.mincyt.gob.ar/">
                       <div class="panel-body">
                         <h3>Publicaciones en Acceso Abierto</h3>
                       </div>
